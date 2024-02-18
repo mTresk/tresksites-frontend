@@ -16,10 +16,16 @@ useHead({
 			<Meta name="description" content="Создание сайтов и веб-приложений любой сложности" />
 		</Head>
 		<NuxtLoadingIndicator color="#ff565c" />
-		<div data-fullscreen class="wrapper">
-			<main class="page">
-				<slot />
-			</main>
+		<div class="wrapper">
+			<LayoutHeader />
+			<div class="wrapper__container">
+				<div class="inner">
+					<LayoutNavigation />
+					<main class="page">
+						<slot />
+					</main>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -51,8 +57,21 @@ body {
 	min-height: 100%;
 	overflow: hidden;
 
+	&__container {
+		width: 100%;
+	}
+
 	> main {
 		flex: 1 1 auto;
 	}
+}
+
+.inner {
+	display: flex;
+	gap: rem(20);
+}
+
+.page {
+	flex: 0 1 rem(1580);
 }
 </style>

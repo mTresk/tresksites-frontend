@@ -1,26 +1,24 @@
 <template>
 	<header class="header">
-		<div class="header__container">
-			<div class="header__body">
-				<div class="header__left">
-					<NuxtLink to="/" class="header__logo">
-						<img src="/img/logo.svg" alt="Tresk Sites" />
-					</NuxtLink>
-					<NuxtLink to="#">
-						<UiButton transparent>Заказать сайт <UiIconArrowUp /></UiButton>
-					</NuxtLink>
-				</div>
-				<div class="header__right">
-					<div class="header__person">
-						<div class="header__avatar">
-							<img src="/img/avatar.jpg" alt="Маским Треск" />
-						</div>
-						<a href="mailto:djtresk@gmail.com" class="header__email">djtresk@gmail.com</a>
+		<div class="header__body">
+			<div class="header__left">
+				<NuxtLink to="/" class="header__logo">
+					<img src="/img/logo.svg" alt="Tresk Sites" />
+				</NuxtLink>
+				<NuxtLink to="/order">
+					<UiButton transparent>Заказать сайт <UiIconArrowUp /></UiButton>
+				</NuxtLink>
+			</div>
+			<div class="header__right">
+				<div class="header__person">
+					<div class="header__avatar">
+						<img src="/img/avatar.jpg" alt="Маским Треск" />
 					</div>
-					<NuxtLink to="#">
-						<UiButton><UiIconTelegram />Telegram</UiButton>
-					</NuxtLink>
+					<a href="mailto:djtresk@gmail.com" class="header__email">djtresk@gmail.com</a>
 				</div>
+				<a target="_blank" href="https://t.me/tresk">
+					<UiButton><UiIconTelegram />Telegram</UiButton>
+				</a>
 			</div>
 		</div>
 	</header>
@@ -41,7 +39,7 @@
 	// .header__left
 	&__left {
 		display: flex;
-		gap: rem(25);
+		gap: rem(20);
 		align-items: center;
 	}
 

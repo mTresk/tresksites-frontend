@@ -6,6 +6,7 @@
 	--accent-color: #ff565c;
 	--hover-color: #f81a22;
 	--white-color: #fff;
+	--rose-color: #fce3e3;
 	--grey-color: rgb(50 50 50 / 30%);
 	--light-color: rgb(50 50 50 / 6%);
 }
@@ -21,3 +22,47 @@ $pc: em(1350);
 $tablet: em(991.98);
 $mobile: em(767.98);
 $mobileSmall: em(479.98);
+
+h1 {
+	font-family: Montserrat, sans-serif;
+	font-size: 48px;
+	font-weight: 800;
+	line-height: 100%;
+}
+
+h2 {
+	font-family: Montserrat, sans-serif;
+	font-size: 36px;
+	font-weight: 800;
+	line-height: 130%;
+}
+
+h3 {
+	font-family: Montserrat, sans-serif;
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 125%;
+}
+
+h4 {
+	font-family: Montserrat, sans-serif;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 125%;
+}
+
+h5 {
+	margin-bottom: rem(8);
+	font-family: Montserrat, sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 150%;
+}
+
+.spacer-60 {
+	margin-bottom: rem(60);
+}
+
+.spacer-20 {
+	margin-bottom: rem(20);
+}

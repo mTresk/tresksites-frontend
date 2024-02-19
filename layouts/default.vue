@@ -17,13 +17,16 @@ useHead({
 		</Head>
 		<NuxtLoadingIndicator color="#ff565c" />
 		<div class="wrapper">
-			<LayoutHeader />
 			<div class="wrapper__container">
+				<LayoutHeader />
 				<div class="inner">
 					<LayoutNavigation />
-					<main class="page">
-						<slot />
-					</main>
+					<div class="page">
+						<main class="main">
+							<slot />
+						</main>
+						<LayoutFooter />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -52,17 +55,8 @@ body {
 }
 
 .wrapper {
-	display: flex;
-	flex-direction: column;
-	min-height: 100%;
-	overflow: hidden;
-
 	&__container {
 		width: 100%;
-	}
-
-	> main {
-		flex: 1 1 auto;
 	}
 }
 
@@ -72,6 +66,13 @@ body {
 }
 
 .page {
+	display: flex;
 	flex: 0 1 rem(1580);
+	flex-direction: column;
+	min-height: 100%;
+
+	> main {
+		flex: 1 1 auto;
+	}
 }
 </style>

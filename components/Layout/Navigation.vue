@@ -1,5 +1,27 @@
+<script setup>
+const navigation = ref()
+
+onMounted(() => {
+	const itemOffset = navigation.value.offsetTop
+
+	window.addEventListener('scroll', () => {
+		const scrollTop = window.scrollY
+
+		if (scrollTop >= itemOffset) {
+			navigation.value.style.height = 'calc(100vh - 40px)'
+		} else {
+			navigation.value.style.height = 'calc(100vh - 130px)'
+		}
+	})
+})
+
+onUnmounted(() => {
+	window.removeEventListener('scroll')
+})
+</script>
+
 <template>
-	<aside class="navigation">
+	<aside ref="navigation" class="navigation">
 		<div class="navigation__body">
 			<div class="navigation__menu menu">
 				<nav class="menu__body">
@@ -29,7 +51,7 @@
 							</NuxtLink>
 						</li>
 						<li class="menu__item">
-							<NuxtLink to="/order" class="menu__link">
+							<NuxtLink to="/contacts" class="menu__link">
 								<UiIconContacts />
 								<span>Контакты</span>
 							</NuxtLink>
@@ -39,10 +61,10 @@
 			</div>
 			<div class="navigation__socials">
 				<div class="navigation__social">
-					<NuxtLink to="/order" class="menu__link">
+					<a target="_blank" href="https://t.me/tresk" class="menu__link">
 						<UiIconTelegramMenu />
 						<span>Написать в Telegram</span>
-					</NuxtLink>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -51,7 +73,11 @@
 
 <style lang="scss">
 .navigation {
+	position: sticky;
+	top: rem(20);
+	z-index: 10;
 	flex: 0 0 rem(80);
+	height: 100vh;
 	height: calc(100vh - 130px);
 	padding-top: rem(40);
 	padding-bottom: rem(40);
@@ -96,10 +122,6 @@
 .menu {
 	width: 100%;
 
-	// .menu__body
-	&__body {
-	}
-
 	// .menu__list
 	&__list {
 		display: flex;
@@ -126,6 +148,7 @@
 		span {
 			position: absolute;
 			left: rem(65);
+			z-index: 10;
 			padding: rem(4) rem(10);
 			font-size: 12px;
 			line-height: 160%;

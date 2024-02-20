@@ -1,107 +1,35 @@
+<script setup>
+defineProps({
+	works: Object,
+})
+</script>
+
 <template>
 	<section class="works spacer-60">
 		<div class="works__body">
-			<article @click="() => navigateTo('/works/1')" class="work-card">
+			<article
+				v-for="work in works"
+				:key="work.slug"
+				@click="() => navigateTo(`/works/${work.slug}`)"
+				class="work-card">
 				<div class="work-card__image">
-					<img src="/img/works/1.jpg" alt="" />
+					<picture>
+						<source :srcset="`${work.featured.imageWebp} 1x, ${work.featured.imageWebpX2} 2x`" type="image/webp" />
+						<img
+							loading="lazy"
+							:src="work.featured.image"
+							:srcset="`${work.featured.image} 1x, ${work.featured.imageX2} 2x`"
+							:alt="work.title" />
+					</picture>
 				</div>
 				<div class="work-card__content">
 					<div class="work-card__label">
-						<a href="https://fc-tyumen.ru" target="_blank">https://fc-tyumen.ru</a>
+						<a v-if="work.url" :href="work.url" target="_blank">{{ work.url }}</a>
+						<span v-if="work.label">{{ work.label }}</span>
 					</div>
-					<h4 class="work-card__title spacer-20">Футбольный клуб «Тюмень»</h4>
-					<div class="work-card__info">
-						<ul>
-							<li>верстка по дизайн-макету</li>
-							<li>бэкенд на Evolution CMS</li>
-							<li>динамические компоненты на фреймворке vue.js</li>
-						</ul>
-					</div>
-					<NuxtLink to="/works/1">
-						<UiButton>Посмотреть работу<UiIconArrowRight /></UiButton
-					></NuxtLink>
-				</div>
-			</article>
-			<article @click="() => navigateTo('/works/1')" class="work-card">
-				<div class="work-card__image">
-					<img src="/img/works/2.jpg" alt="" />
-				</div>
-				<div class="work-card__content">
-					<div class="work-card__label"><span>Интерфейс медиа-центра</span></div>
-					<h4 class="work-card__title spacer-20">Сибирский Тренинговый Центр</h4>
-					<div class="work-card__info">
-						<ul>
-							<li>дизайн-макет</li>
-							<li>верстка по дизайн-макету</li>
-							<li>фронтенд на фреймворке Vue.js</li>
-							<li>бэкенд на фреймворке Laravel</li>
-						</ul>
-					</div>
-					<NuxtLink to="/works/1">
-						<UiButton>Посмотреть работу<UiIconArrowRight /></UiButton
-					></NuxtLink>
-				</div>
-			</article>
-			<article @click="() => navigateTo('/works/1')" class="work-card">
-				<div class="work-card__image">
-					<img src="/img/works/3.jpg" alt="" />
-				</div>
-				<div class="work-card__content">
-					<div class="work-card__label">
-						<a href="https://ekst.ru" target="_blank">https://ekst.ru</a>
-					</div>
-					<h4 class="work-card__title spacer-20">Институт Электрокаплеструйных Технологий</h4>
-					<div class="work-card__info">
-						<ul>
-							<li>дизайн-макет</li>
-							<li>верстка по дизайн-макету</li>
-							<li>бэкенд на фреймворке Laravel</li>
-							<li>динамические формы на фреймворке vue.js</li>
-						</ul>
-					</div>
-					<NuxtLink to="/works/1">
-						<UiButton>Посмотреть работу<UiIconArrowRight /></UiButton
-					></NuxtLink>
-				</div>
-			</article>
-			<article @click="() => navigateTo('/works/1')" class="work-card">
-				<div class="work-card__image">
-					<img src="/img/works/4.jpg" alt="" />
-				</div>
-				<div class="work-card__content">
-					<div class="work-card__label">
-						<a href="https://pushkin.maximtresk.ru" target="_blank">https://pushkin.maximtresk.ru</a>
-					</div>
-					<h4 class="work-card__title spacer-20">Стартап-студия Pushkin</h4>
-					<div class="work-card__info">
-						<ul>
-							<li>верстка по дизайн-макету</li>
-							<li>GSAP анимации</li>
-						</ul>
-					</div>
-					<NuxtLink to="/works/1">
-						<UiButton>Посмотреть работу<UiIconArrowRight /></UiButton
-					></NuxtLink>
-				</div>
-			</article>
-			<article @click="() => navigateTo('/works/1')" class="work-card">
-				<div class="work-card__image">
-					<img src="/img/works/5.jpg" alt="" />
-				</div>
-				<div class="work-card__content">
-					<div class="work-card__label">
-						<a href="https://счастливые-дети.рф" target="_blank">https://счастливые-дети.рф</a>
-					</div>
-					<h4 class="work-card__title spacer-20">Семейная прогрессивная школа «Счастливые дети»</h4>
-					<div class="work-card__info">
-						<ul>
-							<li>дизайн-макет</li>
-							<li>верстка по дизайн-макету</li>
-							<li>бэкенд на фреймворке Laravel</li>
-							<li>динамические формы на фреймворке vue.js</li>
-						</ul>
-					</div>
-					<NuxtLink to="/works/1">
+					<h4 class="work-card__title spacer-20">{{ work.title }}</h4>
+					<div v-html="work.list" class="work-card__info"></div>
+					<NuxtLink :to="`/works/${work.slug}`">
 						<UiButton>Посмотреть работу<UiIconArrowRight /></UiButton
 					></NuxtLink>
 				</div>

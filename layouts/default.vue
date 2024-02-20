@@ -4,7 +4,7 @@ useHead({
 		lang: 'ru',
 	},
 	titleTemplate: (titleChunk) => {
-		return titleChunk ? `Tresk Sites — ${titleChunk}` : 'Tresk Sites'
+		return titleChunk ? `${titleChunk} — Tresk Sites` : 'Tresk Sites'
 	},
 })
 </script>
@@ -51,12 +51,6 @@ body {
 		padding-right: rem(20);
 		padding-left: rem(20);
 		margin: 0 auto;
-	}
-}
-
-.wrapper {
-	&__container {
-		width: 100%;
 	}
 }
 

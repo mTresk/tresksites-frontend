@@ -16,6 +16,10 @@ onUnmounted(() => {
 
 <template>
 	<div>
+		<Head>
+			<Title>Заказать разработку</Title>
+			<Meta name="description" content="Форма заказа и цены на мои услуги" />
+		</Head>
 		<section class="order spacer-60">
 			<div class="order__wrapper">
 				<h1 class="order__title spacer-20">Заказать разработку проекта</h1>

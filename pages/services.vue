@@ -1,5 +1,9 @@
 <template>
 	<div>
+		<Head>
+			<Title>Услуги</Title>
+			<Meta name="description" content="Что я могу вам предложить" />
+		</Head>
 		<section class="services spacer-60">
 			<div class="services__body">
 				<NuxtLink to="/order" class="service-card">

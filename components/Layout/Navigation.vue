@@ -73,12 +73,11 @@ onUnmounted(() => {
 
 <style lang="scss">
 .navigation {
-	position: sticky;
-	top: rem(20);
 	z-index: 10;
 	flex: 0 0 rem(80);
 	height: 100vh;
 	height: calc(100vh - 130px);
+	min-height: rem(400);
 	padding-top: rem(40);
 	padding-bottom: rem(40);
 	background-color: var(--white-color);
@@ -86,10 +85,16 @@ onUnmounted(() => {
 	box-shadow: inset -8px 0 20px 0 rgb(0 0 0 / 2%);
 	transition: all 0.3s ease-in-out;
 
+	@media (min-height: em(500)) {
+		position: sticky;
+		top: rem(20);
+	}
+
 	// .navigation__body
 	&__body {
 		display: flex;
 		flex-direction: column;
+		gap: rem(20);
 		align-items: center;
 		justify-content: space-between;
 		height: 100%;

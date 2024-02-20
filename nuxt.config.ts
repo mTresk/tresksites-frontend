@@ -22,4 +22,9 @@ export default defineNuxtConfig({
 		},
 	},
 	modules: ['@nuxt/image'],
+	runtimeConfig: {
+		public: {
+			backendUrl: process.env.NUXT_PUBLIC_BACKEND_URL,
+		},
+	},
 })

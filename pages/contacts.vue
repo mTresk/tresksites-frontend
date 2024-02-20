@@ -1,5 +1,9 @@
 <template>
 	<div>
+		<Head>
+			<Title>Контакты</Title>
+			<Meta name="description" content="Как со мной можно связаться" />
+		</Head>
 		<section class="contacts spacer-60">
 			<div class="contacts__wrapper">
 				<h1 class="contacts__title spacer-20">Лямзин Максим Владимирович</h1>

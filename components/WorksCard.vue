@@ -42,6 +42,10 @@ defineProps({
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
+	.dark-mode & {
+		background-color: var(--white-color-dark);
+	}
+
 	// .work-card__image
 	&__image {
 		position: relative;

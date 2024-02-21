@@ -1,4 +1,5 @@
 <template>
+	<Technology />
 	<footer class="footer">
 		<div class="footer__links">
 			<NuxtLink to="/order">
@@ -22,6 +23,10 @@
 	padding-bottom: rem(20);
 	border-top: 1px solid var(--light-color);
 
+	.dark-mode & {
+		border-color: var(--light-color-dark);
+	}
+
 	// .footer__links
 	&__links {
 		display: flex;
@@ -37,6 +42,10 @@
 		color: rgb(50 50 50 / 30%);
 		text-align: center;
 		text-transform: uppercase;
+
+		.dark-mode & {
+			color: var(--grey-color-dark);
+		}
 	}
 }
 </style>

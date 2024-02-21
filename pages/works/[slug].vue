@@ -58,7 +58,6 @@ onMounted(() => {
 			</NuxtLink>
 		</div>
 		<Logos />
-		<Technology />
 	</div>
 </template>
 
@@ -68,6 +67,10 @@ onMounted(() => {
 	background-color: var(--white-color);
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
+
+	.dark-mode & {
+		background-color: var(--white-color-dark);
+	}
 
 	// .work__wrapper
 	&__wrapper {
@@ -158,6 +161,10 @@ onMounted(() => {
 		text-decoration: underline;
 		transition: color 0.3s ease-in-out;
 
+		.dark-mode & {
+			color: var(--main-color-dark);
+		}
+
 		&:not(:last-child) {
 			margin-right: rem(38);
 			white-space: nowrap;
@@ -168,6 +175,10 @@ onMounted(() => {
 			color: var(--grey-color);
 			text-decoration: none;
 			pointer-events: none;
+
+			.dark-mode & {
+				color: var(--grey-color-dark);
+			}
 		}
 
 		&::after {

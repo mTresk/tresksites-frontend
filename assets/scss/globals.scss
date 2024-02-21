@@ -4,11 +4,16 @@
 :root {
 	--main-color: #323232;
 	--accent-color: #ff565c;
-	--hover-color: #f81a22;
+	--hover-color: #e92a30;
 	--white-color: #fff;
 	--rose-color: #fce3e3;
 	--grey-color: rgb(50 50 50 / 30%);
 	--light-color: rgb(50 50 50 / 6%);
+	--main-color-dark: #dadada;
+	--white-color-dark: rgb(40 40 40);
+	--grey-color-dark: rgb(255 255 255 / 70%);
+	--light-color-dark: rgb(255 255 255 / 10%);
+	--black-color: rgb(22 22 22);
 }
 
 $fontFamily: 'Manrope', sans-serif;
@@ -16,7 +21,12 @@ $fontSize: rem(16);
 $minWidth: 375;
 $maxWidth: 1920;
 $maxWidthContainer: 1680;
-$containerPadding: 40;
+$containerPadding: 80;
+
+@media (max-width: em(1199)) {
+	$containerPadding: 40;
+}
+
 $containerWidth: ($maxWidthContainer + $containerPadding);
 $pc: em(1350);
 $tablet: em(991.98);

@@ -85,6 +85,10 @@ onUnmounted(() => {
 	box-shadow: inset -8px 0 20px 0 rgb(0 0 0 / 2%);
 	transition: all 0.3s ease-in-out;
 
+	.dark-mode & {
+		background-color: var(--white-color-dark);
+	}
+
 	@media (min-height: em(500)) {
 		position: sticky;
 		top: rem(20);
@@ -165,6 +169,10 @@ onUnmounted(() => {
 			opacity: 0;
 			transition: all 0.3s ease-in-out;
 
+			.dark-mode & {
+				background-color: var(--black-color);
+			}
+
 			&::before {
 				position: absolute;
 				top: 50%;
@@ -174,12 +182,20 @@ onUnmounted(() => {
 				content: '';
 				background-color: var(--main-color);
 				transform: translateY(-50%) rotate(-45deg);
+
+				.dark-mode & {
+					background-color: var(--black-color);
+				}
 			}
 		}
 
 		svg {
 			path {
 				transition: all 0.3s ease-in-out;
+
+				.dark-mode & {
+					fill: var(--grey-color-dark);
+				}
 			}
 		}
 
@@ -206,9 +222,9 @@ onUnmounted(() => {
 		&.router-link-active {
 			background: linear-gradient(
 				90deg,
-				rgb(255 255 255 / 30%) 0%,
+				rgb(255 255 255 / 0%) 0%,
 				rgb(252 68 75 / 13%) 51.54%,
-				rgb(255 255 255 / 30%) 100%
+				rgb(255 255 255 / 0%) 100%
 			);
 
 			&::before {

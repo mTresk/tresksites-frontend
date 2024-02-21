@@ -119,7 +119,6 @@ onUnmounted(() => {
 				</ul>
 			</div>
 		</section>
-		<Technology />
 	</div>
 </template>
 
@@ -129,6 +128,10 @@ onUnmounted(() => {
 	background-color: var(--white-color);
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
+
+	.dark-mode & {
+		background-color: var(--white-color-dark);
+	}
 
 	// .order__wrapper
 	&__wrapper {
@@ -282,6 +285,10 @@ onUnmounted(() => {
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
+	.dark-mode & {
+		background-color: var(--white-color-dark);
+	}
+
 	// .price__wrapper
 	&__wrapper {
 		max-width: rem(1000);
@@ -329,6 +336,10 @@ onUnmounted(() => {
 			color: var(--grey-color);
 			white-space: nowrap;
 			content: '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------';
+
+			.dark-mode & {
+				color: var(--light-color-dark);
+			}
 		}
 	}
 
@@ -344,6 +355,10 @@ onUnmounted(() => {
 		text-align: right;
 		white-space: nowrap;
 		background-color: var(--white-color);
+
+		.dark-mode & {
+			background-color: var(--white-color-dark);
+		}
 	}
 }
 </style>

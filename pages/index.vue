@@ -20,7 +20,6 @@ const { isLoading, data: works } = useQuery({
 				<UiButton transparent wide size="lg">Другие работы<UiIconArrowUp /></UiButton>
 			</NuxtLink>
 		</div>
-		<Technology />
 	</div>
 </template>
 
@@ -33,6 +32,10 @@ const { isLoading, data: works } = useQuery({
 	padding: rem(9) rem(14);
 	background-color: var(--light-color);
 	border-radius: rem(16);
+
+	.dark-mode & {
+		background-color: var(--light-color-dark);
+	}
 
 	span {
 		font-size: 15px;

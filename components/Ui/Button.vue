@@ -56,9 +56,21 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 	&--transparent {
 		color: var(--main-color);
 
+		.dark-mode & {
+			color: var(--main-color-dark);
+
+			svg path {
+				fill: var(--main-color-dark);
+			}
+		}
+
 		@media (any-hover: hover) {
 			&:hover {
 				background-color: var(--light-color);
+
+				.dark-mode & {
+					background-color: var(--white-color-dark);
+				}
 			}
 		}
 

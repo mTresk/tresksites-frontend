@@ -2,8 +2,11 @@
 	<header class="header">
 		<div class="header__body">
 			<div class="header__left">
-				<NuxtLink to="/" class="header__logo">
+				<NuxtLink to="/" class="header__logo header__logo--light">
 					<img src="/img/logo.svg" alt="Tresk Sites" />
+				</NuxtLink>
+				<NuxtLink to="/" class="header__logo header__logo--dark">
+					<img src="/img/logo-dark.svg" alt="Tresk Sites" />
 				</NuxtLink>
 				<NuxtLink to="/order">
 					<UiButton transparent>Заказать сайт <UiIconArrowUp /></UiButton>
@@ -41,6 +44,23 @@
 		display: flex;
 		gap: rem(20);
 		align-items: center;
+	}
+
+	// .header__logo
+	&__logo {
+		&--dark {
+			display: none;
+		}
+
+		.dark-mode & {
+			&--light {
+				display: none;
+			}
+
+			&--dark {
+				display: block;
+			}
+		}
 	}
 
 	// .header__right

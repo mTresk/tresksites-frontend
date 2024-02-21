@@ -46,15 +46,24 @@ body {
 		overscroll-behavior: none;
 		touch-action: none;
 	}
+
+	.dark-mode & {
+		background-color: var(--black-color);
+	}
 }
 
 [class*='__container'] {
 	@if $maxWidthContainer > 0 {
 		box-sizing: content-box;
 		max-width: rem($maxWidthContainer);
-		padding-right: rem(20);
-		padding-left: rem(20);
+		padding-right: rem(40);
+		padding-left: rem(40);
 		margin: 0 auto;
+
+		@media (max-width: em(1199)) {
+			padding-right: rem(20);
+			padding-left: rem(20);
+		}
 	}
 }
 

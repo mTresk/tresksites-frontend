@@ -56,6 +56,10 @@ onMounted(() => {
 		background-color: var(--white-color);
 		border-radius: rem(16);
 
+		.dark-mode & {
+			background-color: var(--main-color-dark);
+		}
+
 		img {
 			width: auto;
 			max-height: rem(35);

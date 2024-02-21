@@ -131,7 +131,6 @@ onMounted(() => {
 				</NuxtLink>
 			</div>
 		</section>
-		<Technology />
 	</div>
 </template>
 
@@ -152,6 +151,10 @@ onMounted(() => {
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 	transition: box-shadow 0.3s ease-in-out;
+
+	.dark-mode & {
+		background-color: var(--white-color-dark);
+	}
 
 	@media (any-hover: hover) {
 		&:hover {
@@ -190,6 +193,10 @@ onMounted(() => {
 
 		path {
 			transition: fill-opacity 0.3s ease-in-out;
+
+			.dark-mode & {
+				fill: var(--light-color-dark);
+			}
 		}
 	}
 }

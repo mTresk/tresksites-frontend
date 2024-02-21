@@ -3,6 +3,8 @@ import { useQuery } from '@tanstack/vue-query'
 
 const route = useRoute()
 
+const { appearLeft } = useAnimation()
+
 const fetcher = async () => await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/works/${route.params.slug}`)
 
 const { isLoading, data: work } = useQuery({
@@ -10,26 +12,8 @@ const { isLoading, data: work } = useQuery({
 	queryFn: fetcher,
 })
 
-const { $gsap: gsap } = useNuxtApp()
-const ctx = ref()
-
 onMounted(() => {
-	ctx.value = gsap.context(() => {
-		gsap.from('.work-animate', {
-			x: -20,
-			opacity: 0,
-			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
-			stagger: 0.2,
-			duration: 0.8,
-			scrollTrigger: {
-				trigger: '.work-animate',
-			},
-		})
-	})
-})
-
-onUnmounted(() => {
-	ctx.value.revert()
+	appearLeft('.work-animate')
 })
 </script>
 

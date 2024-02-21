@@ -1,23 +1,8 @@
 <script setup>
-const { $gsap: gsap } = useNuxtApp()
-const ctx = ref()
+const { appearLeft } = useAnimation()
 
 onMounted(() => {
-	ctx.value = gsap.context(() => {
-		gsap.from('.services__body', {
-			x: -20,
-			opacity: 0,
-			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
-			duration: 0.8,
-			scrollTrigger: {
-				trigger: '.services__body',
-			},
-		})
-	})
-})
-
-onUnmounted(() => {
-	ctx.value.revert()
+	appearLeft('.services__body')
 })
 </script>
 

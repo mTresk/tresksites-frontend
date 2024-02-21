@@ -1,47 +1,22 @@
 <script setup>
-const { $gsap: gsap } = useNuxtApp()
-const ctx = ref()
+const { appearLeft } = useAnimation()
 
 onMounted(() => {
-	ctx.value = gsap.context(() => {
-		gsap.from('.animate', {
-			x: -20,
-			opacity: 0,
-			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
-			stagger: 0.2,
-			duration: 0.8,
-			scrollTrigger: {
-				trigger: '.animate',
-			},
-		})
-		gsap.from('.hero__image', {
-			x: -20,
-			opacity: 0,
-			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
-			delay: 0.3,
-			duration: 0.8,
-			scrollTrigger: {
-				trigger: '.hero__image',
-			},
-		})
-	})
-})
-
-onUnmounted(() => {
-	ctx.value.revert()
+	appearLeft('.hero-animate')
+	appearLeft('.hero__image', { delay: 0.3 })
 })
 </script>
 
 <template>
 	<section class="hero spacer-60">
 		<div class="hero__body">
-			<div class="hero__content animate">
-				<h1 class="hero__title spacer-20 animate">Создание сайтов и веб-приложений любой сложности</h1>
-				<p class="hero__description animate">
+			<div class="hero__content hero-animate">
+				<h1 class="hero__title spacer-20 hero-animate">Создание сайтов и веб-приложений любой сложности</h1>
+				<p class="hero__description hero-animate">
 					Меня зовут Максим. С 2019 года я занимаюсь веб-разработкой. Сделано более 70 проектов по верстке сайтов и
 					около десятка «под ключ». Полный цикл создания сайтов. Поддержка и сопровождение.
 				</p>
-				<div class="hero__chips animate">
+				<div class="hero__chips hero-animate">
 					<div class="chip">
 						<img src="/img/chips/html.svg" alt="HTML5" />
 						<span>HTML5</span>

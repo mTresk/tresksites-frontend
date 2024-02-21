@@ -3,34 +3,11 @@ defineProps({
 	works: Object,
 })
 
-const { $gsap: gsap } = useNuxtApp()
-const ctx = ref()
+const { appearLeft, rotate } = useAnimation()
 
 onMounted(() => {
-	ctx.value = gsap.context(() => {
-		gsap.from('.animate-card', {
-			x: -20,
-			opacity: 0,
-			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
-			stagger: 0.2,
-			duration: 0.8,
-			scrollTrigger: {
-				trigger: '.animate-card',
-			},
-		})
-		gsap.from('.work-card__image', {
-			rotate: -0.6,
-			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
-			duration: 1,
-			scrollTrigger: {
-				trigger: '.work-card__image',
-			},
-		})
-	})
-})
-
-onUnmounted(() => {
-	ctx.value.revert()
+	appearLeft('.animate-card')
+	rotate('.work-card__image')
 })
 </script>
 
@@ -39,9 +16,9 @@ onUnmounted(() => {
 		<div class="works__body">
 			<TransitionGroup name="card">
 				<div v-if="works?.pages" v-for="(page, index) in works?.pages" :key="index">
-					<WorksCard class="animate-card" v-for="work in page.pageData" :key="work.slug" :work="work" />
+					<WorksCard class="animate-card" v-for="work in page?.pageData" :key="work.slug" :work="work" />
 				</div>
-				<WorksCard v-else v-for="work in works" :key="work.slug" :work="work" />
+				<WorksCard v-else v-for="work in works" :key="work?.slug" :work="work" />
 			</TransitionGroup>
 		</div>
 	</section>

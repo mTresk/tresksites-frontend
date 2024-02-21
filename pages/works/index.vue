@@ -14,7 +14,6 @@ const {
 	data: works,
 	fetchNextPage,
 	hasNextPage,
-	isFetching,
 	isLoading,
 } = useInfiniteQuery({
 	queryKey: ['works'],

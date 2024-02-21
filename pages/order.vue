@@ -1,44 +1,21 @@
 <script setup>
+const { appearLeft } = useAnimation()
+
 const fileInput = ref()
 
 const setFileName = () => {
 	fileInput.value.closest('.file').querySelector('.file__text').textContent = fileInput.value.files[0].name
 }
 
-const { $gsap: gsap } = useNuxtApp()
-const ctx = ref()
-
 onMounted(() => {
 	fileInput.value.addEventListener('change', () => setFileName())
 
-	ctx.value = gsap.context(() => {
-		gsap.from('.order-animate', {
-			x: -20,
-			opacity: 0,
-			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
-			stagger: 0.2,
-			duration: 0.8,
-			scrollTrigger: {
-				trigger: '.order-animate',
-			},
-		})
-		gsap.from('.price-animate', {
-			x: -20,
-			opacity: 0,
-			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
-			stagger: 0.2,
-			duration: 0.8,
-			scrollTrigger: {
-				trigger: '.price-animate',
-			},
-		})
-	})
+	appearLeft('.order-animate')
+	appearLeft('.price-animate')
 })
 
 onUnmounted(() => {
 	window.removeEventListener('change', () => setFileName())
-
-	ctx.value.revert()
 })
 </script>
 

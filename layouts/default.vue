@@ -1,6 +1,4 @@
 <script setup>
-const { $gsap: gsap } = useNuxtApp()
-
 gsap.config({
 	nullTargetWarn: false,
 })

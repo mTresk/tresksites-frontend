@@ -152,10 +152,6 @@ onMounted(() => {
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 	transition: box-shadow 0.3s ease-in-out;
 
-	.dark-mode & {
-		background-color: var(--white-color-dark);
-	}
-
 	@media (any-hover: hover) {
 		&:hover {
 			box-shadow: 0 8px 20px 0 rgb(0 0 0 / 8%);
@@ -194,8 +190,8 @@ onMounted(() => {
 		path {
 			transition: fill-opacity 0.3s ease-in-out;
 
-			.dark-mode & {
-				fill: var(--light-color-dark);
+			@media (prefers-color-scheme: dark) {
+				fill: var(--grey-color);
 			}
 		}
 	}

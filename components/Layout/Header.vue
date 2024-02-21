@@ -12,7 +12,7 @@
 			<div class="header__right">
 				<div class="header__person">
 					<div class="header__avatar">
-						<img src="/img/avatar.jpg" alt="Маским Треск" />
+						<NuxtPicture format="webp" src="/img/avatar.jpg" alt="Маским Треск" />
 					</div>
 					<a href="mailto:djtresk@gmail.com" class="header__email">djtresk@gmail.com</a>
 				</div>
@@ -42,10 +42,6 @@
 		gap: rem(20);
 		align-items: center;
 	}
-
-	// // .header__logo
-	// &__logo {
-	// }
 
 	// .header__right
 	&__right {

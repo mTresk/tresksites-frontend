@@ -1,3 +1,26 @@
+<script setup>
+const { $gsap: gsap } = useNuxtApp()
+const ctx = ref()
+
+onMounted(() => {
+	ctx.value = gsap.context(() => {
+		gsap.from('.logos__body', {
+			x: -20,
+			opacity: 0,
+			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
+			duration: 1,
+			scrollTrigger: {
+				trigger: '.logos__body',
+			},
+		})
+	})
+})
+
+onUnmounted(() => {
+	ctx.value.revert()
+})
+</script>
+
 <template>
 	<div class="logos spacer-60">
 		<div class="logos__body">

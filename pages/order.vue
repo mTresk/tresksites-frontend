@@ -5,12 +5,40 @@ const setFileName = () => {
 	fileInput.value.closest('.file').querySelector('.file__text').textContent = fileInput.value.files[0].name
 }
 
+const { $gsap: gsap } = useNuxtApp()
+const ctx = ref()
+
 onMounted(() => {
 	fileInput.value.addEventListener('change', () => setFileName())
+
+	ctx.value = gsap.context(() => {
+		gsap.from('.order-animate', {
+			x: -20,
+			opacity: 0,
+			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
+			stagger: 0.2,
+			duration: 0.8,
+			scrollTrigger: {
+				trigger: '.order-animate',
+			},
+		})
+		gsap.from('.price-animate', {
+			x: -20,
+			opacity: 0,
+			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
+			stagger: 0.2,
+			duration: 0.8,
+			scrollTrigger: {
+				trigger: '.price-animate',
+			},
+		})
+	})
 })
 
 onUnmounted(() => {
 	window.removeEventListener('change', () => setFileName())
+
+	ctx.value.revert()
 })
 </script>
 
@@ -20,15 +48,15 @@ onUnmounted(() => {
 			<Title>Заказать разработку</Title>
 			<Meta name="description" content="Форма заказа и цены на мои услуги" />
 		</Head>
-		<section class="order spacer-60">
+		<section class="order spacer-60 order-animate">
 			<div class="order__wrapper">
-				<h1 class="order__title spacer-20">Заказать разработку проекта</h1>
-				<p class="order__description">
+				<h1 class="order__title spacer-20 order-animate">Заказать разработку проекта</h1>
+				<p class="order__description order-animate">
 					Я занимаюсь версткой сайтов по дизайн-макетам, могу сам нарисовать дизайн, могу сделать вам полноценный сайт
 					«под ключ». Еще я делаю программные интерфейсы для медиа-киосков и веб приложения. Давайте обсудим? Для
 					наилучшего понимания вашей задачи, пожалуйста, <a href="#" download>скачайте</a> и заполните бриф.
 				</p>
-				<form action="#" class="order__form order-form">
+				<form action="#" class="order__form order-form order-animate">
 					<h2 class="order-form__title spacer-20">Свяжитесь со мной</h2>
 					<div class="order-form__body">
 						<label class="order-form__label">
@@ -79,14 +107,14 @@ onUnmounted(() => {
 				</form>
 			</div>
 		</section>
-		<section class="price spacer-60">
+		<section class="price spacer-60 price-animate">
 			<div class="price__wrapper">
-				<h2 class="price__title spacer-20">Цены</h2>
-				<p class="price__description">
+				<h2 class="price__title spacer-20 price-animate">Цены</h2>
+				<p class="price__description price-animate">
 					Указаны примерные цены. В каждом кейсе окончательная цена формируется после обсуждения и согласования деталей
 					проекта.
 				</p>
-				<ul class="price__list">
+				<ul class="price__list price-animate">
 					<li class="price__item">
 						<p class="price__name">Верстка лендинга</p>
 						<p class="price__value">от 15 000 ₽</p>
@@ -114,6 +142,7 @@ onUnmounted(() => {
 				</ul>
 			</div>
 		</section>
+		<Technology />
 	</div>
 </template>
 

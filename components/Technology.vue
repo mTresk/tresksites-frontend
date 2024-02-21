@@ -1,3 +1,26 @@
+<script setup>
+const { $gsap: gsap } = useNuxtApp()
+const ctx = ref()
+
+onMounted(() => {
+	ctx.value = gsap.context(() => {
+		gsap.from('.technology', {
+			y: 30,
+			opacity: 0,
+			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
+			duration: 1,
+			scrollTrigger: {
+				trigger: '.technology',
+			},
+		})
+	})
+})
+
+onUnmounted(() => {
+	ctx.value.revert()
+})
+</script>
+
 <template>
 	<section class="technology">
 		<div class="technology__wrapper">

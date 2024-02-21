@@ -1,3 +1,38 @@
+<script setup>
+const { $gsap: gsap } = useNuxtApp()
+const ctx = ref()
+
+onMounted(() => {
+	ctx.value = gsap.context(() => {
+		gsap.from('.advantages', {
+			y: 20,
+			opacity: 0,
+			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
+			duration: 0.8,
+			delay: 0.3,
+			scrollTrigger: {
+				trigger: '.advantages',
+			},
+		})
+		gsap.from('.advantages__item', {
+			x: -20,
+			opacity: 0,
+			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
+			stagger: 0.1,
+			delay: 0.3,
+			duration: 0.8,
+			scrollTrigger: {
+				trigger: '.advantages__item',
+			},
+		})
+	})
+})
+
+onUnmounted(() => {
+	ctx.value.revert()
+})
+</script>
+
 <template>
 	<section class="advantages spacer-60">
 		<div class="advantages__body">

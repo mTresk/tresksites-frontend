@@ -1,5 +1,4 @@
 <template>
-	<Technology />
 	<footer class="footer">
 		<div class="footer__links">
 			<NuxtLink to="/order">

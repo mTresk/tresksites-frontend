@@ -33,4 +33,7 @@ export default defineNuxtConfig({
 			mode: 'out-in',
 		},
 	},
+	build: {
+		transpile: ['gsap'],
+	},
 })

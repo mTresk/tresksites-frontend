@@ -1,47 +1,64 @@
 <script setup>
 import { useQuery } from '@tanstack/vue-query'
+
 const route = useRoute()
 
 const fetcher = async () => await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/works/${route.params.slug}`)
 
-const {
-	isLoading,
-	suspense,
-	data: work,
-} = useQuery({
+const { isLoading, data: work } = useQuery({
 	queryKey: [route.params.slug],
 	queryFn: fetcher,
 })
 
-await suspense()
+const { $gsap: gsap } = useNuxtApp()
+const ctx = ref()
+
+onMounted(() => {
+	ctx.value = gsap.context(() => {
+		gsap.from('.work-animate', {
+			x: -20,
+			opacity: 0,
+			ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
+			stagger: 0.2,
+			duration: 0.8,
+			scrollTrigger: {
+				trigger: '.work-animate',
+			},
+		})
+	})
+})
+
+onUnmounted(() => {
+	ctx.value.revert()
+})
 </script>
 
 <template>
 	<div>
 		<Head>
-			<Title>{{ work.title }}</Title>
+			<Title>{{ work?.title }}</Title>
 			<Meta name="description" content="Описание выполненной работы работы по верстке и программированию" />
 		</Head>
 		<section class="work spacer-60">
 			<div class="work__wrapper">
-				<ul class="breadcrumb">
+				<ul class="breadcrumb work-animate">
 					<li class="breadcrumb__item"><NuxtLink to="/works">Работы</NuxtLink></li>
-					<li class="breadcrumb__item breadcrumb__item--active">{{ work.title }}</li>
+					<li class="breadcrumb__item breadcrumb__item--active">{{ work?.title }}</li>
 				</ul>
-				<h1 class="work__title">{{ work.title }}</h1>
-				<div v-html="work.list" class="work__list"></div>
-				<div v-for="(content, key) in work.content" :key="key" class="work__block">
-					<div v-html="content.data.html"></div>
-					<div v-if="content.data.images" class="work__image">
+				<h1 class="work__title work-animate">{{ work?.title }}</h1>
+				<div v-html="work?.list" class="work__list work-animate"></div>
+				<div v-for="(content, key) in work?.content" :key="key" class="work__block work-animate">
+					<div v-html="content?.data?.html"></div>
+					<div v-if="content?.data?.images" class="work__image">
 						<picture>
 							<source
-								:srcset="`${content.data.images?.imageWebp} 1x, ${content.data.images?.imageWebpX2} 2x`"
+								:srcset="`${content?.data?.images?.imageWebp} 1x, ${content?.data?.images?.imageWebpX2} 2x`"
 								type="image/webp" />
 							<img
 								loading="lazy"
-								:src="content.data.images?.image"
-								:srcset="`${content.data.images?.image} 1x, ${content.data.images?.imageX2} 2x`"
-								:alt="work.title" />
+								:src="content?.data?.images?.image"
+								:srcset="`${content?.data?.images?.image} 1x, ${content?.data?.images?.imageX2} 2x`"
+								:alt="work?.title" />
 						</picture>
 					</div>
 				</div>
@@ -57,6 +74,7 @@ await suspense()
 			</NuxtLink>
 		</div>
 		<Logos />
+		<Technology />
 	</div>
 </template>
 

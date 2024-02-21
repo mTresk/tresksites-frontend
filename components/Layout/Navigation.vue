@@ -169,7 +169,8 @@ onUnmounted(() => {
 			opacity: 0;
 			transition: all 0.3s ease-in-out;
 
-			.dark-mode & {
+			@media (prefers-color-scheme: dark) {
+				color: var(--main-color);
 				background-color: var(--black-color);
 			}
 
@@ -183,7 +184,7 @@ onUnmounted(() => {
 				background-color: var(--main-color);
 				transform: translateY(-50%) rotate(-45deg);
 
-				.dark-mode & {
+				@media (prefers-color-scheme: dark) {
 					background-color: var(--black-color);
 				}
 			}
@@ -193,8 +194,8 @@ onUnmounted(() => {
 			path {
 				transition: all 0.3s ease-in-out;
 
-				.dark-mode & {
-					fill: var(--grey-color-dark);
+				@media (prefers-color-scheme: dark) {
+					fill: var(--grey-color);
 				}
 			}
 		}

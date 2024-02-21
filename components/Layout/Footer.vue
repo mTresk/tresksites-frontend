@@ -23,10 +23,6 @@
 	padding-bottom: rem(20);
 	border-top: 1px solid var(--light-color);
 
-	.dark-mode & {
-		border-color: var(--light-color-dark);
-	}
-
 	// .footer__links
 	&__links {
 		display: flex;
@@ -39,13 +35,9 @@
 	&__copyright {
 		font-size: 12px;
 		line-height: 125%;
-		color: rgb(50 50 50 / 30%);
+		color: var(--grey-color);
 		text-align: center;
 		text-transform: uppercase;
-
-		.dark-mode & {
-			color: var(--grey-color-dark);
-		}
 	}
 }
 </style>

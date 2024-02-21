@@ -47,7 +47,7 @@ body {
 		touch-action: none;
 	}
 
-	.dark-mode & {
+	@media (prefers-color-scheme: dark) {
 		background-color: var(--black-color);
 	}
 }

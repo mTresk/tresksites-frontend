@@ -29,10 +29,6 @@ body {
 		color: var(--white-color);
 		background: var(--accent-color);
 	}
-
-	.dark-mode & {
-		color: var(--main-color-dark);
-	}
 }
 
 input,

@@ -9,11 +9,17 @@
 	--rose-color: #fce3e3;
 	--grey-color: rgb(50 50 50 / 30%);
 	--light-color: rgb(50 50 50 / 6%);
-	--main-color-dark: #dadada;
-	--white-color-dark: rgb(40 40 40);
-	--grey-color-dark: rgb(255 255 255 / 70%);
-	--light-color-dark: rgb(255 255 255 / 10%);
 	--black-color: rgb(22 22 22);
+
+	@media (prefers-color-scheme: dark) {
+		--main-color: #dadada;
+		--accent-color: #ff565c;
+		--hover-color: #e92a30;
+		--white-color: rgb(40 40 40);
+		--rose-color: #c96969;
+		--grey-color: rgb(255 255 255 / 70%);
+		--light-color: rgb(255 255 255 / 10%);
+	}
 }
 
 $fontFamily: 'Manrope', sans-serif;

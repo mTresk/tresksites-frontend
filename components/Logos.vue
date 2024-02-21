@@ -56,8 +56,8 @@ onMounted(() => {
 		background-color: var(--white-color);
 		border-radius: rem(16);
 
-		.dark-mode & {
-			background-color: var(--main-color-dark);
+		@media (prefers-color-scheme: dark) {
+			background-color: var(--main-color);
 		}
 
 		img {

@@ -21,7 +21,7 @@ export default defineNuxtConfig({
 			autoprefixer: {},
 		},
 	},
-	modules: ['@nuxt/image', '@nuxtjs/color-mode'],
+	modules: ['@nuxt/image'],
 	runtimeConfig: {
 		public: {
 			backendUrl: process.env.NUXT_PUBLIC_BACKEND_URL,

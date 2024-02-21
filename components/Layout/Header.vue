@@ -52,7 +52,7 @@
 			display: none;
 		}
 
-		.dark-mode & {
+		@media (prefers-color-scheme: dark) {
 			&--light {
 				display: none;
 			}

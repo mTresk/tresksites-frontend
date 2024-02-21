@@ -18,7 +18,7 @@ onMounted(() => {
 				<div v-if="works?.pages" v-for="(page, index) in works?.pages" :key="index">
 					<WorksCard class="animate-card" v-for="work in page?.pageData" :key="work.slug" :work="work" />
 				</div>
-				<WorksCard v-else v-for="work in works" :key="work?.slug" :work="work" />
+				<WorksCard class="animate-card" v-else v-for="work in works" :key="work?.slug" :work="work" />
 			</TransitionGroup>
 		</div>
 	</section>

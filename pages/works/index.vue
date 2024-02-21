@@ -1,15 +1,31 @@
 <script setup>
-const works = ref({})
+import { useInfiniteQuery } from '@tanstack/vue-query'
 
-works.value = await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/works`)
+const fetcher = async ({ pageParam = 1 }) => {
+	const data = await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/works?page=${pageParam}`)
 
-const fetchMoreWorks = async () => {
-	const response = await $fetch(
-		`${useRuntimeConfig().public['backendUrl']}/api/works?page=${(works.value.meta.current_page += 1)}`
-	)
-	response.data.map((item) => {
-		works.value.data.push(item)
-	})
+	return {
+		pageData: data?.data || [],
+		cursor: pageParam === data?.meta.last_page ? undefined : data?.meta.current_page + 1,
+	}
+}
+
+const {
+	data: works,
+	fetchNextPage,
+	hasNextPage,
+	isFetching,
+	isLoading,
+} = useInfiniteQuery({
+	queryKey: ['works'],
+	queryFn: fetcher,
+	getNextPageParam: (lastPage) => {
+		return lastPage.cursor
+	},
+})
+
+const nextPage = () => {
+	fetchNextPage()
 }
 </script>
 
@@ -19,14 +35,9 @@ const fetchMoreWorks = async () => {
 			<Title>Работы</Title>
 			<Meta name="description" content="Выполненные работы по верстке и программированию сайтов" />
 		</Head>
-		<Works :works="works.data" />
+		<Works :works="works" />
 		<div class="spacer-60">
-			<UiButton
-				v-if="works.meta.current_page < works.meta.last_page"
-				@click="fetchMoreWorks()"
-				transparent
-				wide
-				size="lg"
+			<UiButton v-if="hasNextPage" @click="nextPage" transparent wide size="lg"
 				>Показать еще<UiIconArrowDown
 			/></UiButton>
 		</div>

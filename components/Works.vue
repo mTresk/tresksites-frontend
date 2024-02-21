@@ -7,33 +7,12 @@ defineProps({
 <template>
 	<section class="works spacer-60">
 		<div class="works__body">
-			<article
-				v-for="work in works"
-				:key="work.slug"
-				@click="() => navigateTo(`/works/${work.slug}`)"
-				class="work-card">
-				<div class="work-card__image">
-					<picture>
-						<source :srcset="`${work.featured.imageWebp} 1x, ${work.featured.imageWebpX2} 2x`" type="image/webp" />
-						<img
-							loading="lazy"
-							:src="work.featured.image"
-							:srcset="`${work.featured.image} 1x, ${work.featured.imageX2} 2x`"
-							:alt="work.title" />
-					</picture>
+			<TransitionGroup name="card">
+				<div v-if="works?.pages" v-for="(page, index) in works?.pages" :key="index">
+					<WorksCard v-for="work in page.pageData" :key="work.slug" :work="work" />
 				</div>
-				<div class="work-card__content">
-					<div class="work-card__label">
-						<a v-if="work.url" :href="work.url" target="_blank">{{ work.url }}</a>
-						<span v-if="work.label">{{ work.label }}</span>
-					</div>
-					<h4 class="work-card__title spacer-20">{{ work.title }}</h4>
-					<div v-html="work.list" class="work-card__info"></div>
-					<NuxtLink :to="`/works/${work.slug}`">
-						<UiButton>Посмотреть работу<UiIconArrowRight /></UiButton
-					></NuxtLink>
-				</div>
-			</article>
+				<WorksCard v-else v-for="work in works" :key="work.slug" :work="work" />
+			</TransitionGroup>
 		</div>
 	</section>
 </template>
@@ -45,6 +24,12 @@ defineProps({
 		display: flex;
 		flex-direction: column;
 		gap: rem(20);
+
+		> div {
+			display: flex;
+			flex-direction: column;
+			gap: rem(20);
+		}
 	}
 }
 
@@ -138,5 +123,27 @@ defineProps({
 			}
 		}
 	}
+}
+
+.card-enter-active,
+.card-leave-active {
+	transition: all 1s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+
+.card-enter-from,
+.card-leave-to {
+	opacity: 0;
+	transform: translateX(-20px);
+}
+
+.card-enter-active .work-card__image,
+.card-leave-active .work-card__image {
+	transition: all 1.1s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+
+.card-enter-from .work-card__image,
+.card-leave-to .work-card__image {
+	opacity: 0;
+	transform: translateX(-20px) rotate(-0.6deg);
 }
 </style>

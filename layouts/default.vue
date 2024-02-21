@@ -69,4 +69,15 @@ body {
 		flex: 1 1 auto;
 	}
 }
+
+.layout-enter-active,
+.layout-leave-active {
+	transition: all 0.4s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+
+.layout-enter-from,
+.layout-leave-to {
+	filter: grayscale(1) blur(2px);
+	opacity: 0;
+}
 </style>

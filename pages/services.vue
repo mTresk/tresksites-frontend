@@ -131,6 +131,7 @@ onMounted(() => {
 				</NuxtLink>
 			</div>
 		</section>
+		<Advantages />
 		<Technology />
 	</div>
 </template>

@@ -20,18 +20,18 @@ onMounted(() => {
 <template>
 	<div>
 		<Head>
-			<Title>{{ work?.title }}</Title>
+			<Title>{{ work?.data?.title }}</Title>
 			<Meta name="description" content="Описание выполненной работы работы по верстке и программированию" />
 		</Head>
 		<section class="work spacer-60">
 			<div class="work__wrapper">
 				<ul class="breadcrumb work-animate">
 					<li class="breadcrumb__item"><NuxtLink to="/works">Работы</NuxtLink></li>
-					<li class="breadcrumb__item breadcrumb__item--active">{{ work?.title }}</li>
+					<li class="breadcrumb__item breadcrumb__item--active">{{ work?.data?.title }}</li>
 				</ul>
-				<h1 class="work__title work-animate">{{ work?.title }}</h1>
-				<div v-html="work?.list" class="work__list work-animate"></div>
-				<div v-for="(content, key) in work?.content" :key="key" class="work__block work-animate">
+				<h1 class="work__title work-animate">{{ work?.data?.title }}</h1>
+				<div v-html="work?.data?.list" class="work__list work-animate"></div>
+				<div v-for="(content, key) in work?.data?.content" :key="key" class="work__block work-animate">
 					<div v-html="content?.data?.html"></div>
 					<div v-if="content?.data?.images" class="work__image">
 						<picture>
@@ -42,7 +42,7 @@ onMounted(() => {
 								loading="lazy"
 								:src="content?.data?.images?.image"
 								:srcset="`${content?.data?.images?.image} 1x, ${content?.data?.images?.imageX2} 2x`"
-								:alt="work?.title" />
+								:alt="work?.data?.title" />
 						</picture>
 					</div>
 				</div>
@@ -50,7 +50,7 @@ onMounted(() => {
 		</section>
 		<section class="images-works">
 			<h4 class="images-works__title spacer-20">Еще работы</h4>
-			<Works />
+			<Works :works="work?.otherWorks" />
 		</section>
 		<div class="spacer-60">
 			<NuxtLink to="/works">

@@ -37,6 +37,7 @@ onMounted(() => {
 			</div>
 		</section>
 		<Logos />
+		<Technology />
 	</div>
 </template>
 

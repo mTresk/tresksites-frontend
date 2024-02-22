@@ -119,6 +119,7 @@ onUnmounted(() => {
 				</ul>
 			</div>
 		</section>
+		<Technology />
 	</div>
 </template>
 
@@ -128,10 +129,6 @@ onUnmounted(() => {
 	background-color: var(--white-color);
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
-
-	.dark-mode & {
-		background-color: var(--white-color-dark);
-	}
 
 	// .order__wrapper
 	&__wrapper {
@@ -166,6 +163,10 @@ onUnmounted(() => {
 	color: var(--white-color);
 	background-color: var(--accent-color);
 	border-radius: rem(12);
+
+	@media (prefers-color-scheme: dark) {
+		color: var(--main-color);
+	}
 
 	// .order-form__body
 	&__body {
@@ -210,10 +211,18 @@ onUnmounted(() => {
 			&::placeholder {
 				color: var(--white-color);
 				transition: opacity 0.3s ease-in-out;
+
+				@media (prefers-color-scheme: dark) {
+					color: var(--main-color);
+				}
 			}
 
 			&:focus::placeholder {
 				opacity: 0;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				color: var(--main-color);
 			}
 		}
 
@@ -224,6 +233,10 @@ onUnmounted(() => {
 
 		&:has(input:focus, textarea:focus) {
 			border-color: var(--white-color);
+
+			@media (prefers-color-scheme: dark) {
+				border-color: var(--main-color);
+			}
 
 			svg {
 				path {

@@ -1,3 +1,14 @@
+<script setup>
+const { appearLeft } = useAnimation()
+
+onMounted(() => {
+	appearLeft('.technology', {
+		duration: 1.2,
+		delay: 0.3,
+	})
+})
+</script>
+
 <template>
 	<section class="technology">
 		<div class="technology__wrapper">

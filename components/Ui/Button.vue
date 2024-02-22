@@ -86,6 +86,10 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 		color: var(--accent-color);
 		background-color: var(--white-color);
 
+		@media (prefers-color-scheme: dark) {
+			background-color: var(--main-color);
+		}
+
 		svg {
 			path {
 				fill: var(--accent-color);
@@ -94,7 +98,14 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 
 		@media (any-hover: hover) {
 			&:hover {
-				background-color: var(--rose-color);
+				color: var(--white-color);
+				background-color: var(--hover-color);
+
+				svg {
+					path {
+						fill: var(--white-color);
+					}
+				}
 			}
 		}
 	}

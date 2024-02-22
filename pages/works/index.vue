@@ -40,5 +40,6 @@ const nextPage = () => {
 				>Показать еще<UiIconArrowDown
 			/></UiButton>
 		</div>
+		<Technology />
 	</div>
 </template>

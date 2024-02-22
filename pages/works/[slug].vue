@@ -58,6 +58,7 @@ onMounted(() => {
 			</NuxtLink>
 		</div>
 		<Logos />
+		<Technology />
 	</div>
 </template>
 

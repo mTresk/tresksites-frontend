@@ -20,6 +20,7 @@ const { isLoading, data: works } = useQuery({
 				<UiButton transparent wide size="lg">Другие работы<UiIconArrowUp /></UiButton>
 			</NuxtLink>
 		</div>
+		<Technology />
 	</div>
 </template>
 

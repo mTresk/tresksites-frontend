@@ -82,6 +82,9 @@ onUnmounted(() => {
 							</label>
 							<UiButton inverted wide type="submit">Отправить сообщение<UiIconArrowRight /></UiButton>
 						</div>
+						<p class="order-form__policy">
+							Отправляя форму вы соглашаетесь с <NuxtLink to="/policy">политикой конфиденициальности</NuxtLink>
+						</p>
 					</div>
 				</form>
 			</div>
@@ -287,6 +290,21 @@ onUnmounted(() => {
 			flex-direction: column;
 			gap: rem(12);
 		}
+	}
+
+	&__policy {
+		margin-top: rem(20);
+		font-size: 12px;
+		line-height: 125%;
+		color: var(--grey-color);
+		text-align: center;
+		text-underline-offset: rem(3);
+
+		a {
+			text-decoration: underline;
+		}
+
+		@include adaptiveValue('font-size', 12, 10);
 	}
 }
 

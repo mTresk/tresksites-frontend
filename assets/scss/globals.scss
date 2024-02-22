@@ -41,44 +41,52 @@ $mobileSmall: em(479.98);
 
 h1 {
 	font-family: Montserrat, sans-serif;
-	font-size: 48px;
 	font-weight: 800;
 	line-height: 100%;
+
+	@include adaptiveValue('font-size', 48, 28);
+
+	@media (max-width: $tablet) {
+		line-height: 128%;
+	}
 }
 
 h2 {
 	font-family: Montserrat, sans-serif;
-	font-size: 36px;
 	font-weight: 800;
 	line-height: 130%;
+
+	@include adaptiveValue('font-size', 36, 22);
 }
 
 h3 {
 	font-family: Montserrat, sans-serif;
-	font-size: 28px;
 	font-weight: 700;
 	line-height: 125%;
+
+	@include adaptiveValue('font-size', 28, 20);
 }
 
 h4 {
 	font-family: Montserrat, sans-serif;
-	font-size: 22px;
 	font-weight: 700;
 	line-height: 125%;
+
+	@include adaptiveValue('font-size', 22, 18);
 }
 
 h5 {
-	margin-bottom: rem(8);
 	font-family: Montserrat, sans-serif;
-	font-size: 18px;
 	font-weight: 700;
 	line-height: 150%;
+
+	@include adaptiveValue('font-size', 18, 16);
 }
 
 .spacer-60 {
-	margin-bottom: rem(60);
+	@include adaptiveValue('margin-bottom', 60, 40);
 }
 
 .spacer-20 {
-	margin-bottom: rem(20);
+	@include adaptiveValue('margin-bottom', 20, 16);
 }

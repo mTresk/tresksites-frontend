@@ -64,14 +64,14 @@ onMounted(() => {
 
 <style lang="scss">
 .work {
-	padding: rem(60) rem(20);
+	padding-right: rem(20);
+	padding-left: rem(20);
 	background-color: var(--white-color);
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
-	.dark-mode & {
-		background-color: var(--white-color-dark);
-	}
+	@include adaptiveValue('padding-top', 60, 40);
+	@include adaptiveValue('padding-bottom', 60, 40);
 
 	// .work__wrapper
 	&__wrapper {
@@ -86,15 +86,16 @@ onMounted(() => {
 
 	// .work__list
 	&__list {
-		margin-bottom: rem(40);
+		@include adaptiveValue('margin-bottom', 40, 30);
 
 		ul {
 			li {
 				position: relative;
 				padding-left: rem(16);
-				font-size: 16px;
 				font-weight: 500;
 				line-height: 150%;
+
+				@include adaptiveValue('font-size', 16, 14);
 
 				&::before {
 					position: absolute;
@@ -113,18 +114,19 @@ onMounted(() => {
 	// .work__block
 	&__block {
 		&:not(:last-child) {
-			margin-bottom: rem(50);
+			@include adaptiveValue('margin-bottom', 50, 40);
 		}
 
 		h2 {
-			margin-bottom: rem(20);
+			@include adaptiveValue('margin-bottom', 20, 16);
 		}
 
 		p {
-			margin-bottom: rem(20);
-			font-size: 16px;
 			font-weight: 500;
 			line-height: 150%;
+
+			@include adaptiveValue('font-size', 16, 14);
+			@include adaptiveValue('margin-bottom', 20, 16);
 		}
 	}
 
@@ -135,7 +137,7 @@ onMounted(() => {
 		border-radius: rem(12);
 
 		&:not(:last-child) {
-			margin-bottom: rem(50);
+			@include adaptiveValue('margin-bottom', 50, 40);
 		}
 
 		img {
@@ -150,17 +152,19 @@ onMounted(() => {
 	flex-wrap: wrap;
 	row-gap: rem(6);
 	align-items: center;
-	margin-bottom: rem(30);
+
+	@include adaptiveValue('margin-bottom', 30, 20);
 
 	// .breadcrumb__item
 	&__item {
 		position: relative;
-		font-size: 16px;
 		font-weight: 500;
 		line-height: normal;
 		color: var(--main-color);
 		text-decoration: underline;
 		transition: color 0.3s ease-in-out;
+
+		@include adaptiveValue('font-size', 16, 14);
 
 		.dark-mode & {
 			color: var(--main-color-dark);

@@ -1,3 +1,7 @@
+<script setup>
+const currentYear = new Date().getFullYear()
+</script>
+
 <template>
 	<footer class="footer">
 		<div class="footer__links">
@@ -8,7 +12,7 @@
 				<UiButton transparent>Скачать бриф<UiIconArrowDown /></UiButton>
 			</a>
 		</div>
-		<p class="footer__copyright">© 2019–2024, Лямзин Максим Владимирович, ИНН: 720406450676</p>
+		<p class="footer__copyright">© 2019 – {{ currentYear }}, Лямзин Максим Владимирович, ИНН: 720406450676</p>
 	</footer>
 </template>
 
@@ -37,6 +41,8 @@
 		color: var(--grey-color);
 		text-align: center;
 		text-transform: uppercase;
+
+		@include adaptiveValue('font-size', 12, 10);
 	}
 }
 </style>

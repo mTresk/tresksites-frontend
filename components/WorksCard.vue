@@ -24,7 +24,7 @@ defineProps({
 			<h4 class="work-card__title spacer-20">{{ work.title }}</h4>
 			<div v-html="work.list" class="work-card__info"></div>
 			<NuxtLink :to="`/works/${work.slug}`">
-				<UiButton>Посмотреть работу<UiIconArrowRight /></UiButton
+				<UiButton class="work-card__button">Посмотреть работу<UiIconArrowRight /></UiButton
 			></NuxtLink>
 		</div>
 	</article>
@@ -33,7 +33,6 @@ defineProps({
 <style lang="scss">
 .work-card {
 	display: flex;
-	gap: rem(40);
 	align-items: center;
 	justify-content: space-between;
 	padding: rem(20) rem(40) rem(20) rem(20);
@@ -42,8 +41,16 @@ defineProps({
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
-	.dark-mode & {
-		background-color: var(--white-color-dark);
+	@include adaptiveValue('gap', 40, 20);
+	@include adaptiveValue('padding-right', 40, 20);
+
+	@media (max-width: $tablet) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	@media (max-width: $mobile) {
+		padding: 0;
 	}
 
 	// .work-card__image
@@ -61,19 +68,35 @@ defineProps({
 			height: 100%;
 			object-fit: cover;
 		}
+
+		@media (max-width: $tablet) {
+			flex: 1 1 auto;
+			width: 100%;
+		}
 	}
 
 	// .work-card__content
 	&__content {
 		flex: 0 1 rem(422);
+
+		@media (max-width: $tablet) {
+			flex: 1 1 auto;
+			width: 100%;
+		}
+
+		@media (max-width: $mobile) {
+			padding-inline: rem(20);
+			padding-bottom: rem(20);
+		}
 	}
 
 	// .work-card__label
 	&__label {
 		display: block;
-		margin-bottom: rem(8);
-		font-size: 14px;
 		line-height: 125%;
+
+		@include adaptiveValue('font-size', 14, 12);
+		@include adaptiveValue('margin-bottom', 8, 10);
 
 		a {
 			text-decoration: underline;
@@ -96,9 +119,10 @@ defineProps({
 			li {
 				position: relative;
 				padding-left: rem(16);
-				font-size: 16px;
 				font-weight: 500;
 				line-height: 150%;
+
+				@include adaptiveValue('font-size', 16, 14);
 
 				&::before {
 					position: absolute;
@@ -111,6 +135,12 @@ defineProps({
 					border-radius: 50%;
 				}
 			}
+		}
+	}
+
+	&__button {
+		@media (max-width: $mobileSmall) {
+			width: 100%;
 		}
 	}
 }

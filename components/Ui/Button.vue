@@ -32,16 +32,24 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 	gap: rem(12);
 	align-items: center;
 	justify-content: center;
-	padding: rem(12) rem(24);
-	font-size: 15px;
+	padding-top: rem(12);
+	padding-bottom: rem(12);
 	font-weight: 600;
 	line-height: 90%;
 	color: var(--white-color);
 	background-color: var(--accent-color);
-	border-radius: rem(16);
 	transition: all 0.3s ease-in-out;
 
+	@include adaptiveValue('font-size', 15, 14);
+	@include adaptiveValue('border-radius', 16, 12);
+	@include adaptiveValue('padding-left', 24, 16);
+	@include adaptiveValue('padding-right', 24, 16);
+
 	svg {
+		height: auto;
+
+		@include adaptiveValue('max-width', 20, 16);
+
 		path {
 			transition: all 0.3s ease-in-out;
 		}
@@ -55,6 +63,7 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 
 	&--transparent {
 		color: var(--main-color);
+		background-color: var(--light-color);
 
 		@media (prefers-color-scheme: dark) {
 			color: var(--main-color-dark);
@@ -70,7 +79,9 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 			}
 		}
 
-		background-color: transparent;
+		@media (any-hover: hover) {
+			background-color: transparent;
+		}
 	}
 
 	&--wide {

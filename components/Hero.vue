@@ -67,26 +67,40 @@ onMounted(() => {
 	// .hero__body
 	&__body {
 		display: flex;
-		gap: rem(40);
 		align-items: center;
 		justify-content: space-between;
+
+		@include adaptiveValue('gap', 40, 20);
+
+		@media (max-width: $tablet) {
+			flex-direction: column-reverse;
+		}
 	}
 
 	// .hero__content
 	&__content {
 		flex: 0 1 rem(760);
-		padding: rem(50) rem(40);
 		background-color: var(--white-color);
 		border-radius: rem(20);
 		box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
+
+		@include adaptiveValue('padding-top', 50, 20);
+		@include adaptiveValue('padding-bottom', 50, 20);
+		@include adaptiveValue('padding-left', 40, 20);
+		@include adaptiveValue('padding-right', 40, 20);
+
+		@media (max-width: $tablet) {
+			flex: 1 1 auto;
+		}
 	}
 
 	// .hero__description
 	&__description {
-		margin-bottom: rem(40);
-		font-size: 22px;
 		font-weight: 500;
 		line-height: 145%;
+
+		@include adaptiveValue('font-size', 22, 14);
+		@include adaptiveValue('margin-bottom', 40, 32);
 	}
 
 	// .hero__chips
@@ -99,11 +113,20 @@ onMounted(() => {
 	// .hero__image
 	&__image {
 		flex: 0 1 rem(760);
+		min-width: rem(450);
 
-		img {
+		img,
+		picture {
+			display: block;
 			width: 100%;
 			max-width: 100%;
 			height: auto;
+		}
+
+		@media (max-width: $tablet) {
+			flex: 1 1 auto;
+			width: 100%;
+			min-width: auto;
 		}
 	}
 }

@@ -1,7 +1,7 @@
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 
 export default defineNuxtConfig({
-	devtools: { enabled: true },
+	devtools: { enabled: false },
 	css: ['@/assets/scss/fonts.scss', '@/assets/scss/null.scss'],
 	vite: {
 		css: {

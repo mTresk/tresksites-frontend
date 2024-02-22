@@ -11,6 +11,22 @@ useHead({
 		return titleChunk ? `${titleChunk} — Tresk Sites` : 'Tresk Sites'
 	},
 })
+
+const isMenuOpen = ref(false)
+
+const toggleMenu = () => {
+	isMenuOpen.value = !isMenuOpen.value
+
+	isMenuOpen.value
+		? document.documentElement.classList.add('menu-open')
+		: document.documentElement.classList.remove('menu-open')
+}
+
+const closeMenu = () => {
+	isMenuOpen.value = false
+
+	document.documentElement.classList.remove('menu-open')
+}
 </script>
 
 <template>
@@ -22,9 +38,9 @@ useHead({
 		<NuxtLoadingIndicator color="#ff565c" />
 		<div class="wrapper">
 			<div class="wrapper__container">
-				<LayoutHeader />
+				<LayoutHeader @toggleMenu="toggleMenu" />
 				<div class="inner">
-					<LayoutNavigation />
+					<LayoutNavigation @closeMenu="closeMenu" />
 					<div class="page">
 						<main class="main">
 							<slot />
@@ -41,7 +57,7 @@ useHead({
 body {
 	background-color: #f5f5f5;
 
-	.lock & {
+	.menu-open & {
 		overflow: hidden;
 		overscroll-behavior: none;
 		touch-action: none;
@@ -67,9 +83,27 @@ body {
 	}
 }
 
+.wrapper {
+	&__container {
+		@media (max-width: em(1199)) {
+			padding: 0;
+		}
+	}
+}
+
 .inner {
 	display: flex;
 	gap: rem(20);
+
+	@media (max-width: em(1199)) {
+		display: block;
+		padding-inline: rem(20);
+		padding-top: rem(80);
+	}
+
+	@media (max-width: $mobileSmall) {
+		padding-inline: rem(10);
+	}
 }
 
 .page {
@@ -92,5 +126,27 @@ body {
 .layout-leave-to {
 	filter: grayscale(1) blur(2px);
 	opacity: 0;
+}
+
+.chip {
+	display: flex;
+	gap: rem(8);
+	align-items: center;
+	justify-content: center;
+	padding: rem(9) rem(14);
+	background-color: var(--light-color);
+
+	@include adaptiveValue('border-radius', 16, 12);
+	@include adaptiveValue('gap', 8, 6);
+
+	span {
+		@include adaptiveValue('font-size', 15, 12);
+	}
+
+	img {
+		width: auto;
+
+		@include adaptiveValue('max-height', 20, 16);
+	}
 }
 </style>

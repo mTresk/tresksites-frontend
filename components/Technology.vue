@@ -73,11 +73,15 @@ onMounted(() => {
 
 <style lang="scss">
 .technology {
-	padding: rem(40) rem(20);
+	padding-right: rem(20);
+	padding-left: rem(20);
 	margin-bottom: rem(40);
 	background-color: var(--white-color);
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
+
+	@include adaptiveValue('padding-top', 40, 20);
+	@include adaptiveValue('padding-bottom', 40, 20);
 
 	.dark-mode & {
 		background-color: var(--white-color-dark);
@@ -95,8 +99,14 @@ onMounted(() => {
 	// .technology__body
 	&__body {
 		display: flex;
-		gap: rem(40);
 		align-items: center;
+
+		@include adaptiveValue('gap', 40, 20);
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 
 	// .technology__avatar
@@ -115,6 +125,10 @@ onMounted(() => {
 			height: 100%;
 			object-fit: cover;
 		}
+
+		@media (max-width: $mobile) {
+			flex: 1 1 auto;
+		}
 	}
 
 	// .technology__info
@@ -124,13 +138,20 @@ onMounted(() => {
 		flex-direction: column;
 		gap: rem(8);
 		align-items: flex-start;
+
+		@media (max-width: $mobile) {
+			flex: 1 1 auto;
+			align-items: center;
+			text-align: center;
+		}
 	}
 
 	// .technology__description
 	&__description {
-		font-size: 16px;
 		font-weight: 500;
 		line-height: 150%;
+
+		@include adaptiveValue('font-size', 16, 14);
 	}
 
 	// .technology__links
@@ -140,16 +161,21 @@ onMounted(() => {
 		flex-direction: column;
 		gap: rem(20);
 		align-items: center;
+
+		@media (max-width: $mobile) {
+			flex: 1 1 auto;
+		}
 	}
 
 	// .technology__email
 	&__email {
-		font-size: 15px;
 		font-weight: 600;
 		line-height: 90%;
 		text-decoration: underline;
 		text-underline-offset: rem(4);
 		transition: color 0.3s ease-in-out;
+
+		@include adaptiveValue('font-size', 15, 12);
 
 		@media (any-hover: hover) {
 			&:hover {
@@ -161,6 +187,7 @@ onMounted(() => {
 	// .technology__chips
 	&__chips {
 		display: flex;
+		flex-wrap: wrap;
 		gap: rem(6);
 		align-items: center;
 		justify-content: center;

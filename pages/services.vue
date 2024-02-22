@@ -2,7 +2,9 @@
 const { appearLeft } = useAnimation()
 
 onMounted(() => {
-	appearLeft('.services__body')
+	appearLeft('.service-card', {
+		stagger: 0.1,
+	})
 })
 </script>
 
@@ -142,7 +144,20 @@ onMounted(() => {
 	&__body {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: rem(20);
+
+		@include adaptiveValue('gap', 20, 8);
+
+		@media (max-width: em(1500)) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@media (max-width: $tablet) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (max-width: em(600)) {
+			grid-template-columns: 1fr;
+		}
 	}
 }
 
@@ -178,9 +193,11 @@ onMounted(() => {
 
 	// .service-card__description
 	&__description {
-		font-size: 16px;
+		min-height: rem(80);
 		font-weight: 500;
 		line-height: 150%;
+
+		@include adaptiveValue('font-size', 16, 14);
 	}
 
 	// .service-card__arrow

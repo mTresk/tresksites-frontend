@@ -32,20 +32,25 @@ onMounted(() => {
 
 <style lang="scss">
 .advantages {
-	padding: rem(20) rem(40);
+	padding-top: rem(20);
+	padding-bottom: rem(20);
 	background-color: var(--white-color);
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
-	.dark-mode & {
-		background-color: var(--white-color-dark);
-	}
+	@include adaptiveValue('padding-left', 40, 20);
+	@include adaptiveValue('padding-right', 40, 20);
 
 	// .advantages__body
 	&__body {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: rem(60);
+
+		@include adaptiveValue('gap', 60, 24);
+
+		@media (max-width: $mobile) {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	// .advantages__item
@@ -53,27 +58,40 @@ onMounted(() => {
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		gap: rem(12);
 		align-items: flex-start;
+
+		@include adaptiveValue('gap', 12, 10);
 
 		&:not(:last-child) {
 			&::before {
 				position: absolute;
 				top: 0;
-				right: -30px;
 				width: 1px;
 				height: 100%;
 				content: '';
 				background-color: var(--light-color);
+
+				@include adaptiveValue('right', -30, -12);
+
+				@media (max-width: $mobile) {
+					top: auto;
+					right: auto;
+					width: 100%;
+					height: 1px;
+
+					@include adaptiveValue('bottom', -30, -12);
+				}
 			}
 		}
 	}
 
 	// .advantages__description
 	&__description {
-		font-size: 14px;
+		margin-top: auto;
 		font-weight: 500;
 		line-height: 145%;
+
+		@include adaptiveValue('font-size', 14, 12);
 	}
 }
 </style>

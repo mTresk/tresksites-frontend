@@ -42,9 +42,27 @@ onMounted(() => {
 	// .logos__body
 	&__body {
 		display: flex;
-		gap: rem(20);
 		align-items: center;
 		justify-content: center;
+
+		@include adaptiveValue('gap', 20, 10);
+
+		@media (max-width: em(1400)) {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		@media (max-width: $tablet) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@media (max-width: $mobile) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (max-width: $mobileSmall) {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	// .logos__item
@@ -56,6 +74,10 @@ onMounted(() => {
 		background-color: var(--white-color);
 		border-radius: rem(16);
 
+		@include adaptiveValue('padding-top', 8, 12);
+		@include adaptiveValue('padding-bottom', 8, 10);
+		@include adaptiveValue('border-radius', 16, 10);
+
 		@media (prefers-color-scheme: dark) {
 			background-color: var(--main-color);
 		}
@@ -63,6 +85,8 @@ onMounted(() => {
 		img {
 			width: auto;
 			max-height: rem(35);
+
+			@include adaptiveValue('max-height', 35, 30);
 		}
 	}
 }

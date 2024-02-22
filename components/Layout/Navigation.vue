@@ -27,31 +27,31 @@ onUnmounted(() => {
 				<nav class="menu__body">
 					<ul class="menu__list">
 						<li class="menu__item">
-							<NuxtLink to="/" class="menu__link">
+							<NuxtLink to="/" @click="$emit('closeMenu')" class="menu__link">
 								<UiIconHome />
 								<span>Главная</span>
 							</NuxtLink>
 						</li>
 						<li class="menu__item">
-							<NuxtLink to="/works" class="menu__link">
+							<NuxtLink to="/works" @click="$emit('closeMenu')" class="menu__link">
 								<UiIconWorks />
 								<span>Работы</span>
 							</NuxtLink>
 						</li>
 						<li class="menu__item">
-							<NuxtLink to="/services" class="menu__link">
+							<NuxtLink to="/services" @click="$emit('closeMenu')" class="menu__link">
 								<UiIconServices />
 								<span>Услуги</span>
 							</NuxtLink>
 						</li>
 						<li class="menu__item">
-							<NuxtLink to="/order" class="menu__link">
+							<NuxtLink to="/order" @click="$emit('closeMenu')" class="menu__link">
 								<UiIconOrder />
 								<span>Заказать сайт</span>
 							</NuxtLink>
 						</li>
 						<li class="menu__item">
-							<NuxtLink to="/contacts" class="menu__link">
+							<NuxtLink to="/contacts" @click="$emit('closeMenu')" class="menu__link">
 								<UiIconContacts />
 								<span>Контакты</span>
 							</NuxtLink>
@@ -85,13 +85,27 @@ onUnmounted(() => {
 	box-shadow: inset -8px 0 20px 0 rgb(0 0 0 / 2%);
 	transition: all 0.3s ease-in-out;
 
-	.dark-mode & {
-		background-color: var(--white-color-dark);
-	}
-
 	@media (min-height: em(500)) {
 		position: sticky;
 		top: rem(20);
+	}
+
+	@media (max-width: em(1199)) {
+		position: fixed;
+		inset: 0;
+		top: 60px;
+		width: 100%;
+		height: 100% !important;
+		min-height: auto;
+		padding: 0;
+		border-radius: 0;
+		box-shadow: none;
+		transition: all 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+		transform: translateY(-100%);
+
+		.menu-open & {
+			transform: translateY(0%);
+		}
 	}
 
 	// .navigation__body
@@ -102,6 +116,18 @@ onUnmounted(() => {
 		align-items: center;
 		justify-content: space-between;
 		height: 100%;
+
+		@media (max-width: em(1199)) {
+			display: block;
+			padding-inline: rem(20);
+			padding-top: rem(40);
+			padding-bottom: rem(80);
+			overflow-y: auto;
+		}
+
+		@media (max-width: $mobileSmall) {
+			padding-inline: rem(10);
+		}
 	}
 
 	// .navigation__socials
@@ -109,6 +135,10 @@ onUnmounted(() => {
 		display: flex;
 		flex-direction: column;
 		gap: rem(20);
+
+		@media (max-width: em(1199)) {
+			display: none;
+		}
 	}
 
 	// .navigation__social
@@ -136,6 +166,10 @@ onUnmounted(() => {
 		display: flex;
 		flex-direction: column;
 		gap: rem(8);
+
+		@media (max-width: em(1199)) {
+			align-items: flex-start;
+		}
 	}
 
 	// .menu__item
@@ -159,7 +193,7 @@ onUnmounted(() => {
 			left: rem(65);
 			z-index: 10;
 			padding: rem(4) rem(10);
-			font-size: 12px;
+			font-size: rem(12);
 			line-height: 160%;
 			color: var(--white-color);
 			white-space: nowrap;
@@ -186,6 +220,21 @@ onUnmounted(() => {
 
 				@media (prefers-color-scheme: dark) {
 					background-color: var(--black-color);
+				}
+			}
+
+			@media (max-width: em(1199)) {
+				position: static;
+				padding: 0;
+				font-size: rem(14);
+				font-weight: 500;
+				color: var(--main-color);
+				pointer-events: auto;
+				background: none;
+				opacity: 1;
+
+				&::before {
+					display: none;
 				}
 			}
 		}
@@ -245,6 +294,19 @@ onUnmounted(() => {
 					fill-opacity: 1;
 				}
 			}
+
+			@media (max-width: em(1199)) {
+				background: none;
+
+				&::before {
+					display: none;
+				}
+			}
+		}
+
+		@media (max-width: em(1199)) {
+			gap: rem(12);
+			padding-left: 0;
 		}
 	}
 }

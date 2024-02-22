@@ -23,23 +23,3 @@ const { isLoading, data: works } = useQuery({
 		<Technology />
 	</div>
 </template>
-
-<style lang="scss">
-.chip {
-	display: flex;
-	gap: rem(8);
-	align-items: center;
-	justify-content: center;
-	padding: rem(9) rem(14);
-	background-color: var(--light-color);
-	border-radius: rem(16);
-
-	.dark-mode & {
-		background-color: var(--light-color-dark);
-	}
-
-	span {
-		font-size: 15px;
-	}
-}
-</style>

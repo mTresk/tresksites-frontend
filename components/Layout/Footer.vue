@@ -8,7 +8,7 @@ const currentYear = new Date().getFullYear()
 			<NuxtLink to="/order">
 				<UiButton transparent>Заказать сайт<UiIconArrowUp /></UiButton>
 			</NuxtLink>
-			<a href="#" download>
+			<a href="/files/brief.doc" download="Бриф на разработку сайта">
 				<UiButton transparent>Скачать бриф<UiIconArrowDown /></UiButton>
 			</a>
 		</div>

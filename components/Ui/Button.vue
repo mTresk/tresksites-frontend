@@ -12,6 +12,7 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 
 <template>
 	<button
+		v-ripple
 		class="button"
 		:class="[
 			{

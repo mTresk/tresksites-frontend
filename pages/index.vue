@@ -3,14 +3,24 @@ import { useQuery } from '@tanstack/vue-query'
 
 const fetcher = async () => await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/works/featured`)
 
-const { isLoading, data: works } = useQuery({
+const {
+	isLoading,
+	data: works,
+	suspense,
+} = useQuery({
 	queryKey: ['featured'],
 	queryFn: fetcher,
 })
+
+await suspense()
 </script>
 
 <template>
 	<div>
+		<Head>
+			<Title>Создание сайтов и веб-приложений любой сложности</Title>
+			<Meta name="description" content="Полный цикл создания сайтов. Поддержка и сопровождение." />
+		</Head>
 		<Hero />
 		<Advantages />
 		<Logos />

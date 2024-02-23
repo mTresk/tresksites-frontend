@@ -3,10 +3,16 @@ import { useQuery } from '@tanstack/vue-query'
 
 const fetcher = async () => await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/policy`)
 
-const { isLoading, data: policy } = useQuery({
+const {
+	isLoading,
+	data: policy,
+	suspense,
+} = useQuery({
 	queryKey: ['policy'],
 	queryFn: fetcher,
 })
+
+await suspense()
 </script>
 
 <template>

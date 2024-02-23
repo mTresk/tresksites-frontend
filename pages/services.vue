@@ -12,7 +12,7 @@ onMounted(() => {
 	<div>
 		<Head>
 			<Title>Услуги</Title>
-			<Meta name="description" content="Что я могу вам предложить" />
+			<Meta name="description" content="Дизайн, верстка и программирование сайтов и веб-приложений" />
 		</Head>
 		<section class="services spacer-60">
 			<div class="services__body">

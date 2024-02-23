@@ -34,6 +34,19 @@ const closeMenu = () => {
 		<Head>
 			<Meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=0" />
 			<Meta name="description" content="Создание сайтов и веб-приложений любой сложности" />
+			<!-- Favicon -->
+			<Link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+			<Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+			<Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+			<Link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+			<Meta name="msapplication-TileColor" content="#da532c" />
+			<Meta name="theme-color" content="#ffffff" />
+			<!-- FB meta -->
+			<Meta property="og:description" content="Создание сайтов и веб-приложений любой сложности" />
+			<Meta property="og:image" content="/img/og.png" />
+			<!-- Twitter meta -->
+			<Meta name="twitter:description" content="Создание сайтов и веб-приложений любой сложности" />
+			<Meta name="twitter:image" content="/img/og.png" />
 		</Head>
 		<NuxtLoadingIndicator color="#ff565c" />
 		<div class="wrapper">

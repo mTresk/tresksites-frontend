@@ -15,6 +15,7 @@ const {
 	fetchNextPage,
 	hasNextPage,
 	isLoading,
+	suspense,
 } = useInfiniteQuery({
 	queryKey: ['works'],
 	queryFn: fetcher,
@@ -22,6 +23,8 @@ const {
 		return lastPage.cursor
 	},
 })
+
+await suspense()
 
 const nextPage = () => {
 	fetchNextPage()

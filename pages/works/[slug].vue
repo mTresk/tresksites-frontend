@@ -7,10 +7,18 @@ const { appearLeft } = useAnimation()
 
 const fetcher = async () => await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/works/${route.params.slug}`)
 
-const { isLoading, data: work } = useQuery({
+const {
+	isLoading,
+	data: work,
+	suspense,
+} = useQuery({
 	queryKey: [route.params.slug],
 	queryFn: fetcher,
 })
+
+await suspense()
+
+const seoDescription = 'Описание выполненной работы работы по верстке и программированию'
 
 onMounted(() => {
 	appearLeft('.work-animate')
@@ -20,8 +28,10 @@ onMounted(() => {
 <template>
 	<div>
 		<Head>
-			<Title>{{ work?.data?.title }}</Title>
-			<Meta name="description" content="Описание выполненной работы работы по верстке и программированию" />
+			<Title>{{ work?.data?.seo?.title ?? work?.data?.title }}</Title>
+			<Meta name="description" :content="work?.data?.seo?.description ?? seoDescription" />
+			<Meta property="og:description" :content="work?.data?.seo?.description ?? seoDescription" />
+			<Meta name="twitter:description" :content="work?.data?.seo?.description ?? seoDescription" />
 		</Head>
 		<section class="work spacer-60">
 			<div class="work__wrapper">

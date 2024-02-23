@@ -386,23 +386,43 @@ onMounted(() => {
 		margin-top: rem(20);
 		font-size: 12px;
 		line-height: 125%;
-		color: var(--grey-color);
+		color: var(--white-color);
 		text-align: center;
 		text-underline-offset: rem(3);
 
 		a {
 			text-decoration: underline;
+			transition: color 0.3s ease-in-out;
+
+			@media (any-hover: hover) {
+				&:hover {
+					color: var(--hover-color);
+				}
+			}
 		}
 
 		@include adaptiveValue('font-size', 12, 10);
+
+		@media (prefers-color-scheme: dark) {
+			color: var(--main-color);
+		}
 	}
 
 	&__error {
 		position: absolute;
-		top: rem(4);
+		top: rem(-6);
 		left: rem(18);
-		font-size: rem(11);
+		padding-right: rem(3);
+		padding-left: rem(3);
+		font-size: rem(10);
 		color: red;
+		background-color: var(--white-color);
+		border: 1px solid red;
+		border-radius: rem(8);
+
+		@media (prefers-color-scheme: dark) {
+			background-color: var(--main-color);
+		}
 	}
 }
 

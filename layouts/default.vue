@@ -12,6 +12,10 @@ useHead({
 	},
 })
 
+const nuxtApp = useNuxtApp()
+
+const isLoading = ref(true)
+
 const isMenuOpen = ref(false)
 
 const toggleMenu = () => {
@@ -27,6 +31,10 @@ const closeMenu = () => {
 
 	document.documentElement.classList.remove('menu-open')
 }
+
+nuxtApp.hook('page:loading:end', () => {
+	isLoading.value = false
+})
 </script>
 
 <template>
@@ -54,7 +62,8 @@ const closeMenu = () => {
 				<LayoutHeader @toggleMenu="toggleMenu" />
 				<div class="inner">
 					<LayoutNavigation @closeMenu="closeMenu" />
-					<div class="page">
+					<UiSpinner v-if="isLoading" />
+					<div v-show="!isLoading" class="page">
 						<main class="main">
 							<slot />
 						</main>

@@ -39,9 +39,13 @@ onMounted(() => {
 					<li class="breadcrumb__item"><NuxtLink to="/works">Работы</NuxtLink></li>
 					<li class="breadcrumb__item breadcrumb__item--active">{{ work?.data?.title }}</li>
 				</ul>
+				<div class="work__label work-animate">
+					<a v-if="work?.data?.url" :href="work?.data?.url" target="_blank">{{ work?.data?.url }}</a>
+					<span v-if="work?.data?.label">{{ work?.data?.label }}</span>
+				</div>
 				<h1 class="work__title work-animate">{{ work?.data?.title }}</h1>
 				<div v-html="work?.data?.list" class="work__list work-animate"></div>
-				<div v-for="(content, key) in work?.data?.content" :key="key" class="work__block work-animate">
+				<article v-for="(content, key) in work?.data?.content" :key="key" class="work__block work-animate">
 					<div v-html="content?.data?.html"></div>
 					<div v-if="content?.data?.images" class="work__image">
 						<picture>
@@ -55,11 +59,11 @@ onMounted(() => {
 								:alt="work?.data?.title" />
 						</picture>
 					</div>
-				</div>
+				</article>
 			</div>
 		</section>
-		<section class="images-works">
-			<h4 class="images-works__title spacer-20">Еще работы</h4>
+		<section v-if="work?.otherWorks.length" class="more-works">
+			<h4 class="more-works__title spacer-20">Еще работы</h4>
 			<Works :works="work?.otherWorks" />
 		</section>
 		<div class="spacer-60">
@@ -138,6 +142,42 @@ onMounted(() => {
 			@include adaptiveValue('font-size', 16, 14);
 			@include adaptiveValue('margin-bottom', 20, 16);
 		}
+
+		a {
+			text-decoration: underline;
+			text-underline-offset: rem(4);
+			transition: color 0.3s ease-in-out;
+
+			@media (any-hover: hover) {
+				&:hover {
+					color: var(--accent-color);
+				}
+			}
+		}
+
+		ul {
+			@include adaptiveValue('margin-bottom', 20, 16);
+
+			li {
+				position: relative;
+				padding-left: rem(16);
+				font-weight: 500;
+				line-height: 150%;
+
+				@include adaptiveValue('font-size', 16, 14);
+
+				&::before {
+					position: absolute;
+					top: 10px;
+					left: 0;
+					width: rem(6);
+					height: rem(6);
+					content: '';
+					background-color: var(--accent-color);
+					border-radius: 50%;
+				}
+			}
+		}
 	}
 
 	// .work__image
@@ -153,6 +193,26 @@ onMounted(() => {
 		img {
 			width: 100%;
 			max-width: 100%;
+		}
+	}
+
+	&__label {
+		display: block;
+		margin-bottom: rem(10);
+		line-height: 125%;
+
+		@include adaptiveValue('font-size', 14, 12);
+
+		a {
+			text-decoration: underline;
+			text-underline-offset: rem(4);
+			transition: color 0.3s ease-in-out;
+
+			@media (any-hover: hover) {
+				&:hover {
+					color: var(--accent-color);
+				}
+			}
 		}
 	}
 }

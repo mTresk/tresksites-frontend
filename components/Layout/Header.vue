@@ -2,7 +2,7 @@
 	<header class="header">
 		<div class="header__body">
 			<div class="header__left">
-				<button @click="$emit('toggleMenu')" type="button" class="icon-menu"><span></span></button>
+				<button aria-label="Меню" @click="$emit('toggleMenu')" type="button" class="icon-menu"><span></span></button>
 				<NuxtLink to="/" class="header__logo header__logo--light">
 					<img src="/img/logo.svg" alt="Tresk Sites" />
 				</NuxtLink>

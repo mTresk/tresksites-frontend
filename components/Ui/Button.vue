@@ -52,6 +52,7 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 		@include adaptiveValue('max-width', 20, 16);
 
 		path {
+			fill: var(--white-color);
 			transition: all 0.3s ease-in-out;
 		}
 	}

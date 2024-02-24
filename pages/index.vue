@@ -24,7 +24,7 @@ await suspense()
 		<Hero />
 		<Advantages />
 		<Logos />
-		<Works :works="works" />
+		<Works :works="works" :isLoading="isLoading" />
 		<div class="spacer-60">
 			<NuxtLink to="/works">
 				<UiButton transparent wide size="lg">Другие работы<UiIconArrowUp /></UiButton>

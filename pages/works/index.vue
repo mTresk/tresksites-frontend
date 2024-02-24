@@ -37,7 +37,7 @@ const nextPage = () => {
 			<Title>Работы</Title>
 			<Meta name="description" content="Выполненные работы по верстке и программированию сайтов" />
 		</Head>
-		<Works :works="works" />
+		<Works :works="works" :isLoading="isLoading" />
 		<div class="spacer-60">
 			<UiButton v-if="hasNextPage" @click="nextPage" transparent wide size="lg"
 				>Показать еще<UiIconArrowDown

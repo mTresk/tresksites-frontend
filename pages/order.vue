@@ -7,6 +7,8 @@ const errors = ref()
 
 const isFormSent = ref(false)
 
+const isLoading = ref(false)
+
 const form = reactive({
 	name: '',
 	phone: '',
@@ -33,6 +35,8 @@ const clearForm = () => {
 }
 
 const formSubmit = async () => {
+	isLoading.value = true
+
 	const formData = new FormData()
 
 	formData.append('name', form.name)
@@ -48,9 +52,11 @@ const formSubmit = async () => {
 		})
 		if (response) {
 			clearForm()
+			isLoading.value = false
 		}
 	} catch (error) {
 		if (error) errors.value = error.response._data.errors
+		isLoading.value = false
 	}
 }
 
@@ -75,7 +81,12 @@ onMounted(() => {
 					наилучшего понимания вашей задачи, пожалуйста,
 					<a href="/files/brief.doc" download="Бриф на разработку сайта">скачайте</a> и заполните бриф.
 				</p>
-				<form @submit.prevent="formSubmit()" action="#" class="order__form order-form order-animate">
+				<form
+					@submit.prevent="formSubmit()"
+					action="#"
+					class="order__form order-form order-animate"
+					:class="{ isLoading: isLoading }">
+					<UiSpinner v-if="isLoading" light />
 					<div class="order-form__wrapper">
 						<h2 class="order-form__title spacer-20">Свяжитесь со мной</h2>
 						<div class="order-form__body">
@@ -244,6 +255,7 @@ onMounted(() => {
 }
 
 .order-form {
+	position: relative;
 	padding-right: rem(20);
 	padding-left: rem(20);
 	color: var(--white-color);
@@ -260,6 +272,11 @@ onMounted(() => {
 	&__wrapper {
 		max-width: rem(740);
 		margin-inline: auto;
+
+		.isLoading & {
+			pointer-events: none;
+			opacity: 0.4 !important;
+		}
 	}
 
 	// .order-form__body

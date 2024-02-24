@@ -28,7 +28,8 @@ onMounted(() => {
 			<Meta name="description" content="Политика в отношении обработки персональных данных" />
 		</Head>
 		<section class="policy spacer-60">
-			<div class="policy__wrapper">
+			<UiSpinner v-if="isLoading" />
+			<div v-if="!isLoading" class="policy__wrapper">
 				<h1 class="policy__title spacer-20 policy-animate">{{ policy?.title }}</h1>
 				<div v-html="policy?.content" class="policy__content content policy-animate"></div>
 			</div>
@@ -38,6 +39,7 @@ onMounted(() => {
 
 <style lang="scss">
 .policy {
+	position: relative;
 	padding-right: rem(20);
 	padding-left: rem(20);
 	background-color: var(--white-color);

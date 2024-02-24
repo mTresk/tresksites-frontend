@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
 	works: Object,
+	isLoading: Boolean,
 })
 
 const { appearLeft, rotate } = useAnimation()
@@ -13,7 +14,8 @@ onMounted(() => {
 
 <template>
 	<section class="works spacer-60">
-		<div class="works__body">
+		<UiSpinner v-if="isLoading" />
+		<div v-if="!isLoading" class="works__body">
 			<!-- Hydration node mismatch with TransitionGroup -->
 			<div v-if="works?.pages" v-for="(page, index) in works?.pages" :key="index">
 				<WorksCard class="animate-card" v-for="work in page?.pageData" :key="work.slug" :work="work" />
@@ -25,6 +27,8 @@ onMounted(() => {
 
 <style lang="scss">
 .works {
+	position: relative;
+
 	// .works__body
 	&__body {
 		display: flex;

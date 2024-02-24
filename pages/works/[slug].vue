@@ -5,7 +5,7 @@ const route = useRoute()
 
 const { appearLeft } = useAnimation()
 
-const fetcher = async () => await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/works/${route.params.slug}`)
+const fetcher = async () => await useNuxtApp().$api(`/api/works/${route.params.slug}`)
 
 const {
 	isLoading,

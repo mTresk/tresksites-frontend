@@ -2,7 +2,7 @@
 import { useInfiniteQuery } from '@tanstack/vue-query'
 
 const fetcher = async ({ pageParam = 1 }) => {
-	const data = await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/works?page=${pageParam}`)
+	const data = await useNuxtApp().$api(`api/works?page=${pageParam}`)
 
 	return {
 		pageData: data?.data || [],

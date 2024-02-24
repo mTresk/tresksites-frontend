@@ -3,6 +3,10 @@ const { appearLeft } = useAnimation()
 
 const fileInput = ref('')
 
+const errors = ref()
+
+const isFormSent = ref(false)
+
 const form = reactive({
 	name: '',
 	phone: '',
@@ -15,10 +19,6 @@ const setFile = () => {
 	fileInput.value.closest('.file').querySelector('.file__text').textContent = fileInput.value.files[0].name
 	form.attachment = fileInput.value.files[0]
 }
-
-const errors = ref()
-
-const isFormSent = ref(false)
 
 const clearForm = () => {
 	form.name = ''
@@ -42,12 +42,9 @@ const formSubmit = async () => {
 	formData.append('attachment', form.attachment)
 
 	try {
-		const response = await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/order`, {
+		const response = await useNuxtApp().$api('/api/order', {
 			method: 'post',
 			body: formData,
-			headers: {
-				Accept: 'application/json',
-			},
 		})
 		if (response) {
 			clearForm()

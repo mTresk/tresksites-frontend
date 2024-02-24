@@ -1,7 +1,7 @@
 <script setup>
 import { useQuery } from '@tanstack/vue-query'
 
-const fetcher = async () => await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/works/featured`)
+const fetcher = async () => await useNuxtApp().$api('/api/works/featured')
 
 const {
 	isLoading,

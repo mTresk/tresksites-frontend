@@ -1,7 +1,9 @@
 <script setup>
 import { useQuery } from '@tanstack/vue-query'
 
-const fetcher = async () => await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/policy`)
+const { appearLeft } = useAnimation()
+
+const fetcher = async () => await useNuxtApp().$api('/api/policy')
 
 const {
 	isLoading,
@@ -13,6 +15,10 @@ const {
 })
 
 await suspense()
+
+onMounted(() => {
+	appearLeft('.policy-animate')
+})
 </script>
 
 <template>
@@ -23,8 +29,8 @@ await suspense()
 		</Head>
 		<section class="policy spacer-60">
 			<div class="policy__wrapper">
-				<h1 class="policy__title spacer-20">{{ policy?.title }}</h1>
-				<div v-html="policy?.content" class="policy__content content"></div>
+				<h1 class="policy__title spacer-20 policy-animate">{{ policy?.title }}</h1>
+				<div v-html="policy?.content" class="policy__content content policy-animate"></div>
 			</div>
 		</section>
 	</div>

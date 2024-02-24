@@ -166,7 +166,7 @@ onMounted(() => {
 									errors?.attachment[0] || '&nbsp;'
 								}}</small>
 							</label>
-							<UiButton class="order-form__submit" :class="{ disabled: isFormSent }" inverted wide type="submit"
+							<UiButton class="order-form__submit" :disabled="isFormSent" inverted wide type="submit"
 								>{{ isFormSent ? 'Сообщение отправлено' : 'Отправить сообщение' }}<UiIconArrowRight
 							/></UiButton>
 						</div>
@@ -388,13 +388,6 @@ onMounted(() => {
 			display: flex;
 			flex-direction: column;
 			gap: rem(12);
-		}
-	}
-
-	&__submit {
-		&.disabled {
-			pointer-events: none;
-			opacity: 0.4;
 		}
 	}
 

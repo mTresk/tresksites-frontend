@@ -5,6 +5,7 @@ const props = defineProps({
 	inverted: Boolean,
 	light: Boolean,
 	size: String,
+	disabled: Boolean,
 })
 
 const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
@@ -20,6 +21,7 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 				'button--wide': wide,
 				'button--inverted': inverted,
 				'button--light': light,
+				'button--disabled': disabled,
 			},
 			classObject,
 		]">
@@ -140,6 +142,11 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 				}
 			}
 		}
+	}
+
+	&--disabled {
+		pointer-events: none;
+		opacity: 0.4;
 	}
 }
 </style>

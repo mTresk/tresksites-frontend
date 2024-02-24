@@ -46,9 +46,12 @@ const formSubmit = async () => {
 	formData.append('attachment', form.attachment)
 
 	try {
-		const response = await useNuxtApp().$api('/api/order', {
+		const response = await $fetch(`${useRuntimeConfig().public['backendUrl']}/api/order`, {
 			method: 'post',
 			body: formData,
+			headers: {
+				Accept: 'application/json',
+			},
 		})
 		if (response) {
 			clearForm()
@@ -83,7 +86,6 @@ onMounted(() => {
 				</p>
 				<form
 					@submit.prevent="formSubmit()"
-					action="#"
 					class="order__form order-form order-animate"
 					:class="{ isLoading: isLoading }">
 					<UiSpinner v-if="isLoading" light />

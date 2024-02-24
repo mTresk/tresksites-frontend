@@ -21,7 +21,7 @@ export default defineNuxtConfig({
 			autoprefixer: {},
 		},
 	},
-	modules: ['@nuxt/image'],
+	modules: ['@nuxt/image', '@nuxtjs/sitemap', 'nuxt-simple-robots'],
 	runtimeConfig: {
 		public: {
 			backendUrl: process.env.NUXT_PUBLIC_BACKEND_URL,

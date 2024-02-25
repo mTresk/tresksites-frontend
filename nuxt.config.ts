@@ -1,10 +1,4 @@
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
-import { $fetch } from 'ofetch'
-
-const getWorksRoutes = async () => {
-	const response = await $fetch(`${process.env.NUXT_PUBLIC_BACKEND_URL}/api/routes`)
-	return response?.map((work: any) => `/works/${work.slug}`)
-}
 
 export default defineNuxtConfig({
 	devtools: { enabled: false },
@@ -27,12 +21,9 @@ export default defineNuxtConfig({
 			autoprefixer: {},
 		},
 	},
-	modules: ['@nuxt/image', '@nuxtjs/sitemap', 'nuxt-simple-robots'],
-	hooks: {
-		async 'nitro:config'(nitroConfig) {
-			const slugs = await getWorksRoutes()
-			nitroConfig.prerender.routes.push(...slugs)
-		},
+	modules: ['@nuxt/image', 'nuxt-simple-robots', '@nuxtjs/sitemap'],
+	sitemap: {
+		sources: ['/api/sitemap/urls'],
 	},
 	runtimeConfig: {
 		public: {

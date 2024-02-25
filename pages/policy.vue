@@ -100,14 +100,13 @@ onMounted(() => {
 
 			&::before {
 				position: absolute;
+				top: 10px;
 				left: 0;
 				width: rem(6);
 				height: rem(6);
 				content: '';
 				background-color: var(--accent-color);
 				border-radius: 50%;
-
-				@include adaptiveValue('top', 10, 9);
 			}
 		}
 	}

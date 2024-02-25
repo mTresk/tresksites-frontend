@@ -69,6 +69,10 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 		color: var(--main-color);
 		background-color: var(--light-color);
 
+		svg path {
+			fill: var(--main-color);
+		}
+
 		@media (prefers-color-scheme: dark) {
 			color: var(--main-color-dark);
 

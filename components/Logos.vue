@@ -1,8 +1,8 @@
 <script setup>
-const { appearLeft } = useAnimation()
+const { appearBottom } = useAnimation()
 
 onMounted(() => {
-	appearLeft('.logos__body', { duration: 1 })
+	appearBottom('.logos', { duration: 1 })
 })
 </script>
 

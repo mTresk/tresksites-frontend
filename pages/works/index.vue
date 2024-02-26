@@ -40,7 +40,7 @@ const nextPage = () => {
 		<Works :works="works" />
 		<div class="spacer-60">
 			<UiButton :disabled="isFetchingNextPage" v-if="hasNextPage" @click="nextPage" transparent wide size="lg"
-				>Показать еще<UiIconArrowDown
+				>{{ isFetchingNextPage ? 'Загружаем' : 'Показать еще' }}<UiIconArrowDown
 			/></UiButton>
 		</div>
 		<Technology />

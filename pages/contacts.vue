@@ -82,10 +82,12 @@ onMounted(() => {
 	}
 
 	&__link {
-		width: 100%;
-
-		button {
+		@media (max-width: $mobileSmall) {
 			width: 100%;
+
+			button {
+				width: 100%;
+			}
 		}
 	}
 

@@ -14,7 +14,7 @@ const {
 	data: works,
 	fetchNextPage,
 	hasNextPage,
-	isLoading,
+	isFetchingNextPage,
 	suspense,
 } = useInfiniteQuery({
 	queryKey: ['works'],
@@ -39,7 +39,7 @@ const nextPage = () => {
 		</Head>
 		<Works :works="works" />
 		<div class="spacer-60">
-			<UiButton :disabled="isLoading" v-if="hasNextPage" @click="nextPage" transparent wide size="lg"
+			<UiButton :disabled="isFetchingNextPage" v-if="hasNextPage" @click="nextPage" transparent wide size="lg"
 				>Показать еще<UiIconArrowDown
 			/></UiButton>
 		</div>

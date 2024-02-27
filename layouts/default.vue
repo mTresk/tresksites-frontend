@@ -55,6 +55,10 @@ nuxtApp.hook('page:loading:end', () => {
 			<!-- Twitter meta -->
 			<Meta name="twitter:description" content="Создание сайтов и веб-приложений любой сложности" />
 			<Meta name="twitter:image" content="/img/og.png" />
+			<!-- Yandex verification -->
+			<Meta name="yandex-verification" content="4bb2b037be469129" />
+			<!-- Google verification -->
+			<Meta name="google-site-verification" content="CRe0is5x5QFQbk4MIYkN9oGyq18F1-43DNZwaSxdBdY" />
 		</Head>
 		<NuxtLoadingIndicator color="#ff565c" />
 		<div class="wrapper">

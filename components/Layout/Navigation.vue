@@ -10,7 +10,7 @@ onMounted(() => {
 
 		if (scrollTop >= itemOffset)
 			navigation.value.style.height = 'calc(100vh - 40px)'
-		 else
+		else
 			navigation.value.style.height = 'calc(100vh - 130px)'
 	})
 })

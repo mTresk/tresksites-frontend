@@ -8,7 +8,6 @@ const { appearLeft } = useAnimation()
 const fetcher = async () => await useNuxtApp().$api(`/api/works/${route.params.slug}`)
 
 const {
-	isLoading,
 	data: work,
 	suspense,
 } = useQuery({

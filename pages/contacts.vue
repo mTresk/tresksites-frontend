@@ -9,12 +9,13 @@ onMounted(() => {
 <template>
 	<div>
 		<Head>
-			<Title> Контакты</Title>
+			<Title>Контакты</Title>
 			<Meta name="description" content="Как со мной можно связаться" />
 		</Head>
 		<section class="contacts spacer-60 contacts-animate">
 			<div class="contacts__wrapper">
-				<h1 class="contacts__title spacer-20 contacts-animate">Лямзин Максим Владимирович
+				<h1 class="contacts__title spacer-20 contacts-animate">
+					Лямзин Максим Владимирович
 				</h1>
 				<div class="contacts__text contacts-animate">
 					ИНН: 720406450676

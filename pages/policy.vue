@@ -30,8 +30,10 @@ onMounted(() => {
 		<section class="policy spacer-60">
 			<UiSpinner v-if="isLoading" />
 			<div v-if="!isLoading" class="policy__wrapper">
-				<h1 class="policy__title spacer-20 policy-animate">{{ policy?.title }}</h1>
-				<div v-html="policy?.content" class="policy__content content policy-animate"></div>
+				<h1 class="policy__title spacer-20 policy-animate">
+					{{ policy?.title }}
+				</h1>
+				<div class="policy__content content policy-animate" v-html="policy?.content" />
 			</div>
 		</section>
 	</div>

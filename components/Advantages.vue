@@ -11,20 +11,36 @@ onMounted(() => {
 	<section class="advantages spacer-60">
 		<div class="advantages__body">
 			<div class="advantages__item">
-				<h2 class="advantages__title">&gt; 5 лет</h2>
-				<p class="advantages__description">я занимаюсь создание сайтов и приложений</p>
+				<h2 class="advantages__title">
+					&gt; 5 лет
+				</h2>
+				<p class="advantages__description">
+					я занимаюсь создание сайтов и приложений
+				</p>
 			</div>
 			<div class="advantages__item">
-				<h2 class="advantages__title">&gt; 100 проектов</h2>
-				<p class="advantages__description">по верстке макетов сайтов</p>
+				<h2 class="advantages__title">
+					&gt; 100 проектов
+				</h2>
+				<p class="advantages__description">
+					по верстке макетов сайтов
+				</p>
 			</div>
 			<div class="advantages__item">
-				<h2 class="advantages__title">&gt; 15 сайтов</h2>
-				<p class="advantages__description">полного цикла «под ключ»</p>
+				<h2 class="advantages__title">
+					&gt; 15 сайтов
+				</h2>
+				<p class="advantages__description">
+					полного цикла «под ключ»
+				</p>
 			</div>
 			<div class="advantages__item">
-				<h2 class="advantages__title">1-3 месяца</h2>
-				<p class="advantages__description">до полной готовности сайта</p>
+				<h2 class="advantages__title">
+					1-3 месяца
+				</h2>
+				<p class="advantages__description">
+					до полной готовности сайта
+				</p>
 			</div>
 		</div>
 	</section>

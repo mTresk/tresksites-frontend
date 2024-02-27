@@ -9,29 +9,37 @@ onMounted(() => {
 <template>
 	<div>
 		<Head>
-			<Title>Контакты</Title>
+			<Title> Контакты</Title>
 			<Meta name="description" content="Как со мной можно связаться" />
 		</Head>
 		<section class="contacts spacer-60 contacts-animate">
 			<div class="contacts__wrapper">
-				<h1 class="contacts__title spacer-20 contacts-animate">Лямзин Максим Владимирович</h1>
-				<div class="contacts__text contacts-animate">ИНН: 720406450676</div>
+				<h1 class="contacts__title spacer-20 contacts-animate">Лямзин Максим Владимирович
+				</h1>
+				<div class="contacts__text contacts-animate">
+					ИНН: 720406450676
+				</div>
 				<div class="contacts__links contacts-animate">
 					<a class="contacts__link" target="_blank" href="https://t.me/tresk">
-						<UiButton light><UiIconTelegram />Написать в Telegram</UiButton></a
-					>
-					<a class="contacts__link" href="mailto:djtresk@gmail.com"
-						><UiButton light><UiIconEmail />Написать на почту</UiButton></a
-					>
+						<UiButton light><UiIconTelegram />Написать в Telegram</UiButton></a>
+					<a class="contacts__link" href="mailto:djtresk@gmail.com"><UiButton light><UiIconEmail />Написать на почту</UiButton></a>
 				</div>
 				<div class="contacts__info">
 					<div class="contacts__block contacts-animate">
-						<h4 class="contacts__label">Адрес</h4>
-						<p class="contacts__value">Территориально я нахожусь в г. Тюмень, но работаю по всей России</p>
+						<h4 class="contacts__label">
+							Адрес
+						</h4>
+						<p class="contacts__value">
+							Территориально я нахожусь в г. Тюмень, но работаю по всей России
+						</p>
 					</div>
 					<div class="contacts__block contacts-animate">
-						<h4 class="contacts__label">Режим работы</h4>
-						<p class="contacts__value">Рабатаю, когда не сплю :)</p>
+						<h4 class="contacts__label">
+							Режим работы
+						</h4>
+						<p class="contacts__value">
+							Рабатаю, когда не сплю :)
+						</p>
 					</div>
 				</div>
 			</div>

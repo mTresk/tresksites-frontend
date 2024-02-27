@@ -24,7 +24,8 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 				'button--disabled': disabled,
 			},
 			classObject,
-		]">
+		]"
+	>
 		<slot />
 	</button>
 </template>

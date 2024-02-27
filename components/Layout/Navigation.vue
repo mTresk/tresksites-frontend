@@ -1,4 +1,5 @@
 <script setup>
+defineEmits(['closeMenu'])
 const navigation = ref()
 
 onMounted(() => {
@@ -7,11 +8,10 @@ onMounted(() => {
 	window.addEventListener('scroll', () => {
 		const scrollTop = window.scrollY
 
-		if (scrollTop >= itemOffset) {
+		if (scrollTop >= itemOffset)
 			navigation.value.style.height = 'calc(100vh - 40px)'
-		} else {
+		 else
 			navigation.value.style.height = 'calc(100vh - 130px)'
-		}
 	})
 })
 
@@ -27,31 +27,31 @@ onUnmounted(() => {
 				<nav class="menu__body">
 					<ul class="menu__list">
 						<li class="menu__item">
-							<NuxtLink to="/" @click="$emit('closeMenu')" class="menu__link">
+							<NuxtLink to="/" class="menu__link" @click="$emit('closeMenu')">
 								<UiIconHome />
 								<span>Главная</span>
 							</NuxtLink>
 						</li>
 						<li class="menu__item">
-							<NuxtLink to="/works" @click="$emit('closeMenu')" class="menu__link">
+							<NuxtLink to="/works" class="menu__link" @click="$emit('closeMenu')">
 								<UiIconWorks />
 								<span>Работы</span>
 							</NuxtLink>
 						</li>
 						<li class="menu__item">
-							<NuxtLink to="/services" @click="$emit('closeMenu')" class="menu__link">
+							<NuxtLink to="/services" class="menu__link" @click="$emit('closeMenu')">
 								<UiIconServices />
 								<span>Услуги</span>
 							</NuxtLink>
 						</li>
 						<li class="menu__item">
-							<NuxtLink to="/order" @click="$emit('closeMenu')" class="menu__link">
+							<NuxtLink to="/order" class="menu__link" @click="$emit('closeMenu')">
 								<UiIconOrder />
 								<span>Заказать сайт</span>
 							</NuxtLink>
 						</li>
 						<li class="menu__item">
-							<NuxtLink to="/contacts" @click="$emit('closeMenu')" class="menu__link">
+							<NuxtLink to="/contacts" class="menu__link" @click="$emit('closeMenu')">
 								<UiIconContacts />
 								<span>Контакты</span>
 							</NuxtLink>

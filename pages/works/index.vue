@@ -1,7 +1,7 @@
 <script setup>
 import { useInfiniteQuery } from '@tanstack/vue-query'
 
-const fetcher = async ({ pageParam = 1 }) => {
+async function fetcher({ pageParam = 1 }) {
 	const data = await useNuxtApp().$api(`api/works?page=${pageParam}`)
 
 	return {
@@ -26,7 +26,7 @@ const {
 
 await suspense()
 
-const nextPage = () => {
+function nextPage() {
 	fetchNextPage()
 }
 </script>
@@ -39,9 +39,9 @@ const nextPage = () => {
 		</Head>
 		<Works :works="works" />
 		<div class="spacer-60">
-			<UiButton :disabled="isFetchingNextPage" v-if="hasNextPage" @click="nextPage" transparent wide size="lg"
-				>{{ isFetchingNextPage ? 'Загружаем' : 'Показать еще' }}<UiIconArrowDown
-			/></UiButton>
+			<UiButton v-if="hasNextPage" :disabled="isFetchingNextPage" transparent wide size="lg" @click="nextPage">
+				{{ isFetchingNextPage ? 'Загружаем' : 'Показать еще' }}<UiIconArrowDown />
+			</UiButton>
 		</div>
 		<Technology />
 	</div>

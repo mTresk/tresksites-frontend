@@ -17,7 +17,9 @@ onMounted(() => {
 					<NuxtPicture format="webp" src="/img/avatar.jpg" alt="Маским Треск" />
 				</div>
 				<div class="technology__info">
-					<h3 class="technology__title">Современные технологии</h3>
+					<h3 class="technology__title">
+						Современные технологии
+					</h3>
 					<p class="technology__description">
 						Я люблю новые веб-технологии и всегда стараюсь применять их в разработке своих проектов
 					</p>
@@ -31,39 +33,39 @@ onMounted(() => {
 			</div>
 			<div class="technology__chips">
 				<div class="chip">
-					<img src="/img/chips/html.svg" alt="HTML5" />
+					<img src="/img/chips/html.svg" alt="HTML5">
 					<span>HTML5</span>
 				</div>
 				<div class="chip">
-					<img src="/img/chips/css.svg" alt="CSS" />
+					<img src="/img/chips/css.svg" alt="CSS">
 					<span>CSS</span>
 				</div>
 				<div class="chip">
-					<img src="/img/chips/vite.svg" alt="Vite" />
+					<img src="/img/chips/vite.svg" alt="Vite">
 					<span>Vite</span>
 				</div>
 				<div class="chip">
-					<img src="/img/chips/js.svg" alt="JavaScript" />
+					<img src="/img/chips/js.svg" alt="JavaScript">
 					<span>JavaScript</span>
 				</div>
 				<div class="chip">
-					<img src="/img/chips/php.svg" alt="PHP" />
+					<img src="/img/chips/php.svg" alt="PHP">
 					<span>PHP</span>
 				</div>
 				<div class="chip">
-					<img src="/img/chips/vue.svg" alt="Vue.js" />
+					<img src="/img/chips/vue.svg" alt="Vue.js">
 					<span>Vue.js</span>
 				</div>
 				<div class="chip">
-					<img src="/img/chips/nuxt.svg" alt="Nuxt" />
+					<img src="/img/chips/nuxt.svg" alt="Nuxt">
 					<span>Nuxt</span>
 				</div>
 				<div class="chip">
-					<img src="/img/chips/laravel.svg" alt="Laravel" />
+					<img src="/img/chips/laravel.svg" alt="Laravel">
 					<span>Laravel</span>
 				</div>
 				<div class="chip">
-					<img src="/img/chips/nest.svg" alt="NestJS" />
+					<img src="/img/chips/nest.svg" alt="NestJS">
 					<span>NestJS</span>
 				</div>
 			</div>

@@ -10,28 +10,28 @@ onMounted(() => {
 	<div class="logos spacer-60">
 		<div class="logos__body">
 			<div class="logos__item">
-				<img src="/img/logos/schlumberger.svg" alt="" />
+				<img src="/img/logos/schlumberger.svg" alt="">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/fctyumen.svg" alt="" />
+				<img src="/img/logos/fctyumen.svg" alt="">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/happykids.svg" alt="" />
+				<img src="/img/logos/happykids.svg" alt="">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/rubin.svg" alt="" />
+				<img src="/img/logos/rubin.svg" alt="">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/ekst.svg" alt="" />
+				<img src="/img/logos/ekst.svg" alt="">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/legion.svg" alt="" />
+				<img src="/img/logos/legion.svg" alt="">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/arena.svg" alt="" />
+				<img src="/img/logos/arena.svg" alt="">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/ano.svg" alt="" />
+				<img src="/img/logos/ano.svg" alt="">
 			</div>
 		</div>
 	</div>

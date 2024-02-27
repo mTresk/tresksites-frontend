@@ -6,13 +6,17 @@ const currentYear = new Date().getFullYear()
 	<footer class="footer">
 		<div class="footer__links">
 			<NuxtLink to="/order">
-				<UiButton transparent>Заказать сайт<UiIconArrowUp /></UiButton>
+				<UiButton transparent>
+					Заказать сайт<UiIconArrowUp />
+				</UiButton>
 			</NuxtLink>
 			<a href="/files/brief.doc" download="Бриф на разработку сайта">
 				<UiButton transparent>Скачать бриф<UiIconArrowDown /></UiButton>
 			</a>
 		</div>
-		<p class="footer__copyright">© 2019 – {{ currentYear }}, Лямзин Максим Владимирович, ИНН: 720406450676</p>
+		<p class="footer__copyright">
+			© 2019 – {{ currentYear }}, Лямзин Максим Владимирович, ИНН: 720406450676
+		</p>
 	</footer>
 </template>
 

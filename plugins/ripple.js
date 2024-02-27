@@ -1,8 +1,8 @@
-const handleRipple = (element, binding, event) => {
+function handleRipple(element, binding, event) {
 	const rippleElement = document.createElement('span')
 	let currentDiameter = 1
 	let currentOpacity = 0.65
-	let animationHandler = setInterval(animateRippleSpread, 5)
+	const animationHandler = setInterval(animateRippleSpread, 5)
 	applyRippleStyle()
 
 	function applyRippleStyle() {
@@ -27,7 +27,8 @@ const handleRipple = (element, binding, event) => {
 			currentOpacity -= 0.65 / maximalDiameter
 			rippleElement.style.transform = `scale(${currentDiameter})`
 			rippleElement.style.opacity = `${currentOpacity}`
-		} else {
+		}
+		else {
 			rippleElement.remove()
 			clearInterval(animationHandler)
 		}
@@ -39,7 +40,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 		mounted: (el, binding) => {
 			el.style.position = 'relative'
 			el.style.overflow = 'hidden'
-			el.addEventListener('click', (ev) => handleRipple(el, binding, ev))
+			el.addEventListener('click', ev => handleRipple(el, binding, ev))
 		},
 	})
 })

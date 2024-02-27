@@ -2,15 +2,19 @@
 	<header class="header">
 		<div class="header__body">
 			<div class="header__left">
-				<button aria-label="Меню" @click="$emit('toggleMenu')" type="button" class="icon-menu"><span></span></button>
+				<button aria-label="Меню" type="button" class="icon-menu" @click="$emit('toggleMenu')">
+					<span />
+				</button>
 				<NuxtLink to="/" class="header__logo header__logo--light">
-					<img src="/img/logo.svg" alt="Tresk Sites" />
+					<img src="/img/logo.svg" alt="Tresk Sites">
 				</NuxtLink>
 				<NuxtLink to="/" class="header__logo header__logo--dark">
-					<img src="/img/logo-dark.svg" alt="Tresk Sites" />
+					<img src="/img/logo-dark.svg" alt="Tresk Sites">
 				</NuxtLink>
 				<NuxtLink class="header__button" to="/order">
-					<UiButton transparent>Заказать сайт <UiIconArrowUp /></UiButton>
+					<UiButton transparent>
+						Заказать сайт <UiIconArrowUp />
+					</UiButton>
 				</NuxtLink>
 			</div>
 			<div class="header__right">

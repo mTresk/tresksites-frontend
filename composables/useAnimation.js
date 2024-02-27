@@ -1,4 +1,4 @@
-export const useAnimation = () => {
+export function useAnimation() {
 	const ctx = ref()
 
 	const appearLeft = async (element, options) => {

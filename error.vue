@@ -11,9 +11,15 @@ const handleError = () => clearError({ redirect: '/' })
 		<div class="error">
 			<div class="error__container">
 				<div class="error__body">
-					<h1 :data-error="error?.statusCode" class="error__title">{{ error?.statusCode }}</h1>
-					<div class="error__status">{{ error?.message }}</div>
-					<UiButton @click="handleError">Вернуться на главную</UiButton>
+					<h1 :data-error="error?.statusCode" class="error__title">
+						{{ error?.statusCode }}
+					</h1>
+					<div class="error__status">
+						{{ error?.message }}
+					</div>
+					<UiButton @click="handleError">
+						Вернуться на главную
+					</UiButton>
 				</div>
 			</div>
 		</div>

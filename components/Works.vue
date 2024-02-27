@@ -16,11 +16,11 @@ onMounted(() => {
 		<div class="works__body">
 			<TransitionGroup v-if="works?.pages" name="card">
 				<div v-for="(page, index) in works?.pages" :key="index">
-					<WorksCard class="animate-card" v-for="work in page?.pageData" :key="work.slug" :work="work" />
+					<WorksCard v-for="work in page?.pageData" :key="work.slug" class="animate-card" :work="work" />
 				</div>
 			</TransitionGroup>
 			<template v-else>
-				<WorksCard class="animate-card" v-for="work in works" :key="work?.slug" :work="work" />
+				<WorksCard v-for="work in works" :key="work?.slug" class="animate-card" :work="work" />
 			</template>
 		</div>
 	</section>

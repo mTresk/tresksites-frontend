@@ -18,7 +18,7 @@ const isLoading = ref(true)
 
 const isMenuOpen = ref(false)
 
-const toggleMenu = () => {
+function toggleMenu() {
 	isMenuOpen.value = !isMenuOpen.value
 
 	isMenuOpen.value
@@ -26,7 +26,7 @@ const toggleMenu = () => {
 		: document.documentElement.classList.remove('menu-open')
 }
 
-const closeMenu = () => {
+function closeMenu() {
 	isMenuOpen.value = false
 
 	document.documentElement.classList.remove('menu-open')
@@ -63,9 +63,9 @@ nuxtApp.hook('page:loading:end', () => {
 		<NuxtLoadingIndicator color="#ff565c" />
 		<div class="wrapper">
 			<div class="wrapper__container">
-				<LayoutHeader @toggleMenu="toggleMenu" />
+				<LayoutHeader @toggle-menu="toggleMenu" />
 				<div class="inner">
-					<LayoutNavigation @closeMenu="closeMenu" />
+					<LayoutNavigation @close-menu="closeMenu" />
 					<UiSpinner v-if="isLoading" />
 					<div v-show="!isLoading" class="page">
 						<main class="main">

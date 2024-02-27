@@ -7,9 +7,9 @@ services:
       dockerfile: Dockerfile
     labels:
       - 'traefik.http.routers.tresksites-nuxt.rule=Host(`${NUXT_PUBLIC_BASE_URL}`)'
-      - 'traefik.docker.network=web'
-      - 'traefik.http.routers.tresksites-nuxt.entrypoints=websecure'
-      - 'traefik.http.routers.tresksites-nuxt.tls.certresolver=myresolver'
+      - traefik.docker.network=web
+      - traefik.http.routers.tresksites-nuxt.entrypoints=websecure
+      - traefik.http.routers.tresksites-nuxt.tls.certresolver=myresolver
     container_name: tresksites-nuxt
     restart: always
     networks:

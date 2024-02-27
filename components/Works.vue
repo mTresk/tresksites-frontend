@@ -14,11 +14,14 @@ onMounted(() => {
 <template>
 	<section class="works spacer-60">
 		<div class="works__body">
-			<!-- Hydration node mismatch with TransitionGroup -->
-			<div v-if="works?.pages" v-for="(page, index) in works?.pages" :key="index">
-				<WorksCard class="animate-card" v-for="work in page?.pageData" :key="work.slug" :work="work" />
-			</div>
-			<WorksCard class="animate-card" v-else v-for="work in works" :key="work?.slug" :work="work" />
+			<TransitionGroup v-if="works?.pages" name="card">
+				<div v-for="(page, index) in works?.pages" :key="index">
+					<WorksCard class="animate-card" v-for="work in page?.pageData" :key="work.slug" :work="work" />
+				</div>
+			</TransitionGroup>
+			<template v-else>
+				<WorksCard class="animate-card" v-for="work in works" :key="work?.slug" :work="work" />
+			</template>
 		</div>
 	</section>
 </template>

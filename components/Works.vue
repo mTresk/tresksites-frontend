@@ -6,8 +6,11 @@ defineProps({
 const { appearLeft, rotate } = useAnimation()
 
 onMounted(() => {
-	appearLeft('.animate-card')
-	rotate('.work-card__image')
+	const cards = document.querySelectorAll('.animate-card')
+	const images = document.querySelectorAll('.work-card__image')
+
+	appearLeft(cards)
+	rotate(images)
 })
 </script>
 
@@ -46,7 +49,7 @@ onMounted(() => {
 
 .card-enter-active,
 .card-leave-active {
-	transition: all 1s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+	transition: all 1s cubic-bezier(0.25, 0.45, 0.45, 0.95) 0.1s;
 }
 
 .card-enter-from,
@@ -57,7 +60,7 @@ onMounted(() => {
 
 .card-enter-active .work-card__image,
 .card-leave-active .work-card__image {
-	transition: all 1.1s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+	transition: all 1s cubic-bezier(0.25, 0.45, 0.45, 0.95) 0.1s;
 }
 
 .card-enter-from .work-card__image,

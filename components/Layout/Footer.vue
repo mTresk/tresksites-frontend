@@ -1,5 +1,7 @@
 <script setup>
 const currentYear = new Date().getFullYear()
+
+const contacts = useState('contacts')
 </script>
 
 <template>
@@ -15,7 +17,7 @@ const currentYear = new Date().getFullYear()
 			</a>
 		</div>
 		<p class="footer__copyright">
-			© 2019 – {{ currentYear }}, Лямзин Максим Владимирович, ИНН: 720406450676
+			© 2019 – {{ currentYear }}, {{ contacts?.name }}, {{ contacts?.inn }}
 		</p>
 	</footer>
 </template>

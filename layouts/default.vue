@@ -1,22 +1,25 @@
 <script setup>
-gsap.config({
-	nullTargetWarn: false,
-})
-
-useHead({
-	htmlAttrs: {
-		lang: 'ru',
-	},
-	titleTemplate: (titleChunk) => {
-		return titleChunk ? `${titleChunk} — Tresk Sites` : 'Tresk Sites'
-	},
-})
+import { useQuery } from '@tanstack/vue-query'
 
 const nuxtApp = useNuxtApp()
 
 const isLoading = ref(true)
 
 const isMenuOpen = ref(false)
+
+const fetcher = async () => await useNuxtApp().$api('/api/contacts')
+
+const {
+	data,
+	suspense,
+} = useQuery({
+	queryKey: ['contacts'],
+	queryFn: fetcher,
+})
+
+await suspense()
+
+useState('contacts', () => data.value)
 
 function toggleMenu() {
 	isMenuOpen.value = !isMenuOpen.value
@@ -34,6 +37,19 @@ function closeMenu() {
 
 nuxtApp.hook('page:loading:end', () => {
 	isLoading.value = false
+})
+
+gsap.config({
+	nullTargetWarn: false,
+})
+
+useHead({
+	htmlAttrs: {
+		lang: 'ru',
+	},
+	titleTemplate: (titleChunk) => {
+		return titleChunk ? `${titleChunk} — Tresk Sites` : 'Tresk Sites'
+	},
 })
 </script>
 

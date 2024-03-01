@@ -1,6 +1,8 @@
 <script setup>
 const { appearLeft } = useAnimation()
 
+const contacts = useState('contacts')
+
 onMounted(() => {
 	appearLeft('.contacts-animate')
 })
@@ -15,10 +17,10 @@ onMounted(() => {
 		<section class="contacts spacer-60 contacts-animate">
 			<div class="contacts__wrapper">
 				<h1 class="contacts__title spacer-20 contacts-animate">
-					Лямзин Максим Владимирович
+					{{ contacts?.name }}
 				</h1>
 				<div class="contacts__text contacts-animate">
-					ИНН: 720406450676
+					{{ contacts?.inn }}
 				</div>
 				<div class="contacts__links contacts-animate">
 					<a class="contacts__link" target="_blank" href="https://t.me/tresk">
@@ -26,22 +28,7 @@ onMounted(() => {
 					<a class="contacts__link" href="mailto:djtresk@gmail.com"><UiButton light><UiIconEmail />Написать на почту</UiButton></a>
 				</div>
 				<div class="contacts__info">
-					<div class="contacts__block contacts-animate">
-						<h4 class="contacts__label">
-							Адрес
-						</h4>
-						<p class="contacts__value">
-							Территориально я нахожусь в г. Тюмень, но работаю по всей России
-						</p>
-					</div>
-					<div class="contacts__block contacts-animate">
-						<h4 class="contacts__label">
-							Режим работы
-						</h4>
-						<p class="contacts__value">
-							Рабатаю, когда не сплю :)
-						</p>
-					</div>
+					<div v-for="item in contacts?.block" :key="item?.content" class="contacts__block contacts-animate" v-html="item?.content" />
 				</div>
 			</div>
 		</section>
@@ -114,14 +101,21 @@ onMounted(() => {
 		flex-direction: column;
 		gap: rem(8);
 		align-items: flex-start;
-	}
 
-	// .contacts__value
-	&__value {
-		font-weight: 500;
-		line-height: 150%;
+		h3 {
+			font-family: Montserrat, sans-serif;
+			font-weight: 700;
+			line-height: 125%;
 
-		@include adaptiveValue('font-size', 16, 14);
+			@include adaptiveValue('font-size', 22, 18);
+		}
+
+		p {
+			font-weight: 500;
+			line-height: 150%;
+
+			@include adaptiveValue('font-size', 16, 14);
+		}
 	}
 }
 </style>

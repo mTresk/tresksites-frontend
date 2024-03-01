@@ -1,5 +1,8 @@
 <script setup>
 defineEmits(['closeMenu'])
+
+const contacts = useState('contacts')
+
 const navigation = ref()
 
 onMounted(() => {
@@ -61,7 +64,7 @@ onUnmounted(() => {
 			</div>
 			<div class="navigation__socials">
 				<div class="navigation__social">
-					<a target="_blank" href="https://t.me/tresk" class="menu__link">
+					<a target="_blank" :href="contacts?.telegram" class="menu__link">
 						<UiIconTelegramMenu />
 						<span>Написать в Telegram</span>
 					</a>

@@ -1,3 +1,9 @@
+<script setup>
+defineEmits(['toggleMenu'])
+
+const contacts = useState('contacts')
+</script>
+
 <template>
 	<header class="header">
 		<div class="header__body">
@@ -22,9 +28,9 @@
 					<div class="header__avatar">
 						<NuxtPicture format="webp" src="/img/avatar.jpg" alt="Маским Треск" />
 					</div>
-					<a href="mailto:djtresk@gmail.com" class="header__email">djtresk@gmail.com</a>
+					<a :href="`mailto:${contacts?.email}`" class="header__email">{{ contacts?.email }}</a>
 				</div>
-				<a target="_blank" href="https://t.me/tresk">
+				<a target="_blank" :href="contacts?.telegram">
 					<UiButton><UiIconTelegram />Telegram</UiButton>
 				</a>
 			</div>

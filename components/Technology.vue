@@ -1,6 +1,8 @@
 <script setup>
 const { appearLeft } = useAnimation()
 
+const contacts = useState('contacts')
+
 onMounted(() => {
 	appearLeft('.technology', {
 		duration: 1.2,
@@ -25,10 +27,10 @@ onMounted(() => {
 					</p>
 				</div>
 				<div class="technology__links">
-					<a target="_blank" href="https://t.me/tresk">
+					<a target="_blank" :href="contacts?.telegram">
 						<UiButton wide><UiIconTelegram />Telegram</UiButton>
 					</a>
-					<a href="mailto:djtresk@gmail.com" class="technology__email">djtresk@gmail.com</a>
+					<a :href="`mailto:${contacts?.email}`" class="technology__email">{{ contacts?.email }}</a>
 				</div>
 			</div>
 			<div class="technology__chips">

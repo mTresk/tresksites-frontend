@@ -11,7 +11,6 @@ export function useAnimation() {
 						ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
 						stagger: 0.2,
 						duration: 1,
-						delay: 0.4,
 						scrollTrigger: {
 							trigger: element,
 						},
@@ -26,7 +25,6 @@ export function useAnimation() {
 					ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
 					stagger: 0.2,
 					duration: 1,
-					delay: 0.4,
 					scrollTrigger: {
 						trigger: target,
 					},

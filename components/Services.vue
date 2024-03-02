@@ -1,20 +1,10 @@
 <script setup>
-import { useQuery } from '@tanstack/vue-query'
-
-const { appearLeft } = useAnimation()
-
-const fetcher = async () => await useNuxtApp().$api('/api/services')
-
-const {
-	isLoading,
-	data: services,
-	suspense,
-} = useQuery({
-	queryKey: ['services'],
-	queryFn: fetcher,
+defineProps({
+	services: Object,
+	isLoading: Boolean,
 })
 
-await suspense()
+const { appearLeft } = useAnimation()
 
 onMounted(() => {
 	appearLeft('.service-card', {

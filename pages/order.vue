@@ -3,6 +3,8 @@ import { useQuery } from '@tanstack/vue-query'
 
 const { appearLeft } = useAnimation()
 
+const contacts = useState('contacts')
+
 const fetcher = async () => await useNuxtApp().$api('/api/prices')
 
 const {
@@ -37,7 +39,7 @@ onMounted(() => {
 					Я занимаюсь версткой сайтов по дизайн-макетам, могу сам нарисовать дизайн, могу сделать вам полноценный сайт
 					«под ключ». Еще я делаю программные интерфейсы для медиа-киосков и веб приложения. Давайте обсудим? Для
 					наилучшего понимания вашей задачи, пожалуйста,
-					<a href="/files/brief.doc" download="Бриф на разработку сайта">скачайте</a> и заполните бриф.
+					<a :href="contacts?.brief" download="Бриф на разработку сайта">скачайте</a> и заполните бриф.
 				</p>
 				<Form class="order-animate" />
 			</div>

@@ -12,7 +12,7 @@ const contacts = useState('contacts')
 					Заказать сайт<UiIconArrowUp />
 				</UiButton>
 			</NuxtLink>
-			<a href="/files/brief.doc" download="Бриф на разработку сайта">
+			<a :href="contacts?.brief" download="Бриф на разработку сайта">
 				<UiButton transparent>Скачать бриф<UiIconArrowDown /></UiButton>
 			</a>
 		</div>

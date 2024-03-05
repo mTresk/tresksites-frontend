@@ -16,6 +16,7 @@ const {
 	hasNextPage,
 	isFetchingNextPage,
 	suspense,
+	isLoading,
 } = useInfiniteQuery({
 	queryKey: ['works'],
 	queryFn: fetcher,
@@ -37,7 +38,7 @@ function nextPage() {
 			<Title>Работы</Title>
 			<Meta name="description" content="Выполненные работы по верстке и программированию сайтов" />
 		</Head>
-		<Works :works="works" />
+		<Works :works="works" :is-loading="isLoading" />
 		<div class="spacer-60">
 			<UiButton v-if="hasNextPage" :disabled="isFetchingNextPage" transparent wide size="lg" @click="nextPage">
 				{{ isFetchingNextPage ? 'Загружаем' : 'Показать еще' }}<UiIconArrowDown />

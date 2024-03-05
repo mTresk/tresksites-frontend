@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
 	works: Object,
+	isLoading: Boolean,
 })
 
 const { appearLeft, rotate } = useAnimation()
@@ -16,7 +17,8 @@ onMounted(() => {
 
 <template>
 	<section class="works spacer-60">
-		<div class="works__body">
+		<UiSpinner v-if="isLoading" />
+		<div v-if="!isLoading" class="works__body">
 			<TransitionGroup v-if="works?.pages" name="card">
 				<div v-for="(page, index) in works?.pages" :key="index">
 					<WorksCard v-for="work in page?.pageData" :key="work.slug" class="animate-card" :work="work" />

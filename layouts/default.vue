@@ -1,5 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query'
+import type { IContacts } from '@/types'
 
 const nuxtApp = useNuxtApp()
 
@@ -7,10 +8,10 @@ const isLoading = ref(true)
 
 const isMenuOpen = ref(false)
 
-const fetcher = async () => await useNuxtApp().$api('/api/contacts')
+const fetcher = async () => await useNuxtApp().$api<IContacts>('/api/contacts')
 
 const {
-	data,
+	data: contacts,
 	suspense,
 } = useQuery({
 	queryKey: ['contacts'],
@@ -19,7 +20,7 @@ const {
 
 await suspense()
 
-useState('contacts', () => data.value)
+useState('contacts', () => contacts.value)
 
 function toggleMenu() {
 	isMenuOpen.value = !isMenuOpen.value

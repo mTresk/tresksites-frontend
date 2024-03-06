@@ -1,7 +1,9 @@
-<script setup>
+<script setup lang="ts">
+import type { IContacts } from '@/types'
+
 defineEmits(['closeMenu'])
 
-const contacts = useState('contacts')
+const contacts = useState<IContacts>('contacts')
 
 const navigation = ref()
 
@@ -19,7 +21,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-	window.removeEventListener('scroll')
+	window.removeEventListener('scroll', () => {})
 })
 </script>
 

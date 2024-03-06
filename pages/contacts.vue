@@ -1,7 +1,9 @@
-<script setup>
+<script setup lang="ts">
+import type { IContacts } from '@/types'
+
 const { appearLeft } = useAnimation()
 
-const contacts = useState('contacts')
+const contacts = useState<IContacts>('contacts')
 
 onMounted(() => {
 	appearLeft('.contacts-animate')

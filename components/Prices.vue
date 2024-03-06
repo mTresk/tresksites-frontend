@@ -1,8 +1,12 @@
-<script setup>
-defineProps({
-	prices: Object,
-	isLoading: Boolean,
-})
+<script setup lang="ts">
+import type { IPrices } from '@/types'
+
+interface IProps {
+	prices?: IPrices
+	isLoading: boolean
+}
+
+defineProps<IProps>()
 </script>
 
 <template>

@@ -1,7 +1,5 @@
-import { asSitemapUrl, defineSitemapEventHandler, useRuntimeConfig } from '#imports'
-
 export default defineSitemapEventHandler(async () => {
-	const pages = await $fetch<{ pages: { slug: string } }>(`${useRuntimeConfig().public.backendUrl}/api/routes`)
+	const pages = await $fetch<{ [x: string]: any }>(`${useRuntimeConfig().public.backendUrl}/api/routes`)
 	return [
 		...pages.map((page: { slug: string, updated_at: string }) =>
 			asSitemapUrl({

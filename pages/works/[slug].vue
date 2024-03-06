@@ -1,15 +1,17 @@
-<script setup>
+<script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query'
+import type { IWorkItem } from '@/types'
 
 const route = useRoute()
 
 const { appearLeft } = useAnimation()
 
-const fetcher = async () => await useNuxtApp().$api(`/api/works/${route.params.slug}`)
+const fetcher = async () => await useNuxtApp().$api<IWorkItem>(`/api/works/${route.params.slug}`)
 
 const {
 	data: work,
 	suspense,
+	isLoading,
 } = useQuery({
 	queryKey: [route.params.slug],
 	queryFn: fetcher,
@@ -71,11 +73,11 @@ onMounted(() => {
 				</article>
 			</div>
 		</section>
-		<section v-if="work?.otherWorks.length" class="more-works">
+		<section v-if="work?.otherWorks" class="more-works">
 			<h4 class="more-works__title spacer-20">
 				Еще работы
 			</h4>
-			<Works :works="work?.otherWorks" />
+			<Works :works="work?.otherWorks" :is-loading="isLoading" />
 		</section>
 		<div class="spacer-60">
 			<NuxtLink to="/works">

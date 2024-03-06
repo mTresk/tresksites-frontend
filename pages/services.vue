@@ -1,7 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query'
+import type { IServices } from '@/types'
 
-const fetcher = async () => await useNuxtApp().$api('/api/services')
+const fetcher = async () => await useNuxtApp().$api<IServices>('/api/services')
 
 const {
 	isLoading,

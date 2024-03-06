@@ -1,8 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import { useInfiniteQuery } from '@tanstack/vue-query'
 
 async function fetcher({ pageParam = 1 }) {
-	const data = await useNuxtApp().$api(`api/works?page=${pageParam}`)
+	const data = await useNuxtApp().$api<any>(`api/works?page=${pageParam}`)
 
 	return {
 		pageData: data?.data || [],
@@ -23,6 +23,7 @@ const {
 	getNextPageParam: (lastPage) => {
 		return lastPage.cursor
 	},
+	initialPageParam: 1,
 })
 
 await suspense()
@@ -38,7 +39,7 @@ function nextPage() {
 			<Title>Работы</Title>
 			<Meta name="description" content="Выполненные работы по верстке и программированию сайтов" />
 		</Head>
-		<Works :works="works" :is-loading="isLoading" />
+		<Works :works="works as any" :is-loading="isLoading" />
 		<div class="spacer-60">
 			<UiButton v-if="hasNextPage" :disabled="isFetchingNextPage" transparent wide size="lg" @click="nextPage">
 				{{ isFetchingNextPage ? 'Загружаем' : 'Показать еще' }}<UiIconArrowDown />

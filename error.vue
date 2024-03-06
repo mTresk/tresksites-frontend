@@ -1,7 +1,7 @@
-<script setup>
-defineProps({
-	error: Object,
-})
+<script setup lang="ts">
+import type { NuxtError } from '#app'
+
+defineProps<{ error: NuxtError }>()
 
 const handleError = () => clearError({ redirect: '/' })
 </script>
@@ -11,11 +11,11 @@ const handleError = () => clearError({ redirect: '/' })
 		<div class="error">
 			<div class="error__container">
 				<div class="error__body">
-					<h1 :data-error="error?.statusCode" class="error__title">
-						{{ error?.statusCode }}
+					<h1 :data-error="error.statusCode" class="error__title">
+						{{ error.statusCode }}
 					</h1>
 					<div class="error__status">
-						{{ error?.message }}
+						{{ error.message }}
 					</div>
 					<UiButton @click="handleError">
 						Вернуться на главную

@@ -1,7 +1,9 @@
-<script setup>
+<script setup lang="ts">
+import type { IContacts } from '@/types'
+
 defineEmits(['toggleMenu'])
 
-const contacts = useState('contacts')
+const contacts = useState<IContacts>('contacts')
 </script>
 
 <template>

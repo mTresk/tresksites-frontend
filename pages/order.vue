@@ -1,11 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query'
+import type { IContacts, IPrices } from '@/types'
 
 const { appearLeft } = useAnimation()
 
-const contacts = useState('contacts')
+const contacts = useState<IContacts>('contacts')
 
-const fetcher = async () => await useNuxtApp().$api('/api/prices')
+const fetcher = async () => await useNuxtApp().$api<IPrices>('/api/prices')
 
 const {
 	isLoading,

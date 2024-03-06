@@ -1,5 +1,5 @@
-<script setup>
-const fileInput = ref('')
+<script setup lang="ts">
+const fileInput = ref()
 
 const errors = ref()
 
@@ -26,9 +26,8 @@ function clearForm() {
 	form.email = ''
 	form.message = ''
 	form.attachment = ''
-
 	fileInput.value.closest('.file').querySelector('.file__text').textContent = 'Прикрепить бриф'
-
+	errors.value = []
 	isFormSent.value = true
 }
 
@@ -56,7 +55,7 @@ async function formSubmit() {
 			isLoading.value = false
 		}
 	}
-	catch (error) {
+	catch (error: any) {
 		if (error)
 			errors.value = error.response._data.errors
 		isLoading.value = false
@@ -351,6 +350,7 @@ async function formSubmit() {
 }
 
 .file {
+	position: relative;
 	display: flex;
 	gap: rem(6);
 	align-items: center;

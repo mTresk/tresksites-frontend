@@ -1,7 +1,7 @@
 export function useAnimation() {
 	const ctx = ref()
 
-	const appearLeft = async (target, options) => {
+	const appearLeft = async (target: NodeListOf<Element> | string, options?: { [key: string]: string | number }) => {
 		ctx.value = gsap.context(() => {
 			if (typeof target == 'object') {
 				target.forEach((element) => {
@@ -34,7 +34,7 @@ export function useAnimation() {
 		})
 	}
 
-	const appearBottom = async (element, options) => {
+	const appearBottom = async (element: NodeListOf<Element> | string, options?: { [key: string]: string | number }) => {
 		ctx.value = gsap.context(() => {
 			gsap.from(element, {
 				y: 20,
@@ -49,7 +49,7 @@ export function useAnimation() {
 		})
 	}
 
-	const rotate = async (target, options) => {
+	const rotate = async (target: NodeListOf<Element> | string, options?: { [key: string]: string | number }) => {
 		ctx.value = gsap.context(() => {
 			if (typeof target == 'object') {
 				target.forEach((element) => {

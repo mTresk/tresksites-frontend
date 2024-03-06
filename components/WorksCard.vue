@@ -1,7 +1,7 @@
-<script setup>
-defineProps({
-	work: Object,
-})
+<script setup lang="ts">
+import type { IWork } from '@/types'
+
+defineProps<{ work: IWork }>()
 </script>
 
 <template>

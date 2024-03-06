@@ -1,8 +1,12 @@
-<script setup>
-defineProps({
-	works: Object,
-	isLoading: Boolean,
-})
+<script setup lang="ts">
+import type { IWork, IWorks } from '@/types'
+
+interface IProps {
+	works: IWorks | IWork[]
+	isLoading: boolean
+}
+
+defineProps<IProps>()
 
 const { appearLeft, rotate } = useAnimation()
 
@@ -19,13 +23,13 @@ onMounted(() => {
 	<section class="works spacer-60">
 		<UiSpinner v-if="isLoading" />
 		<div v-if="!isLoading" class="works__body">
-			<TransitionGroup v-if="works?.pages" name="card">
-				<div v-for="(page, index) in works?.pages" :key="index">
+			<TransitionGroup v-if="(works as IWorks).pages" name="card">
+				<div v-for="(page, index) in (works as IWorks).pages" :key="index">
 					<WorksCard v-for="work in page?.pageData" :key="work.slug" class="animate-card" :work="work" />
 				</div>
 			</TransitionGroup>
 			<template v-else>
-				<WorksCard v-for="work in works" :key="work?.slug" class="animate-card" :work="work" />
+				<WorksCard v-for="work in works as IWork[]" :key="work.slug" class="animate-card" :work="work" />
 			</template>
 		</div>
 	</section>

@@ -1,8 +1,12 @@
-<script setup>
-defineProps({
-	services: Object,
-	isLoading: Boolean,
-})
+<script setup lang="ts">
+import type { IServices } from '@/types'
+
+interface IProps {
+	services: IServices[]
+	isLoading: boolean
+}
+
+defineProps<IProps>()
 
 const { appearLeft } = useAnimation()
 
@@ -17,7 +21,7 @@ onMounted(() => {
 	<section class="services spacer-60">
 		<UiSpinner v-if="isLoading" />
 		<div v-if="!isLoading" class="services__body">
-			<ServicesCard v-for="service in services" :key="service?.id" :service="service" />
+			<ServicesCard v-for="service in services" :key="service.id" :service="service" />
 		</div>
 	</section>
 </template>

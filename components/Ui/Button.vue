@@ -1,12 +1,14 @@
-<script setup>
-const props = defineProps({
-	transparent: Boolean,
-	wide: Boolean,
-	inverted: Boolean,
-	light: Boolean,
-	size: String,
-	disabled: Boolean,
-})
+<script setup lang="ts">
+interface IProps {
+	transparent?: boolean
+	wide?: boolean
+	inverted?: boolean
+	light?: boolean
+	size?: string
+	disabled?: boolean
+}
+
+const props = defineProps<IProps>()
 
 const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 </script>

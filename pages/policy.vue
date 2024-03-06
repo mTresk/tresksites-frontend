@@ -1,9 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query'
+import type { IPolicy } from '@/types'
 
 const { appearLeft } = useAnimation()
 
-const fetcher = async () => await useNuxtApp().$api('/api/policy')
+const fetcher = async () => await useNuxtApp().$api<IPolicy>('/api/policy')
 
 const {
 	isLoading,

@@ -1,4 +1,8 @@
-function handleRipple(element, binding, event) {
+export type HTMLElementEvent<T extends HTMLElement> = MouseEvent & {
+	target: T
+}
+
+function handleRipple(element: HTMLElement, binding: any, event: HTMLElementEvent<HTMLButtonElement>) {
 	const rippleElement = document.createElement('span')
 	let currentDiameter = 1
 	let currentOpacity = 0.65
@@ -37,10 +41,10 @@ function handleRipple(element, binding, event) {
 
 export default defineNuxtPlugin((nuxtApp) => {
 	nuxtApp.vueApp.directive('ripple', {
-		mounted: (el, binding) => {
-			el.style.position = 'relative'
-			el.style.overflow = 'hidden'
-			el.addEventListener('click', ev => handleRipple(el, binding, ev))
+		mounted: (element, binding) => {
+			element.style.position = 'relative'
+			element.style.overflow = 'hidden'
+			element.addEventListener('click', (event: HTMLElementEvent<HTMLButtonElement>) => handleRipple(element, binding, event))
 		},
 	})
 })

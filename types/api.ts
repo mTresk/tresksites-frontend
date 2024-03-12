@@ -35,6 +35,9 @@ export interface IServices {
 	icon: string
 	title: string
 	description: string
+	files: {
+		original: string
+	}
 }
 
 export interface IWork {

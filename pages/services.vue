@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/vue-query'
 import type { IServices } from '@/types'
 
-const fetcher = async () => await useNuxtApp().$api<IServices>('/api/services')
+const fetcher = async () => await useNuxtApp().$api<IServices[]>('/api/services')
 
 const {
 	isLoading,
@@ -22,7 +22,7 @@ await suspense()
 			<Title>Услуги</Title>
 			<Meta name="description" content="Дизайн, верстка и программирование сайтов и веб-приложений" />
 		</Head>
-		<Services :services="services" :is-loading="isLoading" />
+		<Services :services="services as IServices[]" :is-loading="isLoading" />
 		<Advantages />
 		<Technology />
 	</div>

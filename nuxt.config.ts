@@ -21,7 +21,7 @@ export default defineNuxtConfig({
 			autoprefixer: {},
 		},
 	},
-	modules: ['@nuxt/image', 'nuxt-simple-robots', '@nuxtjs/sitemap'],
+	modules: ['@nuxt/image', 'nuxt-simple-robots', 'nuxt-delay-hydration', '@nuxtjs/sitemap'],
 	sitemap: {
 		sources: ['/api/sitemap/urls'],
 	},
@@ -38,5 +38,8 @@ export default defineNuxtConfig({
 	},
 	build: {
 		transpile: ['gsap'],
+	},
+	delayHydration: {
+		mode: 'init',
 	},
 })

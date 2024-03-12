@@ -24,7 +24,7 @@ await suspense()
 		<Hero />
 		<Advantages />
 		<Logos />
-		<Works :works="works" :is-loading="isLoading" />
+		<Works :works="works as any" :is-loading="isLoading" />
 		<div class="spacer-60">
 			<NuxtLink to="/works">
 				<UiButton transparent wide size="lg">
@@ -32,6 +32,6 @@ await suspense()
 				</UiButton>
 			</NuxtLink>
 		</div>
-		<Technology />
+		<LazyTechnology />
 	</div>
 </template>

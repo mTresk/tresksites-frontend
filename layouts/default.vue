@@ -80,15 +80,15 @@ useHead({
 		<NuxtLoadingIndicator color="#ff565c" />
 		<div class="wrapper">
 			<div class="wrapper__container">
-				<LayoutHeader @toggle-menu="toggleMenu" />
+				<LazyLayoutHeader @toggle-menu="toggleMenu" />
 				<div class="inner">
-					<LayoutNavigation @close-menu="closeMenu" />
+					<LazyLayoutNavigation @close-menu="closeMenu" />
 					<UiSpinner v-if="isLoading" />
 					<div v-show="!isLoading" class="page">
 						<main class="main">
 							<slot />
 						</main>
-						<LayoutFooter />
+						<LazyLayoutFooter />
 					</div>
 				</div>
 			</div>

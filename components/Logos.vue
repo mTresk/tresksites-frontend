@@ -10,28 +10,28 @@ onMounted(() => {
 	<div class="logos spacer-60">
 		<div class="logos__body">
 			<div class="logos__item">
-				<img src="/img/logos/schlumberger.svg" alt="Shlumberger">
+				<img width="160" height="35" src="/img/logos/schlumberger.svg" alt="Shlumberger">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/fctyumen.svg" alt="ФК «Тюмень»">
+				<img width="160" height="35" src="/img/logos/fctyumen.svg" alt="ФК «Тюмень»">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/happykids.svg" alt="Счастливые дети">
+				<img width="160" height="35" src="/img/logos/happykids.svg" alt="Счастливые дети">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/rubin.svg" alt="ХК «Рубин»">
+				<img width="160" height="35" src="/img/logos/rubin.svg" alt="ХК «Рубин»">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/ekst.svg" alt="Институт электрокаплеструйных технологий">
+				<img width="160" height="35" src="/img/logos/ekst.svg" alt="Институт электрокаплеструйных технологий">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/legion.svg" alt="ХК «Легион»">
+				<img width="160" height="35" src="/img/logos/legion.svg" alt="ХК «Легион»">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/arena.svg" alt="Гостиница «Арена»">
+				<img width="160" height="35" src="/img/logos/arena.svg" alt="Гостиница «Арена»">
 			</div>
 			<div class="logos__item">
-				<img src="/img/logos/ano.svg" alt="АНО «Футбол-Хоккей»">
+				<img width="160" height="35" src="/img/logos/ano.svg" alt="АНО «Футбол-Хоккей»">
 			</div>
 		</div>
 	</div>

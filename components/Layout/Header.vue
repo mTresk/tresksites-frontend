@@ -14,10 +14,10 @@ const contacts = useState<IContacts>('contacts')
 					<span />
 				</button>
 				<NuxtLink to="/" class="header__logo header__logo--light">
-					<img src="/img/logo.svg" alt="Tresk Sites">
+					<img width="80" height="47" src="/img/logo.svg" alt="Tresk Sites">
 				</NuxtLink>
 				<NuxtLink to="/" class="header__logo header__logo--dark">
-					<img src="/img/logo-dark.svg" alt="Tresk Sites">
+					<img width="80" height="47" src="/img/logo-dark.svg" alt="Tresk Sites">
 				</NuxtLink>
 				<NuxtLink class="header__button" to="/order">
 					<UiButton transparent>

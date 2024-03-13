@@ -52,6 +52,10 @@ export interface IWork {
 		imageWebpX2: string
 		image: string
 		imageX2: string
+		imageWebpSm: string
+		imageWebpSmX2: string
+		imageSm: string
+		imageSmX2: string
 	}
 }
 
@@ -83,6 +87,10 @@ export interface IWorkItem {
 					imageWebpX2: string
 					image: string
 					imageX2: string
+					imageWebpSm: string
+					imageWebpSmX2: string
+					imageSm: string
+					imageSmX2: string
 				}
 			}
 

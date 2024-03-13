@@ -8,7 +8,9 @@ defineProps<{ work: IWork }>()
 	<article class="work-card" @click="() => navigateTo(`/works/${work.slug}`)">
 		<div class="work-card__image">
 			<picture>
-				<source :srcset="`${work.files.imageWebp} 1x, ${work.files.imageWebpX2} 2x`" type="image/webp">
+				<source media="(min-width: 400px)" :srcset="`${work.files.imageWebp} 1x, ${work.files.imageWebpX2} 2x`" type="image/webp">
+				<source media="(max-width: 400px)" :srcset="`${work.files.imageWebpSm} 1x, ${work.files.imageWebpSmX2} 2x`" type="image/webp">
+				<source media="(max-width: 400px)" :srcset="`${work.files.imageSm} 1x, ${work.files.imageSmX2} 2x`">
 				<img
 					loading="lazy"
 					:src="work.files.image"

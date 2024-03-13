@@ -41,13 +41,13 @@ export interface IServices {
 }
 
 export interface IWork {
-	title: string
+	name: string
 	slug: string
 	url: string
 	list: string
 	label: string
 	description: string
-	featured: {
+	files: {
 		imageWebp: string
 		imageWebpX2: string
 		image: string
@@ -66,28 +66,26 @@ export interface IWorks {
 }
 
 export interface IWorkItem {
-	data: {
-		seo: {
-			title: string
-			description: string
-		}
+	seo: {
 		title: string
-		url: string | null
-		list: string
-		label: string | null
-		content: {
+		description: string
+	}
+	name: string
+	url: string | null
+	list: string
+	label: string | null
+	content: {
+		data: {
 			data: {
-				data: {
-					html: string
-					images: {
-						imageWebp: string
-						imageWebpX2: string
-						image: string
-						imageX2: string
-					}
+				html: string
+				files: {
+					imageWebp: string
+					imageWebpX2: string
+					image: string
+					imageX2: string
 				}
-
 			}
+
 		}
 	}
 	otherWorks: IWorks | IWork[]

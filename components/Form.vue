@@ -43,7 +43,7 @@ async function formSubmit() {
 	formData.append('attachment', form.attachment)
 
 	try {
-		const response = await $fetch(`${useRuntimeConfig().public.backendUrl}/api/order`, {
+		const response = await $fetch(`${useRuntimeConfig().public.backendUrl}/api/orders`, {
 			method: 'post',
 			body: formData,
 			headers: {
@@ -82,7 +82,7 @@ async function formSubmit() {
 						type="text"
 						name="name"
 						placeholder="Ваше имя *"
-						@focus="errors.name = ''"
+						@focus="errors = null"
 					>
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
@@ -102,7 +102,7 @@ async function formSubmit() {
 						type="tel"
 						name="phone"
 						placeholder="Ваш номер телефона *"
-						@focus="errors.phone = ''"
+						@focus="errors = null"
 					>
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
@@ -120,7 +120,7 @@ async function formSubmit() {
 						type="email"
 						name="email"
 						placeholder="Ваш email"
-						@focus="errors.email = ''"
+						@focus="errors = null"
 					>
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
@@ -136,7 +136,7 @@ async function formSubmit() {
 						v-model="form.message"
 						name="message"
 						placeholder="Ваш комментарий"
-						@focus="errors.message = ''"
+						@focus="errors = null"
 					/>
 					<small v-if="errors?.message" class="order-form__error">{{ errors?.message[0] || '&nbsp;' }}</small>
 				</label>

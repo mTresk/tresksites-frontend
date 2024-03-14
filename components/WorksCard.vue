@@ -8,12 +8,14 @@ defineProps<{ work: IWork }>()
 	<article class="work-card" @click="() => navigateTo(`/works/${work.slug}`)">
 		<div class="work-card__image">
 			<picture>
-				<source :srcset="`${work.featured.imageWebp} 1x, ${work.featured.imageWebpX2} 2x`" type="image/webp">
+				<source media="(min-width: 400px)" :srcset="`${work.files.imageWebp} 1x, ${work.files.imageWebpX2} 2x`" type="image/webp">
+				<source media="(max-width: 400px)" :srcset="`${work.files.imageWebpSm} 1x, ${work.files.imageWebpSmX2} 2x`" type="image/webp">
+				<source media="(max-width: 400px)" :srcset="`${work.files.imageSm} 1x, ${work.files.imageSmX2} 2x`">
 				<img
 					loading="lazy"
-					:src="work.featured.image"
-					:srcset="`${work.featured.image} 1x, ${work.featured.imageX2} 2x`"
-					:alt="work.title"
+					:src="work.files.image"
+					:srcset="`${work.files.image} 1x, ${work.files.imageX2} 2x`"
+					:alt="work.name"
 				>
 			</picture>
 		</div>
@@ -23,7 +25,7 @@ defineProps<{ work: IWork }>()
 				<span v-if="work.label">{{ work.label }}</span>
 			</div>
 			<h4 class="work-card__title spacer-20">
-				{{ work.title }}
+				{{ work.name }}
 			</h4>
 			<div class="work-card__info" v-html="work.list" />
 			<NuxtLink :to="`/works/${work.slug}`">

@@ -14,7 +14,7 @@ const contacts = useState<IContacts>('contacts')
 					Заказать сайт<UiIconArrowUp />
 				</UiButton>
 			</NuxtLink>
-			<a :href="contacts?.brief" download="Бриф на разработку сайта">
+			<a :href="contacts?.files?.original" download="Бриф на разработку сайта">
 				<UiButton transparent>Скачать бриф<UiIconArrowDown /></UiButton>
 			</a>
 		</div>

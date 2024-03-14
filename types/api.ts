@@ -8,7 +8,7 @@ export interface IContacts {
 	inn: string
 	telegram: string
 	email: string
-	brief: string
+	files: { original: string }
 	block: {
 		item:
 		{

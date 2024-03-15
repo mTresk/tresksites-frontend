@@ -1,5 +1,5 @@
 export default defineSitemapEventHandler(async () => {
-	const pages = await $fetch<{ [x: string]: any }>(`${useRuntimeConfig().public.backendUrl}/api/works/routes`)
+	const pages = await $fetch<{ [x: string]: any }>(`${useRuntimeConfig().public.backendUrl}/api/sitemap/works`)
 	return [
 		...pages.map((page: { slug: string, updated_at: string }) =>
 			asSitemapUrl({

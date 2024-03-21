@@ -21,7 +21,7 @@ export default defineNuxtConfig({
 			autoprefixer: {},
 		},
 	},
-	modules: ['@nuxt/image', 'nuxt-simple-robots', '@nuxtjs/sitemap'],
+	modules: ['@nuxt/image', 'nuxt-simple-robots', '@vite-pwa/nuxt', '@nuxtjs/sitemap'],
 	sitemap: {
 		sources: ['/api/sitemap/urls'],
 	},
@@ -38,5 +38,29 @@ export default defineNuxtConfig({
 	},
 	build: {
 		transpile: ['gsap'],
+	},
+	pwa: {
+		registerType: 'autoUpdate',
+		workbox: { navigateFallback: null, globPatterns: ['**/*.{js,css,svg,ico}'] },
+		client: { installPrompt: true, periodicSyncForUpdates: 100000 },
+		manifest: {
+			name: 'Tresk Sites',
+			short_name: 'Tresk Sites',
+			description: 'Создание сайтов и веб-приложений любой сложности',
+			theme_color: '#ffffff',
+			lang: 'ru',
+			icons: [
+				{
+					src: '/android-chrome-192x192.png',
+					sizes: '192x192',
+					type: 'image/png',
+				},
+				{
+					src: '/android-chrome-512x512.png',
+					sizes: '512x512',
+					type: 'image/png',
+				},
+			],
+		},
 	},
 })

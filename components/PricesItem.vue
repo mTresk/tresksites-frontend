@@ -5,12 +5,69 @@ defineProps<IPrice>()
 </script>
 
 <template>
-	<li class="price__item">
-		<p class="price__name">
+	<li class="price-item">
+		<p class="price-item__name">
 			{{ price.service }}
 		</p>
-		<p class="price__value">
+		<p class="price-item__value">
 			{{ price.price }}
 		</p>
 	</li>
 </template>
+
+<style lang="scss" scoped>
+.price-item {
+	display: flex;
+	gap: rem(30);
+	align-items: flex-end;
+	justify-content: space-between;
+	overflow: hidden;
+
+	&__name {
+		position: relative;
+		padding-right: rem(5);
+		font-family: Montserrat, sans-serif;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 150%;
+		background-color: var(--white-color);
+
+		@include adaptiveValue('font-size', 18, 14);
+
+		&::before {
+			position: absolute;
+			bottom: -4px;
+			left: 0;
+			z-index: -1;
+			font-weight: 400;
+			color: var(--grey-color);
+			white-space: nowrap;
+			content: '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------';
+
+			.dark-mode & {
+				color: var(--light-color-dark);
+			}
+
+			@include adaptiveValue('font-size', 12, 8);
+		}
+	}
+
+	&__value {
+		position: relative;
+		padding-left: rem(5);
+		font-family: Montserrat, sans-serif;
+		font-weight: 700;
+		line-height: 150%;
+		color: var(--accent-color);
+		text-align: right;
+		white-space: nowrap;
+		background-color: var(--white-color);
+
+		@include adaptiveValue('font-size', 18, 14);
+
+		.dark-mode & {
+			background-color: var(--white-color-dark);
+		}
+	}
+}
+</style>

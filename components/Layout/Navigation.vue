@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { menuItems } from '@/data/menu-data'
 import type { IContacts } from '@/types'
 
 defineEmits(['closeMenu'])
@@ -31,34 +32,10 @@ onUnmounted(() => {
 			<div class="navigation__menu menu">
 				<nav class="menu__body">
 					<ul class="menu__list">
-						<li class="menu__item">
-							<NuxtLink to="/" class="menu__link" @click="$emit('closeMenu')">
-								<UiIconHome />
-								<span>Главная</span>
-							</NuxtLink>
-						</li>
-						<li class="menu__item">
-							<NuxtLink to="/works" class="menu__link" @click="$emit('closeMenu')">
-								<UiIconWorks />
-								<span>Работы</span>
-							</NuxtLink>
-						</li>
-						<li class="menu__item">
-							<NuxtLink to="/services" class="menu__link" @click="$emit('closeMenu')">
-								<UiIconServices />
-								<span>Услуги</span>
-							</NuxtLink>
-						</li>
-						<li class="menu__item">
-							<NuxtLink to="/order" class="menu__link" @click="$emit('closeMenu')">
-								<UiIconOrder />
-								<span>Заказать сайт</span>
-							</NuxtLink>
-						</li>
-						<li class="menu__item">
-							<NuxtLink to="/contacts" class="menu__link" @click="$emit('closeMenu')">
-								<UiIconContacts />
-								<span>Контакты</span>
+						<li v-for="menuItem in menuItems" :key="menuItem.name" class="menu__item">
+							<NuxtLink :to="menuItem.path" class="menu__link" @click="$emit('closeMenu')">
+								<UiIconMenu :name="menuItem.icon" />
+								<span>{{ menuItem.name }}</span>
 							</NuxtLink>
 						</li>
 					</ul>
@@ -67,7 +44,7 @@ onUnmounted(() => {
 			<div class="navigation__socials">
 				<div class="navigation__social">
 					<a target="_blank" :href="contacts?.telegram" class="menu__link">
-						<UiIconTelegramMenu />
+						<UiIconMenu name="telegram" />
 						<span>Написать в Telegram</span>
 					</a>
 				</div>

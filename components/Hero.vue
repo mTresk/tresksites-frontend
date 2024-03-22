@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { chips } from '@/data/chips-data'
+
 const { appearLeft } = useAnimation()
 
 onMounted(() => {
@@ -19,69 +21,7 @@ onMounted(() => {
 					около десятка «под ключ». Полный цикл создания сайтов. Поддержка и сопровождение.
 				</p>
 				<div class="hero__chips hero-animate">
-					<div class="chip">
-						<img
-							width="21"
-							height="21" src="/img/chips/html.svg" alt="HTML5"
-						>
-						<span>HTML5</span>
-					</div>
-					<div class="chip">
-						<img
-							width="21"
-							height="21" src="/img/chips/css.svg" alt="CSS"
-						>
-						<span>CSS</span>
-					</div>
-					<div class="chip">
-						<img
-							width="21"
-							height="21" src="/img/chips/vite.svg" alt="Vite"
-						>
-						<span>Vite</span>
-					</div>
-					<div class="chip">
-						<img
-							width="21"
-							height="21" src="/img/chips/js.svg" alt="JavaScript"
-						>
-						<span>JavaScript</span>
-					</div>
-					<div class="chip">
-						<img
-							width="21"
-							height="21" src="/img/chips/php.svg" alt="PHP"
-						>
-						<span>PHP</span>
-					</div>
-					<div class="chip">
-						<img
-							width="21"
-							height="21" src="/img/chips/vue.svg" alt="Vue.js"
-						>
-						<span>Vue.js</span>
-					</div>
-					<div class="chip">
-						<img
-							width="21"
-							height="21" src="/img/chips/nuxt.svg" alt="Nuxt"
-						>
-						<span>Nuxt</span>
-					</div>
-					<div class="chip">
-						<img
-							width="21"
-							height="21" src="/img/chips/laravel.svg" alt="Laravel"
-						>
-						<span>Laravel</span>
-					</div>
-					<div class="chip">
-						<img
-							width="21"
-							height="21" src="/img/chips/nest.svg" alt="NestJS"
-						>
-						<span>NestJS</span>
-					</div>
+					<UiChip v-for="chip in chips" :key="chip.title" :title="chip.title" :icon="chip.icon" />
 				</div>
 			</div>
 			<div class="hero__image">

@@ -171,26 +171,4 @@ body {
 	filter: grayscale(1) blur(2px);
 	opacity: 0;
 }
-
-.chip {
-	display: flex;
-	gap: rem(8);
-	align-items: center;
-	justify-content: center;
-	padding: rem(9) rem(14);
-	background-color: var(--light-color);
-
-	@include adaptiveValue('border-radius', 16, 12);
-	@include adaptiveValue('gap', 8, 6);
-
-	span {
-		@include adaptiveValue('font-size', 15, 12);
-	}
-
-	img {
-		width: auto;
-
-		@include adaptiveValue('max-height', 20, 16);
-	}
-}
 </style>

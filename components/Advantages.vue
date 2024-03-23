@@ -1,47 +1,23 @@
 <script setup lang="ts">
+import { advatagesItems } from '@/data/advantages-data'
+
 const { appearBottom, appearLeft } = useAnimation()
 
 onMounted(() => {
 	appearBottom('.advantages', { delay: 0.3 })
-	appearLeft('.advantages__item', { stagger: 0.1, delay: 0.4 })
+	appearLeft('.advantages-item', { stagger: 0.1, delay: 0.4 })
 })
 </script>
 
 <template>
 	<section class="advantages spacer-60">
 		<div class="advantages__body">
-			<div class="advantages__item">
-				<h2 class="advantages__title">
-					&gt; 5 лет
-				</h2>
-				<p class="advantages__description">
-					я занимаюсь создание сайтов и приложений
-				</p>
-			</div>
-			<div class="advantages__item">
-				<h2 class="advantages__title">
-					&gt; 100 проектов
-				</h2>
-				<p class="advantages__description">
-					по верстке макетов сайтов
-				</p>
-			</div>
-			<div class="advantages__item">
-				<h2 class="advantages__title">
-					&gt; 15 сайтов
-				</h2>
-				<p class="advantages__description">
-					полного цикла «под ключ»
-				</p>
-			</div>
-			<div class="advantages__item">
-				<h2 class="advantages__title">
-					1-3 месяца
-				</h2>
-				<p class="advantages__description">
-					до полной готовности сайта
-				</p>
-			</div>
+			<AdvantagesItem
+				v-for="advantagesItem in advatagesItems"
+				:key="advantagesItem.title"
+				:title="advantagesItem.title"
+				:description="advantagesItem.description"
+			/>
 		</div>
 	</section>
 </template>
@@ -57,7 +33,6 @@ onMounted(() => {
 	@include adaptiveValue('padding-left', 40, 20);
 	@include adaptiveValue('padding-right', 40, 20);
 
-	// .advantages__body
 	&__body {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
@@ -67,47 +42,6 @@ onMounted(() => {
 		@media (max-width: $mobile) {
 			grid-template-columns: 1fr;
 		}
-	}
-
-	// .advantages__item
-	&__item {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-
-		@include adaptiveValue('gap', 12, 10);
-
-		&:not(:last-child) {
-			&::before {
-				position: absolute;
-				top: 0;
-				width: 1px;
-				height: 100%;
-				content: '';
-				background-color: var(--light-color);
-
-				@include adaptiveValue('right', -30, -12);
-
-				@media (max-width: $mobile) {
-					top: auto;
-					right: auto;
-					width: 100%;
-					height: 1px;
-
-					@include adaptiveValue('bottom', -30, -12);
-				}
-			}
-		}
-	}
-
-	// .advantages__description
-	&__description {
-		margin-top: auto;
-		font-weight: 500;
-		line-height: 145%;
-
-		@include adaptiveValue('font-size', 14, 12);
 	}
 }
 </style>

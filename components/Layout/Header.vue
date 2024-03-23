@@ -28,7 +28,7 @@ const contacts = useState<IContacts>('contacts')
 			<div class="header__right">
 				<div class="header__person">
 					<div class="header__avatar">
-						<NuxtPicture format="webp" src="/img/avatar.jpg" alt="Маским Треск" />
+						<NuxtPicture loading="lazy" format="webp" src="/img/avatar.jpg" alt="Маским Треск" />
 					</div>
 					<a :href="`mailto:${contacts?.email}`" class="header__email">{{ contacts?.email }}</a>
 				</div>

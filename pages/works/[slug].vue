@@ -49,9 +49,9 @@ onMounted(() => {
 					<div v-html="content?.data?.html" />
 					<div v-if="content?.data?.files" class="work__image">
 						<picture>
-							<source media="(max-width: 800px)" :srcset="`${content?.data?.files?.imageWebpSm} 1x, ${content?.data?.files?.imageWebpSmX2} 2x`" type="image/webp">
+							<source media="(max-width: 479px)" :srcset="`${content?.data?.files?.imageWebpSm} 1x, ${content?.data?.files?.imageWebpSmX2} 2x`" type="image/webp">
 							<source
-								media="(min-width: 800px)"
+								media="(min-width: 480px)"
 								:srcset="`${content?.data?.files?.imageWebp} 1x, ${content?.data?.files?.imageWebpX2} 2x`"
 								type="image/webp"
 							>

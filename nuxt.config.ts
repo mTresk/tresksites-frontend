@@ -67,6 +67,21 @@ export default defineNuxtConfig({
 					purpose: 'maskable',
 				},
 			],
+			screenshots: [
+				{
+					src: 'screenshot.png',
+					sizes: '3024x1600',
+					type: 'image/png',
+					form_factor: 'wide',
+					label: 'Tresk Sites',
+				},
+				{
+					src: 'screenshot-mobile.png',
+					sizes: '958x1393',
+					type: 'image/png',
+					label: 'Tresk Sites Mobile',
+				   },
+			],
 		},
 	},
 })

@@ -161,6 +161,57 @@ body {
 	}
 }
 
+.content {
+	h2 {
+		@include adaptiveValue('margin-bottom', 20, 16);
+	}
+
+	p {
+		font-weight: 500;
+		line-height: 150%;
+
+		@include adaptiveValue('font-size', 16, 14);
+		@include adaptiveValue('margin-bottom', 20, 16);
+	}
+
+	a {
+		color: var(--accent-color);
+		text-decoration: underline;
+		text-underline-offset: rem(4);
+		transition: color 0.3s ease-in-out;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--hover-color);
+			}
+		}
+	}
+
+	ul {
+		@include adaptiveValue('margin-bottom', 20, 16);
+
+		li {
+			position: relative;
+			padding-left: rem(16);
+			font-weight: 500;
+			line-height: 150%;
+
+			@include adaptiveValue('font-size', 16, 14);
+
+			&::before {
+				position: absolute;
+				top: 10px;
+				left: 0;
+				width: rem(6);
+				height: rem(6);
+				content: '';
+				background-color: var(--accent-color);
+				border-radius: 50%;
+			}
+		}
+	}
+}
+
 .layout-enter-active,
 .layout-leave-active {
 	transition: all 0.4s cubic-bezier(0.25, 0.45, 0.45, 0.95);

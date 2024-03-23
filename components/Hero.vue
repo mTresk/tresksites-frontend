@@ -31,9 +31,8 @@ onMounted(() => {
 	</section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .hero {
-	// .hero__body
 	&__body {
 		display: flex;
 		align-items: center;
@@ -46,7 +45,6 @@ onMounted(() => {
 		}
 	}
 
-	// .hero__content
 	&__content {
 		flex: 0 1 rem(760);
 		background-color: var(--white-color);
@@ -63,7 +61,6 @@ onMounted(() => {
 		}
 	}
 
-	// .hero__description
 	&__description {
 		font-weight: 500;
 		line-height: 145%;
@@ -72,20 +69,17 @@ onMounted(() => {
 		@include adaptiveValue('margin-bottom', 40, 32);
 	}
 
-	// .hero__chips
 	&__chips {
 		display: flex;
 		flex-wrap: wrap;
 		gap: rem(6);
 	}
 
-	// .hero__image
 	&__image {
 		flex: 0 1 rem(760);
 		min-width: rem(450);
 
-		img,
-		picture {
+		:deep(img, picture) {
 			display: block;
 			width: 100%;
 			max-width: 100%;

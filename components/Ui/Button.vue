@@ -32,7 +32,7 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 	</button>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .button {
 	display: flex;
 	gap: rem(12);
@@ -51,7 +51,7 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 	@include adaptiveValue('padding-left', 24, 16);
 	@include adaptiveValue('padding-right', 24, 16);
 
-	svg {
+	:deep(svg) {
 		height: auto;
 
 		@include adaptiveValue('max-width', 20, 16);
@@ -72,14 +72,14 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 		color: var(--main-color);
 		background-color: var(--light-color);
 
-		svg path {
+		:deep(svg path) {
 			fill: var(--main-color);
 		}
 
 		@media (prefers-color-scheme: dark) {
 			color: var(--main-color-dark);
 
-			svg path {
+			:deep(svg path) {
 				fill: var(--main-color);
 			}
 		}
@@ -112,10 +112,8 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 			background-color: var(--main-color);
 		}
 
-		svg {
-			path {
-				fill: var(--accent-color);
-			}
+		:deep(svg path) {
+			fill: var(--accent-color);
 		}
 
 		@media (any-hover: hover) {
@@ -123,10 +121,8 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 				color: var(--white-color);
 				background-color: var(--hover-color);
 
-				svg {
-					path {
-						fill: var(--white-color);
-					}
+				:deep(svg path) {
+					fill: var(--white-color);
 				}
 			}
 		}
@@ -136,7 +132,7 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 		color: var(--main-color);
 		background-color: var(--rose-color);
 
-		svg path {
+		:deep(svg path) {
 			fill: var(--main-color);
 		}
 
@@ -144,7 +140,7 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 			&:hover {
 				color: var(--white-color);
 
-				svg path {
+				:deep(svg path) {
 					fill: var(--white-color);
 				}
 			}

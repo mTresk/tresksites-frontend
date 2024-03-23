@@ -53,7 +53,7 @@ onUnmounted(() => {
 	</aside>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .navigation {
 	z-index: 10;
 	flex: 0 0 rem(80);
@@ -90,7 +90,6 @@ onUnmounted(() => {
 		}
 	}
 
-	// .navigation__body
 	&__body {
 		display: flex;
 		flex-direction: column;
@@ -112,7 +111,6 @@ onUnmounted(() => {
 		}
 	}
 
-	// .navigation__socials
 	&__socials {
 		display: flex;
 		flex-direction: column;
@@ -123,7 +121,6 @@ onUnmounted(() => {
 		}
 	}
 
-	// .navigation__social
 	&__social {
 		display: flex;
 		align-items: center;
@@ -143,7 +140,6 @@ onUnmounted(() => {
 .menu {
 	width: 100%;
 
-	// .menu__list
 	&__list {
 		display: flex;
 		flex-direction: column;
@@ -154,14 +150,12 @@ onUnmounted(() => {
 		}
 	}
 
-	// .menu__item
 	&__item {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
 
-	// .menu__link
 	&__link {
 		position: relative;
 		display: flex;
@@ -221,7 +215,7 @@ onUnmounted(() => {
 			}
 		}
 
-		svg {
+		:deep(svg) {
 			path {
 				transition: all 0.3s ease-in-out;
 
@@ -233,7 +227,7 @@ onUnmounted(() => {
 
 		@media (any-hover: hover) {
 			&:hover {
-				svg path {
+				:deep(svg path) {
 					fill-opacity: 0.6;
 				}
 
@@ -270,11 +264,9 @@ onUnmounted(() => {
 				transition: width 0.3s ease-in-out;
 			}
 
-			svg {
-				path {
-					fill: var(--accent-color);
-					fill-opacity: 1;
-				}
+			:deep(svg path) {
+				fill: var(--accent-color);
+				fill-opacity: 1;
 			}
 
 			@media (max-width: em(1199)) {

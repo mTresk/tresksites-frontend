@@ -43,7 +43,7 @@ onMounted(() => {
 	</section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .technology {
 	padding-right: rem(20);
 	padding-left: rem(20);
@@ -55,11 +55,6 @@ onMounted(() => {
 	@include adaptiveValue('padding-top', 40, 20);
 	@include adaptiveValue('padding-bottom', 40, 20);
 
-	.dark-mode & {
-		background-color: var(--white-color-dark);
-	}
-
-	// .technology__wrapper
 	&__wrapper {
 		display: flex;
 		flex-direction: column;
@@ -68,7 +63,6 @@ onMounted(() => {
 		margin-inline: auto;
 	}
 
-	// .technology__body
 	&__body {
 		display: flex;
 		align-items: center;
@@ -81,7 +75,6 @@ onMounted(() => {
 		}
 	}
 
-	// .technology__avatar
 	&__avatar {
 		position: relative;
 		flex: 0 0 rem(160);
@@ -90,7 +83,7 @@ onMounted(() => {
 		overflow: hidden;
 		border-radius: 50%;
 
-		img {
+		:deep(img) {
 			position: absolute;
 			inset: 0;
 			width: 100%;
@@ -103,7 +96,6 @@ onMounted(() => {
 		}
 	}
 
-	// .technology__info
 	&__info {
 		display: flex;
 		flex: 0 1 rem(520);
@@ -118,7 +110,6 @@ onMounted(() => {
 		}
 	}
 
-	// .technology__description
 	&__description {
 		font-weight: 500;
 		line-height: 150%;
@@ -126,7 +117,6 @@ onMounted(() => {
 		@include adaptiveValue('font-size', 16, 14);
 	}
 
-	// .technology__links
 	&__links {
 		display: flex;
 		flex: 0 1 rem(237);
@@ -139,7 +129,6 @@ onMounted(() => {
 		}
 	}
 
-	// .technology__email
 	&__email {
 		font-weight: 600;
 		line-height: 90%;
@@ -156,7 +145,6 @@ onMounted(() => {
 		}
 	}
 
-	// .technology__chips
 	&__chips {
 		display: flex;
 		flex-wrap: wrap;

@@ -26,7 +26,7 @@ defineProps<IProps>()
 	</section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .price {
 	padding-right: rem(20);
 	padding-left: rem(20);
@@ -41,13 +41,11 @@ defineProps<IProps>()
 		background-color: var(--white-color-dark);
 	}
 
-	// .price__wrapper
 	&__wrapper {
 		max-width: rem(1000);
 		margin-inline: auto;
 	}
 
-	// .price__description
 	&__description {
 		font-weight: 500;
 		line-height: 145%;
@@ -55,7 +53,6 @@ defineProps<IProps>()
 		@include adaptiveValue('font-size', 22, 16);
 	}
 
-	// .price__list
 	&__list {
 		display: flex;
 		flex-direction: column;

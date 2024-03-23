@@ -169,7 +169,7 @@ async function formSubmit() {
 	</form>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .order-form {
 	position: relative;
 	padding-right: rem(20);
@@ -195,7 +195,6 @@ async function formSubmit() {
 		}
 	}
 
-	// .order-form__body
 	&__body {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -206,7 +205,6 @@ async function formSubmit() {
 		}
 	}
 
-	// .order-form__label
 	&__label {
 		position: relative;
 		display: flex;
@@ -291,7 +289,6 @@ async function formSubmit() {
 		}
 	}
 
-	// .order-form__footer
 	&__footer {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -356,7 +353,6 @@ async function formSubmit() {
 	align-items: center;
 	cursor: pointer;
 
-	// .file__button
 	&__button {
 		display: flex;
 		align-items: center;
@@ -369,7 +365,6 @@ async function formSubmit() {
 		}
 	}
 
-	// .file__text
 	&__text {
 		line-height: 150%;
 		text-decoration: underline;

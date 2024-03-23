@@ -24,7 +24,7 @@ const contacts = useState<IContacts>('contacts')
 	</footer>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .footer {
 	display: flex;
 	flex-direction: column;
@@ -34,7 +34,6 @@ const contacts = useState<IContacts>('contacts')
 	padding-bottom: rem(20);
 	border-top: 1px solid var(--light-color);
 
-	// .footer__links
 	&__links {
 		display: flex;
 		gap: rem(20);
@@ -42,7 +41,6 @@ const contacts = useState<IContacts>('contacts')
 		justify-content: center;
 	}
 
-	// .footer__copyright
 	&__copyright {
 		font-size: 12px;
 		line-height: 125%;

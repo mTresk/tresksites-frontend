@@ -10,7 +10,7 @@ const contacts = useState<IContacts>('contacts')
 	<header class="header">
 		<div class="header__body">
 			<div class="header__left">
-				<button aria-label="Меню" type="button" class="icon-menu" @click="$emit('toggleMenu')">
+				<button aria-label="Меню" type="button" class="menu-button" @click="$emit('toggleMenu')">
 					<span />
 				</button>
 				<NuxtLink to="/" class="header__logo header__logo--light">
@@ -40,7 +40,7 @@ const contacts = useState<IContacts>('contacts')
 	</header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header {
 	padding-top: rem(40);
 	padding-bottom: rem(20);
@@ -64,7 +64,6 @@ const contacts = useState<IContacts>('contacts')
 		padding-inline: rem(10);
 	}
 
-	// .header__body
 	&__body {
 		display: flex;
 		align-items: center;
@@ -72,14 +71,12 @@ const contacts = useState<IContacts>('contacts')
 		width: 100%;
 	}
 
-	// .header__left
 	&__left {
 		display: flex;
 		gap: rem(20);
 		align-items: center;
 	}
 
-	// .header__logo
 	&__logo {
 		&--dark {
 			display: none;
@@ -108,7 +105,6 @@ const contacts = useState<IContacts>('contacts')
 		}
 	}
 
-	// .header__right
 	&__right {
 		display: flex;
 		align-items: center;
@@ -116,7 +112,6 @@ const contacts = useState<IContacts>('contacts')
 		@include adaptiveValue('gap', 40, 20);
 	}
 
-	// .header__person
 	&__person {
 		display: flex;
 		gap: rem(10);
@@ -127,7 +122,6 @@ const contacts = useState<IContacts>('contacts')
 		}
 	}
 
-	// .header__avatar
 	&__avatar {
 		position: relative;
 		width: rem(44);
@@ -135,7 +129,7 @@ const contacts = useState<IContacts>('contacts')
 		overflow: hidden;
 		border-radius: 50%;
 
-		img {
+		:deep(img) {
 			position: absolute;
 			inset: 0;
 			width: 100%;
@@ -144,7 +138,6 @@ const contacts = useState<IContacts>('contacts')
 		}
 	}
 
-	// .header__email
 	&__email {
 		font-weight: 600;
 		line-height: 90%;
@@ -162,7 +155,7 @@ const contacts = useState<IContacts>('contacts')
 	}
 }
 
-.icon-menu {
+.menu-button {
 	display: none;
 
 	@media (max-width: em(1199)) {

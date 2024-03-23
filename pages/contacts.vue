@@ -39,7 +39,7 @@ onMounted(() => {
 	</div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .contacts {
 	padding-right: rem(20);
 	padding-left: rem(20);
@@ -50,13 +50,11 @@ onMounted(() => {
 	@include adaptiveValue('padding-top', 60, 40);
 	@include adaptiveValue('padding-bottom', 60, 40);
 
-	// .contacts__wrapper
 	&__wrapper {
 		max-width: rem(1000);
 		margin-inline: auto;
 	}
 
-	// .contacts__text
 	&__text {
 		font-weight: 500;
 		line-height: 145%;
@@ -64,7 +62,6 @@ onMounted(() => {
 		@include adaptiveValue('font-size', 22, 16);
 	}
 
-	// .contacts__links
 	&__links {
 		display: flex;
 		gap: rem(8);
@@ -89,7 +86,6 @@ onMounted(() => {
 		}
 	}
 
-	// .contacts__info
 	&__info {
 		display: flex;
 		flex-direction: column;
@@ -97,14 +93,13 @@ onMounted(() => {
 		@include adaptiveValue('gap', 40, 20);
 	}
 
-	// .contacts__block
 	&__block {
 		display: flex;
 		flex-direction: column;
 		gap: rem(8);
 		align-items: flex-start;
 
-		h3 {
+		:deep(h3) {
 			font-family: Montserrat, sans-serif;
 			font-weight: 700;
 			line-height: 125%;
@@ -112,7 +107,7 @@ onMounted(() => {
 			@include adaptiveValue('font-size', 22, 18);
 		}
 
-		p {
+		:deep(p) {
 			font-weight: 500;
 			line-height: 150%;
 

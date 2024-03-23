@@ -44,10 +44,6 @@ defineProps<IPrice>()
 			white-space: nowrap;
 			content: '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------';
 
-			.dark-mode & {
-				color: var(--light-color-dark);
-			}
-
 			@include adaptiveValue('font-size', 12, 8);
 		}
 	}
@@ -64,10 +60,6 @@ defineProps<IPrice>()
 		background-color: var(--white-color);
 
 		@include adaptiveValue('font-size', 18, 14);
-
-		.dark-mode & {
-			background-color: var(--white-color-dark);
-		}
 	}
 }
 </style>

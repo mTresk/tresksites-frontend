@@ -37,7 +37,7 @@ defineProps<{ work: IWork }>()
 	</article>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .work-card {
 	display: flex;
 	align-items: center;
@@ -60,7 +60,6 @@ defineProps<{ work: IWork }>()
 		padding: 0;
 	}
 
-	// .work-card__image
 	&__image {
 		position: relative;
 		flex: 0 1 rem(1058);
@@ -82,7 +81,6 @@ defineProps<{ work: IWork }>()
 		}
 	}
 
-	// .work-card__content
 	&__content {
 		flex: 0 1 rem(422);
 
@@ -97,7 +95,6 @@ defineProps<{ work: IWork }>()
 		}
 	}
 
-	// .work-card__label
 	&__label {
 		display: block;
 		line-height: 125%;
@@ -118,11 +115,10 @@ defineProps<{ work: IWork }>()
 		}
 	}
 
-	// .work-card__info
 	&__info {
 		margin-bottom: rem(20);
 
-		ul {
+		:deep(ul) {
 			li {
 				position: relative;
 				padding-left: rem(16);

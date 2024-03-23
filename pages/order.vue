@@ -50,7 +50,7 @@ onMounted(() => {
 	</div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .order {
 	padding-right: rem(20);
 	padding-left: rem(20);
@@ -61,13 +61,11 @@ onMounted(() => {
 	@include adaptiveValue('padding-top', 60, 40);
 	@include adaptiveValue('padding-bottom', 60, 40);
 
-	// .order__wrapper
 	&__wrapper {
 		max-width: rem(1000);
 		margin-inline: auto;
 	}
 
-	// .order__description
 	&__description {
 		margin-bottom: rem(40);
 		font-weight: 500;

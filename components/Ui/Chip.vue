@@ -17,7 +17,7 @@ defineProps<IProps>()
 	</div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .chip {
 	display: flex;
 	gap: rem(8);

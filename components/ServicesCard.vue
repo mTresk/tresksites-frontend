@@ -17,7 +17,7 @@ defineProps<{ service: IServices }>()
 	</NuxtLink>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .service-card {
 	position: relative;
 	padding: rem(20);
@@ -30,7 +30,7 @@ defineProps<{ service: IServices }>()
 		&:hover {
 			box-shadow: 0 8px 20px 0 rgb(0 0 0 / 8%);
 
-			.service-card__arrow {
+			:deep(.service-card__arrow ){
 				path {
 					fill-opacity: 0.6;
 				}
@@ -38,17 +38,14 @@ defineProps<{ service: IServices }>()
 		}
 	}
 
-	// .service-card__icon
 	&__icon {
 		margin-bottom: rem(20);
 	}
 
-	// .service-card__title
 	&__title {
 		margin-bottom: rem(8);
 	}
 
-	// .service-card__description
 	&__description {
 		min-height: rem(80);
 		font-weight: 500;
@@ -57,8 +54,7 @@ defineProps<{ service: IServices }>()
 		@include adaptiveValue('font-size', 16, 14);
 	}
 
-	// .service-card__arrow
-	&__arrow {
+	:deep(.service-card__arrow){
 		position: absolute;
 		top: 15px;
 		right: 15px;

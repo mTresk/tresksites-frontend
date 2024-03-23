@@ -26,9 +26,8 @@ onMounted(() => {
 	</section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .services {
-	// .services__body
 	&__body {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);

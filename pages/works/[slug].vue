@@ -36,16 +36,7 @@ onMounted(() => {
 		</Head>
 		<section class="work spacer-60">
 			<div class="work__wrapper">
-				<ul class="breadcrumb work-animate">
-					<li class="breadcrumb__item">
-						<NuxtLink to="/works">
-							Работы
-						</NuxtLink>
-					</li>
-					<li class="breadcrumb__item breadcrumb__item--active">
-						{{ work?.name }}
-					</li>
-				</ul>
+				<LayoutBreadcrumb class="work-animate" path="/works" path-name="Работы" :current="work?.name " />
 				<div class="work__label work-animate">
 					<a v-if="work?.url" :href="work?.url" target="_blank">{{ work?.url }}</a>
 					<span v-if="work?.label">{{ work?.label }}</span>
@@ -94,7 +85,7 @@ onMounted(() => {
 	</div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .work {
 	padding-right: rem(20);
 	padding-left: rem(20);
@@ -105,22 +96,19 @@ onMounted(() => {
 	@include adaptiveValue('padding-top', 60, 40);
 	@include adaptiveValue('padding-bottom', 60, 40);
 
-	// .work__wrapper
 	&__wrapper {
 		max-width: rem(1000);
 		margin-inline: auto;
 	}
 
-	// .work__title
 	&__title {
 		margin-bottom: rem(20);
 	}
 
-	// .work__list
 	&__list {
 		@include adaptiveValue('margin-bottom', 40, 30);
 
-		ul {
+		:deep(ul) {
 			li {
 				position: relative;
 				padding-left: rem(16);
@@ -143,17 +131,16 @@ onMounted(() => {
 		}
 	}
 
-	// .work__block
 	&__block {
 		&:not(:last-child) {
 			@include adaptiveValue('margin-bottom', 50, 40);
 		}
 
-		h2 {
+		:deep(h2) {
 			@include adaptiveValue('margin-bottom', 20, 16);
 		}
 
-		p {
+		:deep(p) {
 			font-weight: 500;
 			line-height: 150%;
 
@@ -161,7 +148,7 @@ onMounted(() => {
 			@include adaptiveValue('margin-bottom', 20, 16);
 		}
 
-		a {
+		:deep(a) {
 			text-decoration: underline;
 			text-underline-offset: rem(4);
 			transition: color 0.3s ease-in-out;
@@ -173,7 +160,7 @@ onMounted(() => {
 			}
 		}
 
-		ul {
+		:deep(ul) {
 			@include adaptiveValue('margin-bottom', 20, 16);
 
 			li {
@@ -198,7 +185,6 @@ onMounted(() => {
 		}
 	}
 
-	// .work__image
 	&__image {
 		margin-bottom: rem(20);
 		overflow: hidden;
@@ -208,7 +194,7 @@ onMounted(() => {
 			@include adaptiveValue('margin-bottom', 50, 40);
 		}
 
-		img {
+		:deep(img) {
 			width: 100%;
 			max-width: 100%;
 		}
@@ -231,69 +217,6 @@ onMounted(() => {
 					color: var(--accent-color);
 				}
 			}
-		}
-	}
-}
-
-.breadcrumb {
-	display: flex;
-	flex-wrap: wrap;
-	row-gap: rem(6);
-	align-items: center;
-
-	@include adaptiveValue('margin-bottom', 30, 20);
-
-	// .breadcrumb__item
-	&__item {
-		position: relative;
-		font-weight: 500;
-		line-height: normal;
-		color: var(--main-color);
-		text-decoration: underline;
-		transition: color 0.3s ease-in-out;
-
-		@include adaptiveValue('font-size', 16, 14);
-
-		.dark-mode & {
-			color: var(--main-color-dark);
-		}
-
-		&:not(:last-child) {
-			margin-right: rem(38);
-			white-space: nowrap;
-		}
-
-		// .breadcrumb__item--active
-		&--active {
-			color: var(--grey-color);
-			text-decoration: none;
-			pointer-events: none;
-
-			.dark-mode & {
-				color: var(--grey-color-dark);
-			}
-		}
-
-		&::after {
-			position: absolute;
-			top: 9px;
-			right: -24px;
-			width: rem(6);
-			height: rem(6);
-			pointer-events: none;
-			content: '';
-			background-color: var(--accent-color);
-			border-radius: 50%;
-		}
-
-		&:last-child {
-			&::after {
-				display: none;
-			}
-		}
-
-		&:hover {
-			color: var(--accent-color);
 		}
 	}
 }

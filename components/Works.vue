@@ -35,11 +35,10 @@ onMounted(() => {
 	</section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .works {
 	position: relative;
 
-	// .works__body
 	&__body {
 		display: flex;
 		flex-direction: column;

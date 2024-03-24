@@ -4,6 +4,10 @@ import type { IContacts } from '@/types'
 defineEmits(['toggleMenu'])
 
 const contacts = useState<IContacts>('contacts')
+
+const isLoading = ref(true)
+
+onMounted(() => isLoading.value = false)
 </script>
 
 <template>
@@ -19,7 +23,7 @@ const contacts = useState<IContacts>('contacts')
 				<NuxtLink to="/" class="header__logo header__logo--dark">
 					<img width="80" height="47" src="/img/logo-dark.svg" alt="Tresk Sites">
 				</NuxtLink>
-				<UiButton class="header__button" href="/order" transparent>
+				<UiButton v-show="!isLoading" class="header__button" href="/order" transparent>
 					Заказать сайт <UiIconArrowUp />
 				</UiButton>
 			</div>
@@ -36,6 +40,7 @@ const contacts = useState<IContacts>('contacts')
 			</div>
 		</div>
 	</header>
+	{{ isLoading }}
 </template>
 
 <style lang="scss" scoped>

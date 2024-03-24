@@ -27,11 +27,9 @@ defineProps<{ work: IWork }>()
 				{{ work.name }}
 			</h4>
 			<div class="work-card__info" v-html="work.list" />
-			<NuxtLink :to="`/works/${work.slug}`">
-				<UiButton class="work-card__button">
-					Посмотреть работу<UiIconArrowRight />
-				</UiButton>
-			</NuxtLink>
+			<UiButton :href="`/works/${work.slug}`" class="work-card__button">
+				Посмотреть работу<UiIconArrowRight />
+			</UiButton>
 		</div>
 	</article>
 </template>

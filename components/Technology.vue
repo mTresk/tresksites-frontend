@@ -30,9 +30,9 @@ onMounted(() => {
 					</p>
 				</div>
 				<div class="technology__links">
-					<a target="_blank" :href="contacts?.telegram">
-						<UiButton wide><UiIconTelegram />Telegram</UiButton>
-					</a>
+					<UiButton :href="contacts?.telegram" target="_blank" wide>
+						<UiIconTelegram />Telegram
+					</UiButton>
 					<a :href="`mailto:${contacts?.email}`" class="technology__email">{{ contacts?.email }}</a>
 				</div>
 			</div>

@@ -9,14 +9,12 @@ const contacts = useState<IContacts>('contacts')
 <template>
 	<footer class="footer">
 		<div class="footer__links">
-			<NuxtLink to="/order">
-				<UiButton transparent>
-					Заказать сайт<UiIconArrowUp />
-				</UiButton>
-			</NuxtLink>
-			<a :href="contacts?.files?.original" download="Бриф на разработку сайта">
-				<UiButton transparent>Скачать бриф<UiIconArrowDown /></UiButton>
-			</a>
+			<UiButton href="/order" transparent>
+				Заказать сайт<UiIconArrowUp />
+			</UiButton>
+			<UiButton :href="contacts?.files?.original" download="Бриф на разработку сайта" transparent>
+				Скачать бриф<UiIconArrowDown />
+			</UiButton>
 		</div>
 		<p class="footer__copyright">
 			© 2019 – {{ currentYear }}, {{ contacts?.name }}, {{ contacts?.inn }}

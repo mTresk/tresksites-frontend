@@ -26,11 +26,9 @@ await suspense()
 		<Logos />
 		<Works :works="works as any" :is-loading="isLoading" />
 		<div class="spacer-60">
-			<NuxtLink to="/works">
-				<UiButton transparent wide size="lg">
-					Другие работы<UiIconArrowUp />
-				</UiButton>
-			</NuxtLink>
+			<UiButton href="/works" transparent wide size="lg">
+				Другие работы<UiIconArrowUp />
+			</UiButton>
 		</div>
 		<LazyTechnology />
 	</div>

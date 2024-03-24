@@ -19,11 +19,9 @@ const contacts = useState<IContacts>('contacts')
 				<NuxtLink to="/" class="header__logo header__logo--dark">
 					<img width="80" height="47" src="/img/logo-dark.svg" alt="Tresk Sites">
 				</NuxtLink>
-				<NuxtLink class="header__button" to="/order">
-					<UiButton transparent>
-						Заказать сайт <UiIconArrowUp />
-					</UiButton>
-				</NuxtLink>
+				<UiButton href="/order" transparent>
+					Заказать сайт <UiIconArrowUp />
+				</UiButton>
 			</div>
 			<div class="header__right">
 				<div class="header__person">
@@ -32,9 +30,9 @@ const contacts = useState<IContacts>('contacts')
 					</div>
 					<a :href="`mailto:${contacts?.email}`" class="header__email">{{ contacts?.email }}</a>
 				</div>
-				<a target="_blank" :href="contacts?.telegram">
-					<UiButton><UiIconTelegram />Telegram</UiButton>
-				</a>
+				<UiButton target="_blank" :href="contacts?.telegram">
+					<UiIconTelegram />Telegram
+				</UiButton>
 			</div>
 		</div>
 	</header>

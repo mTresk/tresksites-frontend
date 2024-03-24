@@ -80,7 +80,7 @@ export default defineNuxtConfig({
 					sizes: '958x1393',
 					type: 'image/png',
 					label: 'Tresk Sites Mobile',
-				   },
+				},
 			],
 		},
 	},

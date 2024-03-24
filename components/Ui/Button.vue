@@ -6,6 +6,7 @@ interface IProps {
 	light?: boolean
 	size?: string
 	disabled?: boolean
+	href?: string | undefined
 }
 
 const props = defineProps<IProps>()
@@ -14,7 +15,24 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 </script>
 
 <template>
+	<NuxtLink
+		v-if="href" v-ripple :to="href"
+		class="button"
+		:class="[
+			{
+				'button--transparent': transparent,
+				'button--wide': wide,
+				'button--inverted': inverted,
+				'button--light': light,
+				'button--disabled': disabled,
+			},
+			classObject,
+		]"
+	>
+		<slot />
+	</NuxtLink>
 	<button
+		v-else
 		v-ripple
 		class="button"
 		:class="[

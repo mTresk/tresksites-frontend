@@ -19,7 +19,7 @@ const contacts = useState<IContacts>('contacts')
 				<NuxtLink to="/" class="header__logo header__logo--dark">
 					<img width="80" height="47" src="/img/logo-dark.svg" alt="Tresk Sites">
 				</NuxtLink>
-				<UiButton href="/order" transparent>
+				<UiButton class="header__button" href="/order" transparent>
 					Заказать сайт <UiIconArrowUp />
 				</UiButton>
 			</div>

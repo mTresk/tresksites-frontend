@@ -11,23 +11,24 @@ interface IProps {
 
 const props = defineProps<IProps>()
 
-const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
+const classes = [
+	{
+		'button--transparent': props.transparent,
+		'button--wide': props.wide,
+		'button--inverted': props.inverted,
+		'button--light': props.light,
+		'button--disabled': props.disabled,
+
+	},
+	(props.size ? `button--${props.size}` : ''),
+]
 </script>
 
 <template>
 	<NuxtLink
 		v-if="href" v-ripple :to="href"
 		class="button"
-		:class="[
-			{
-				'button--transparent': transparent,
-				'button--wide': wide,
-				'button--inverted': inverted,
-				'button--light': light,
-				'button--disabled': disabled,
-			},
-			classObject,
-		]"
+		:class="classes"
 	>
 		<slot />
 	</NuxtLink>
@@ -35,16 +36,7 @@ const classObject = computed(() => (props.size ? `button--${props.size}` : ''))
 		v-else
 		v-ripple
 		class="button"
-		:class="[
-			{
-				'button--transparent': transparent,
-				'button--wide': wide,
-				'button--inverted': inverted,
-				'button--light': light,
-				'button--disabled': disabled,
-			},
-			classObject,
-		]"
+		:class="classes"
 	>
 		<slot />
 	</button>

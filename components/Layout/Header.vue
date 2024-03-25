@@ -40,7 +40,6 @@ onMounted(() => isLoading.value = false)
 			</div>
 		</div>
 	</header>
-	{{ isLoading }}
 </template>
 
 <style lang="scss" scoped>

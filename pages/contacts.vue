@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import type { IContacts } from '@/types'
 
+definePageMeta({
+	pageTransition: {
+		name: 'layout',
+		mode: 'out-in',
+	},
+})
+
 const { appearLeft } = useAnimation()
 
 const contacts = useState<IContacts>('contacts')

@@ -2,6 +2,13 @@
 import { useQuery } from '@tanstack/vue-query'
 import type { IWorkItem } from '@/types'
 
+definePageMeta({
+	pageTransition: {
+		name: 'layout',
+		mode: 'out-in',
+	},
+})
+
 const route = useRoute()
 
 const { appearLeft } = useAnimation()
@@ -66,7 +73,7 @@ onMounted(() => {
 				</article>
 			</div>
 		</section>
-		<section v-if="work?.otherWorks" class="more-works">
+		<section v-if="work?.otherWorks && !isLoading" class="more-works">
 			<h4 class="more-works__title spacer-20">
 				Еще работы
 			</h4>

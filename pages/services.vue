@@ -2,6 +2,13 @@
 import { useQuery } from '@tanstack/vue-query'
 import type { IServices } from '@/types'
 
+definePageMeta({
+	pageTransition: {
+		name: 'layout',
+		mode: 'out-in',
+	},
+})
+
 const fetcher = async () => await useNuxtApp().$api<IServices[]>('/api/services')
 
 const {

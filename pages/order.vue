@@ -2,6 +2,13 @@
 import { useQuery } from '@tanstack/vue-query'
 import type { IContacts, IPrices } from '@/types'
 
+definePageMeta({
+	pageTransition: {
+		name: 'layout',
+		mode: 'out-in',
+	},
+})
+
 const { appearLeft } = useAnimation()
 
 const contacts = useState<IContacts>('contacts')

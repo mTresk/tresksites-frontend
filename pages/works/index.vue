@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { useInfiniteQuery } from '@tanstack/vue-query'
 
+definePageMeta({
+	pageTransition: {
+		name: 'layout',
+		mode: 'out-in',
+	},
+})
+
 async function fetcher({ pageParam = 0 }) {
 	const data = await useNuxtApp().$api<any>(`api/works?page=${pageParam}&perPage=5`)
 
@@ -30,6 +37,8 @@ await suspense()
 
 function nextPage() {
 	fetchNextPage()
+	useSmoothScroll().destroyLenis()
+	useSmoothScroll().initLenis()
 }
 </script>
 

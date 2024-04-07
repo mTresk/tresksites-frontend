@@ -52,6 +52,8 @@ useHead({
 		return titleChunk ? `${titleChunk} — Tresk Sites` : 'Tresk Sites'
 	},
 })
+
+onMounted(() => useSmoothScroll())
 </script>
 
 <template>
@@ -219,7 +221,7 @@ body {
 
 .layout-enter-from,
 .layout-leave-to {
-	filter: grayscale(1) blur(2px);
+	filter: grayscale(1) blur(5px);
 	opacity: 0;
 }
 </style>

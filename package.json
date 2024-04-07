@@ -13,6 +13,7 @@
 	},
 	"dependencies": {
 		"@nuxt/image": "^1.4.0",
+		"@studio-freight/lenis": "^1.0.42",
 		"@tanstack/vue-query": "^5.22.2",
 		"gsap": "^3.12.5",
 		"maska": "^2.1.11",

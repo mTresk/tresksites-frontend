@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query'
 
+definePageMeta({
+	pageTransition: {
+		name: 'layout',
+		mode: 'out-in',
+	},
+})
+
 const fetcher = async () => await useNuxtApp().$api('/api/works/featured')
 
 const {

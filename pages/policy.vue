@@ -2,6 +2,13 @@
 import { useQuery } from '@tanstack/vue-query'
 import type { IPolicy } from '@/types'
 
+definePageMeta({
+	pageTransition: {
+		name: 'layout',
+		mode: 'out-in',
+	},
+})
+
 const { appearLeft } = useAnimation()
 
 const fetcher = async () => await useNuxtApp().$api<IPolicy>('/api/policy')

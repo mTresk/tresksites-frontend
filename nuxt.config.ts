@@ -30,12 +30,6 @@ export default defineNuxtConfig({
 			backendUrl: process.env.NUXT_PUBLIC_BACKEND_URL,
 		},
 	},
-	app: {
-		pageTransition: {
-			name: 'layout',
-			mode: 'out-in',
-		},
-	},
 	build: {
 		transpile: ['gsap'],
 	},

@@ -11,6 +11,7 @@ export function useAnimation() {
 						ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
 						stagger: 0.2,
 						duration: 1,
+						delay: 0.3,
 						scrollTrigger: {
 							trigger: element,
 						},
@@ -25,6 +26,7 @@ export function useAnimation() {
 					ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
 					stagger: 0.2,
 					duration: 1,
+					delay: 0.3,
 					scrollTrigger: {
 						trigger: target,
 					},
@@ -41,6 +43,7 @@ export function useAnimation() {
 				opacity: 0,
 				ease: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)',
 				duration: 0.8,
+				delay: 0.3,
 				scrollTrigger: {
 					trigger: '.advantages',
 				},

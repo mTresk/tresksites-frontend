@@ -53,7 +53,11 @@ useHead({
 	},
 })
 
-onMounted(() => useSmoothScroll())
+onMounted(() => {
+	setTimeout(() => {
+		useSmoothScroll()
+	}, 400)
+})
 </script>
 
 <template>

@@ -52,8 +52,6 @@ useHead({
 		return titleChunk ? `${titleChunk} — Tresk Sites` : 'Tresk Sites'
 	},
 })
-
-onMounted(() => useSmoothScroll())
 </script>
 
 <template>
@@ -89,7 +87,9 @@ onMounted(() => useSmoothScroll())
 					<UiSpinner v-if="isLoading" />
 					<div v-show="!isLoading" class="page">
 						<main class="main">
-							<slot />
+							<LayoutSmoothScroll>
+								<slot />
+							</LayoutSmoothScroll>
 						</main>
 						<LazyLayoutFooter />
 					</div>

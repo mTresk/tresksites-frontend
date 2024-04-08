@@ -37,8 +37,6 @@ await suspense()
 
 function nextPage() {
 	fetchNextPage()
-	useSmoothScroll().destroyLenis()
-	useSmoothScroll().initLenis()
 }
 </script>
 

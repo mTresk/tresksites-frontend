@@ -39,6 +39,8 @@ defineProps<{ service: IServices }>()
 	}
 
 	&__icon {
+		width: auto;
+		max-height: rem(48);
 		margin-bottom: rem(20);
 	}
 

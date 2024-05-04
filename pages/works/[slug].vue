@@ -36,37 +36,37 @@ onMounted(() => {
 <template>
 	<div>
 		<Head>
-			<Title>{{ work?.seo?.title ?? work?.name }}</Title>
-			<Meta name="description" :content="work?.seo?.description ?? seoDescription" />
-			<Meta property="og:description" :content="work?.seo?.description ?? seoDescription" />
-			<Meta name="twitter:description" :content="work?.seo?.description ?? seoDescription" />
+			<Title>{{ work?.data?.seo?.title ?? work?.data?.title }}</Title>
+			<Meta name="description" :content="work?.data?.seo?.description ?? seoDescription" />
+			<Meta property="og:description" :content="work?.data?.seo?.description ?? seoDescription" />
+			<Meta name="twitter:description" :content="work?.data?.seo?.description ?? seoDescription" />
 		</Head>
 		<section class="work spacer-60">
 			<div class="work__wrapper">
-				<LayoutBreadcrumb class="work-animate" path="/works" path-name="Работы" :current="work?.name " />
+				<LayoutBreadcrumb class="work-animate" path="/works" path-name="Работы" :current="work?.data.title " />
 				<div class="work__label work-animate">
-					<a v-if="work?.url" :href="work?.url" target="_blank">{{ work?.url }}</a>
-					<span v-if="work?.label">{{ work?.label }}</span>
+					<a v-if="work?.data.url" :href="work?.data.url" target="_blank">{{ work?.data.url }}</a>
+					<span v-if="work?.data.label">{{ work?.data.label }}</span>
 				</div>
 				<h1 class="work__title work-animate">
-					{{ work?.name }}
+					{{ work?.data.title }}
 				</h1>
-				<div class="work__list work-animate" v-html="work?.list" />
-				<article v-for="(content, key) in work?.content" :key="key" class="work__block work-animate">
+				<div class="work__list work-animate" v-html="work?.data.list" />
+				<article v-for="(content, key) in work?.data.content" :key="key" class="work__block work-animate">
 					<div v-html="content?.data?.html" />
-					<div v-if="content?.data?.files" class="work__image">
+					<div v-if="content?.data?.images" class="work__image">
 						<picture>
-							<source media="(max-width: 479px)" :srcset="`${content?.data?.files?.imageWebpSm} 1x, ${content?.data?.files?.imageWebpSmX2} 2x`" type="image/webp">
+							<source media="(max-width: 479px)" :srcset="`${content?.data?.images?.imageWebpSm} 1x, ${content?.data?.images?.imageWebpSmX2} 2x`" type="image/webp">
 							<source
 								media="(min-width: 480px)"
-								:srcset="`${content?.data?.files?.imageWebp} 1x, ${content?.data?.files?.imageWebpX2} 2x`"
+								:srcset="`${content?.data?.images?.imageWebp} 1x, ${content?.data?.images?.imageWebpX2} 2x`"
 								type="image/webp"
 							>
 							<img
 								loading="lazy"
-								:src="content?.data?.files?.image"
-								:srcset="`${content?.data?.files?.image} 1x, ${content?.data?.files?.imageX2} 2x`"
-								:alt="work?.name"
+								:src="content?.data?.images?.image"
+								:srcset="`${content?.data?.images?.image} 1x, ${content?.data?.images?.imageX2} 2x`"
+								:alt="work?.data.title"
 							>
 						</picture>
 					</div>

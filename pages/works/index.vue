@@ -9,12 +9,12 @@ definePageMeta({
 	},
 })
 
-async function fetcher({ pageParam = 0 }) {
-	const data = await useNuxtApp().$api<any>(`api/works?page=${pageParam}&perPage=5`)
+async function fetcher({ pageParam = 1 }) {
+	const data = await useNuxtApp().$api<any>(`api/works?page=${pageParam}`)
 
 	return {
 		pageData: data?.data || [],
-		cursor: pageParam === data?.meta.lastPage ? undefined : pageParam + 1,
+		cursor: pageParam === data?.meta.last_page ? undefined : data?.meta.current_page + 1,
 	}
 }
 
@@ -31,7 +31,7 @@ const {
 	getNextPageParam: (lastPage) => {
 		return lastPage.cursor
 	},
-	initialPageParam: 0,
+	initialPageParam: 1,
 })
 
 await suspense()

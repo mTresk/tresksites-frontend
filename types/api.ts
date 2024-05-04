@@ -8,7 +8,7 @@ export interface IContacts {
 	inn: string
 	telegram: string
 	email: string
-	files: { original: string }
+	brief: string
 	block: {
 		item:
 		{
@@ -35,19 +35,16 @@ export interface IServices {
 	icon: string
 	title: string
 	description: string
-	files: {
-		original: string
-	}
 }
 
 export interface IWork {
-	name: string
+	title: string
 	slug: string
 	url: string
 	list: string
 	label: string
 	description: string
-	files: {
+	featured: {
 		imageWebp: string
 		imageWebpX2: string
 		image: string
@@ -70,31 +67,34 @@ export interface IWorks {
 }
 
 export interface IWorkItem {
-	seo: {
+	data: {
+		seo: {
+			title: string
+			description: string
+		}
 		title: string
-		description: string
-	}
-	name: string
-	url: string | null
-	list: string
-	label: string | null
-	content: {
-		data: {
+		url: string | null
+		list: string
+		label: string | null
+		content: {
 			data: {
-				html: string
-				files: {
-					imageWebp: string
-					imageWebpX2: string
-					image: string
-					imageX2: string
-					imageWebpSm: string
-					imageWebpSmX2: string
-					imageSm: string
-					imageSmX2: string
+				data: {
+					html: string
+					images: {
+						imageWebp: string
+						imageWebpX2: string
+						image: string
+						imageX2: string
+						imageWebpSm: string
+						imageWebpSmX2: string
+						imageSm: string
+						imageSmX2: string
+					}
 				}
-			}
 
+			}
 		}
 	}
+
 	otherWorks: IWorks | IWork[]
 }

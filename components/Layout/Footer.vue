@@ -12,7 +12,7 @@ const contacts = useState<IContacts>('contacts')
 			<UiButton href="/order" transparent>
 				Заказать сайт<UiIconArrowUp />
 			</UiButton>
-			<UiButton :href="contacts?.files?.original" download="Бриф на разработку сайта" transparent>
+			<UiButton :href="contacts?.brief" download="Бриф на разработку сайта" transparent>
 				Скачать бриф<UiIconArrowDown />
 			</UiButton>
 		</div>

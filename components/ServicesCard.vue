@@ -6,7 +6,7 @@ defineProps<{ service: IServices }>()
 
 <template>
 	<NuxtLink to="/order" class="service-card">
-		<img class="service-card__icon" :src="service.files.original " :alt="service.title">
+		<img class="service-card__icon" :src="service.icon " :alt="service.title">
 		<h5 class="service-card__title">
 			{{ service.title }}
 		</h5>

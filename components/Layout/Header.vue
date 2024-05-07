@@ -18,10 +18,10 @@ onMounted(() => isLoading.value = false)
 					<span />
 				</button>
 				<NuxtLink to="/" class="header__logo header__logo--light">
-					<NuxtImg width="80" height="47" src="/img/logo.svg" alt="Tresk Sites" />
+					<NuxtImg loading="lazy" width="80" height="47" src="/img/logo.svg" alt="Tresk Sites" />
 				</NuxtLink>
 				<NuxtLink to="/" class="header__logo header__logo--dark">
-					<NuxtImg width="80" height="47" src="/img/logo-dark.svg" alt="Tresk Sites" />
+					<NuxtImg loading="lazy" width="80" height="47" src="/img/logo-dark.svg" alt="Tresk Sites" />
 				</NuxtLink>
 				<UiButton v-show="!isLoading" class="header__button" href="/order" transparent>
 					Заказать сайт <UiIconArrowUp />

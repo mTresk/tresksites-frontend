@@ -19,7 +19,7 @@ onMounted(() => {
 		<div class="technology__wrapper">
 			<div class="technology__body">
 				<div class="technology__avatar">
-					<NuxtPicture format="webp" src="/img/avatar.jpg" alt="Маским Треск" />
+					<NuxtPicture loading="lazy" format="webp" src="/img/avatar.jpg" alt="Маским Треск" />
 				</div>
 				<div class="technology__info">
 					<h3 class="technology__title">

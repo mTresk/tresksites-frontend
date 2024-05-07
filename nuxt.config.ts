@@ -21,6 +21,12 @@ export default defineNuxtConfig({
 			autoprefixer: {},
 		},
 	},
+	image: {
+		provider: 'ipx',
+		ipx: {
+			maxAge: 315360000,
+		},
+	},
 	modules: ['@nuxt/image', 'nuxt-simple-robots', '@vite-pwa/nuxt', '@nuxtjs/sitemap'],
 	sitemap: {
 		sources: ['/api/sitemap/urls'],

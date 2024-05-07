@@ -9,7 +9,7 @@ defineProps<IProps>()
 
 <template>
 	<div class="logo">
-		<img width="160" height="35" :src="`/img/logos/${logo}.svg`" :alt="name">
+		<NuxtImg width="160" height="35" :src="`/img/logos/${logo}.svg`" :alt="name" />
 	</div>
 </template>
 

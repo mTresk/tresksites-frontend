@@ -25,7 +25,7 @@ onMounted(() => {
 				</div>
 			</div>
 			<div class="hero__image">
-				<NuxtPicture format="webp" src="/img/hero.png" alt="Фоновое изображение" />
+				<NuxtPicture width="1520" height="530" format="webp" src="/img/hero.png" alt="Фоновое изображение" />
 			</div>
 		</div>
 	</section>

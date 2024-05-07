@@ -9,10 +9,7 @@ defineProps<IProps>()
 
 <template>
 	<div class="chip">
-		<img
-			width="21"
-			height="21" :src="`/img/chips/${icon}.svg`" :alt="title"
-		>
+		<NuxtImg width="21" height="21" :src="`/img/chips/${icon}.svg`" :alt="title" />
 		<span>{{ title }}</span>
 	</div>
 </template>

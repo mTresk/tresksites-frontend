@@ -1,3 +1,3 @@
-# Фронденд часть tresksites.ru
+# Frontend часть сайта tresksites.ru
 
-Выполнена на Nuxt 3.
+Выполнена на фреймворке Nuxt.

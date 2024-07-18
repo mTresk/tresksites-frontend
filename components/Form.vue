@@ -96,8 +96,7 @@ async function formSubmit() {
 				<label class="order-form__label">
 					<input
 						v-model="form.phone"
-						v-maska
-						data-maska="+7 (###) ### ## ##"
+						v-maska="'+7 (###) ### ## ##'"
 						autocomplete="off"
 						type="tel"
 						name="phone"

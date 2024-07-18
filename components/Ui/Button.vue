@@ -26,7 +26,9 @@ const classes = [
 
 <template>
 	<NuxtLink
-		v-if="href" v-ripple :to="href"
+		v-if="href"
+		v-ripple
+		:to="href"
 		class="button"
 		:class="classes"
 	>

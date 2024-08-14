@@ -27,7 +27,12 @@ export default defineNuxtConfig({
 			maxAge: 315360000,
 		},
 	},
-	modules: ['@nuxt/image', 'nuxt-simple-robots', '@vite-pwa/nuxt', '@nuxtjs/sitemap'],
+	modules: [
+		'@nuxt/image',
+		'@vite-pwa/nuxt',
+		'@nuxtjs/sitemap',
+		'@nuxtjs/robots',
+	],
 	sitemap: {
 		sources: ['/api/sitemap/urls'],
 	},

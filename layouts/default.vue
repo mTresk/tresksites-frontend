@@ -25,9 +25,12 @@ useState('contacts', () => contacts.value)
 function toggleMenu() {
 	isMenuOpen.value = !isMenuOpen.value
 
-	isMenuOpen.value
-		? document.documentElement.classList.add('menu-open')
-		: document.documentElement.classList.remove('menu-open')
+	if (isMenuOpen.value) {
+		document.documentElement.classList.add('menu-open')
+	}
+	else {
+		document.documentElement.classList.remove('menu-open')
+	}
 }
 
 function closeMenu() {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Lenis from '@studio-freight/lenis'
+import Lenis from 'lenis'
 
 const lenisVS = ref<Lenis>()
 const lenisRaf = ref()

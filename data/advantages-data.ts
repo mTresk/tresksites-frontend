@@ -1,7 +1,7 @@
 export const advatagesItems = [
 	{
 		title: '> 5 лет',
-		description: 'я занимаюсь создание сайтов и приложений',
+		description: 'я занимаюсь созданием сайтов и приложений',
 	},
 	{
 		title: '> 100 проектов',

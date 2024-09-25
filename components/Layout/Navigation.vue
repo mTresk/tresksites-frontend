@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { menuItems } from '@/data/menu-data'
 import type { IContacts } from '@/types'
+import { menuItems } from '@/data/menu-data'
 
 defineEmits(['closeMenu'])
 

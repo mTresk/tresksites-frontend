@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useQuery } from '@tanstack/vue-query'
 import type { IWorkItem } from '@/types'
+import { useQuery } from '@tanstack/vue-query'
 
 definePageMeta({
 	pageTransition: {

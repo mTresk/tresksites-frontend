@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useInfiniteQuery } from '@tanstack/vue-query'
 import type { IWorks } from '@/types'
+import { useInfiniteQuery } from '@tanstack/vue-query'
 
 definePageMeta({
 	pageTransition: {

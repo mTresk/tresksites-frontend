@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { chips } from '@/data/chips-data'
 import type { IContacts } from '@/types'
+import { chips } from '@/data/chips-data'
 
 const { appearLeft } = useAnimation()
 

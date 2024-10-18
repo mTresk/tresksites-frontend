@@ -32,7 +32,11 @@ export default defineNuxtConfig({
 		'@vite-pwa/nuxt',
 		'@nuxtjs/sitemap',
 		'@nuxtjs/robots',
+		'nuxt-delay-hydration',
 	],
+	delayHydration: {
+		mode: 'mount',
+	},
 	sitemap: {
 		sources: ['/api/sitemap/urls'],
 	},

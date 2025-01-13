@@ -8,7 +8,7 @@ export default defineNuxtConfig({
 			preprocessorOptions: {
 				scss: {
 					additionalData: '@use "@/assets/scss/globals.scss" as *;',
-					api: 'modern-compiler',
+					silenceDeprecations: ['import'],
 				},
 			},
 		},
@@ -37,6 +37,7 @@ export default defineNuxtConfig({
 	],
 	delayHydration: {
 		mode: 'mount',
+		debug: process.env.NODE_ENV === 'development',
 	},
 	sitemap: {
 		sources: ['/api/sitemap/urls'],

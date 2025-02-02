@@ -14,6 +14,7 @@ module.exports = {
 		'scss/at-mixin-pattern': null,
 		'no-invalid-position-at-import-rule': null,
 		'no-descending-specificity': null,
+		'declaration-property-value-no-unknown': null,
 	},
 	ignoreFiles: ['scss/libs/gallery/**/*.scss'],
 }

@@ -241,8 +241,8 @@ async function formSubmit() {
 			font-weight: 500;
 			line-height: 150%;
 			color: var(--white-color);
-			background-color: transparent;
 			outline: none;
+			background-color: transparent;
 
 			@include adaptiveValue('font-size', 14, 12);
 

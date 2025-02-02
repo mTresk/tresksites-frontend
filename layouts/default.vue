@@ -224,7 +224,7 @@ body {
 
 .layout-enter-from,
 .layout-leave-to {
-	filter: grayscale(1) blur(5px);
 	opacity: 0;
+	filter: grayscale(1) blur(5px);
 }
 </style>

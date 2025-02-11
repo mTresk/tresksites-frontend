@@ -2,7 +2,7 @@
 import type { IPrices } from '@/types'
 
 interface IProps {
-	prices?: IPrices
+	prices: IPrices
 	isLoading: boolean
 }
 

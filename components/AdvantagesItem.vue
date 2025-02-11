@@ -1,19 +1,16 @@
 <script setup lang="ts">
-interface IProps {
-	title: string
-	description: string
-}
+import type { IAdvantage } from '@/types'
 
-defineProps<IProps>()
+defineProps<IAdvantage>()
 </script>
 
 <template>
 	<div class="advantages-item">
 		<h2 class="advantages-item__title">
-			{{ title }}
+			{{ advantage.title }}
 		</h2>
 		<p class="advantages-item__description">
-			{{ description }}
+			{{ advantage.description }}
 		</p>
 	</div>
 </template>

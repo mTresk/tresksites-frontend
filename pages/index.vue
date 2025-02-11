@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { IWork } from '~/types'
 import { useQuery } from '@tanstack/vue-query'
 
 definePageMeta({
@@ -8,7 +9,7 @@ definePageMeta({
 	},
 })
 
-const fetcher = async () => await useNuxtApp().$api('/api/works/featured')
+const fetcher = async () => await useNuxtApp().$api<IWork[]>('/api/works/featured')
 
 const {
 	isLoading,
@@ -31,7 +32,7 @@ await suspense()
 		<Hero />
 		<Advantages />
 		<Logos />
-		<Works :works="works as any" :is-loading="isLoading" />
+		<Works :works="works as IWork[]" :is-loading="isLoading" />
 		<div class="spacer-60">
 			<UiButton href="/works" transparent wide size="lg">
 				Другие работы<UiIconArrowUp />

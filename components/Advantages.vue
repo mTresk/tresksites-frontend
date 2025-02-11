@@ -1,5 +1,19 @@
 <script setup lang="ts">
-import { advatagesItems } from '@/data/advantages-data'
+import type { IAdvantages } from '@/types'
+import { useQuery } from '@tanstack/vue-query'
+
+const fetcher = async () => await useNuxtApp().$api<IAdvantages>('/api/advantages')
+
+const {
+	isLoading,
+	data: advantages,
+	suspense,
+} = useQuery({
+	queryKey: ['advantages'],
+	queryFn: fetcher,
+})
+
+await suspense()
 
 const { appearBottom, appearLeft } = useAnimation()
 
@@ -11,12 +25,12 @@ onMounted(() => {
 
 <template>
 	<section class="advantages spacer-60">
-		<div class="advantages__body">
+		<UiSpinner v-if="isLoading" />
+		<div v-if="!isLoading" class="advantages__body">
 			<AdvantagesItem
-				v-for="advantagesItem in advatagesItems"
-				:key="advantagesItem.title"
-				:title="advantagesItem.title"
-				:description="advantagesItem.description"
+				v-for="advantage in advantages?.block"
+				:key="advantage.title"
+				:advantage="advantage"
 			/>
 		</div>
 	</section>

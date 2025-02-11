@@ -30,6 +30,17 @@ export interface IPrices {
 	block: IPrice
 }
 
+export interface IAdvantage {
+	advantage: {
+		title: string
+		description: string
+	}
+}
+
+export interface IAdvantages {
+	block: IAdvantage
+}
+
 export interface IServices {
 	id: number
 	icon: string

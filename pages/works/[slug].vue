@@ -195,6 +195,7 @@ onMounted(() => {
 		margin-bottom: rem(20);
 		overflow: hidden;
 		border-radius: rem(12);
+		box-shadow: rem(10) rem(10) rem(30) rem(20) rgb(0 0 0 / 5%);
 
 		&:not(:last-child) {
 			@include adaptiveValue('margin-bottom', 50, 40);

@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import type { IServices } from '@/types'
+import { useQuery } from '@tanstack/vue-query'
 
-interface IProps {
-	services: IServices[]
-	isLoading: boolean
-}
+const fetcher = async () => await useNuxtApp().$api<IServices[]>('/api/services')
 
-defineProps<IProps>()
+const {
+	isLoading,
+	data: services,
+	suspense,
+} = useQuery({
+	queryKey: ['services'],
+	queryFn: fetcher,
+})
+
+await suspense()
 
 const { appearLeft } = useAnimation()
 

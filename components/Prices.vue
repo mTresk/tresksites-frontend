@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import type { IPrices } from '@/types'
+import { useQuery } from '@tanstack/vue-query'
 
-interface IProps {
-	prices: IPrices
-	isLoading: boolean
-}
+const fetcher = async () => await useNuxtApp().$api<IPrices>('/api/prices')
 
-defineProps<IProps>()
+const {
+	isLoading,
+	data: prices,
+	suspense,
+} = useQuery({
+	queryKey: ['prices'],
+	queryFn: fetcher,
+})
+
+await suspense()
 </script>
 
 <template>

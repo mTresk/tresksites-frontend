@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { IContacts, IPrices } from '@/types'
-import { useQuery } from '@tanstack/vue-query'
+import type { IContacts } from '@/types'
 
 definePageMeta({
 	pageTransition: {
@@ -12,19 +11,6 @@ definePageMeta({
 const { appearLeft } = useAnimation()
 
 const contacts = useState<IContacts>('contacts')
-
-const fetcher = async () => await useNuxtApp().$api<IPrices>('/api/prices')
-
-const {
-	isLoading,
-	data: prices,
-	suspense,
-} = useQuery({
-	queryKey: ['prices'],
-	queryFn: fetcher,
-})
-
-await suspense()
 
 onMounted(() => {
 	appearLeft('.order-animate')
@@ -52,7 +38,7 @@ onMounted(() => {
 				<Form class="order-animate" />
 			</div>
 		</section>
-		<Prices :prices="prices" :is-loading="isLoading" class="price-animate" />
+		<Prices class="price-animate" />
 		<Technology />
 	</div>
 </template>

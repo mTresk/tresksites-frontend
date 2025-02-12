@@ -8,7 +8,7 @@ const isLoading = ref(true)
 
 const isMenuOpen = ref(false)
 
-const fetcher = async () => await useNuxtApp().$api<IContacts>('/api/contacts')
+const fetcher = async () => await nuxtApp.$api<IContacts>('/api/contacts')
 
 const {
 	data: contacts,

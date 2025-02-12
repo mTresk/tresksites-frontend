@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import type { IServices } from '@/types'
-import { useQuery } from '@tanstack/vue-query'
-
 definePageMeta({
 	pageTransition: {
 		name: 'layout',
@@ -9,18 +6,11 @@ definePageMeta({
 	},
 })
 
-const fetcher = async () => await useNuxtApp().$api<IServices[]>('/api/services')
+const { appearLeft } = useAnimation()
 
-const {
-	isLoading,
-	data: services,
-	suspense,
-} = useQuery({
-	queryKey: ['services'],
-	queryFn: fetcher,
+onMounted(() => {
+	appearLeft('.price-animate')
 })
-
-await suspense()
 </script>
 
 <template>
@@ -29,8 +19,8 @@ await suspense()
 			<Title>Услуги</Title>
 			<Meta name="description" content="Дизайн, верстка и программирование сайтов и веб-приложений" />
 		</Head>
-		<Services :services="services as IServices[]" :is-loading="isLoading" />
-		<Advantages />
+		<Services />
+		<Prices class="price-animate" />
 		<Technology />
 	</div>
 </template>

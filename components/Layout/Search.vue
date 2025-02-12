@@ -18,7 +18,7 @@ const scrollableElement = ref()
 
 async function handleSearch() {
 	isLoading.value = true
-	result.value = await useNuxtApp().$api<IResult[]>(`/api/search?keywords=${keywords.value}`)
+	result.value = await useNuxtApp().$api<IResult[]>('/api/search', { params: { keywords: keywords.value } })
 	isLoading.value = false
 }
 

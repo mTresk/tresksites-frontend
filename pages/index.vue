@@ -33,7 +33,7 @@ await suspense()
 		<Advantages />
 		<Logos />
 		<Works :works="works as IWork[]" :is-loading="isLoading" />
-		<div class="spacer-60">
+		<div v-if="!isLoading" class="spacer-60">
 			<UiButton href="/works" transparent wide size="lg">
 				Другие работы<UiIconArrowUp />
 			</UiButton>

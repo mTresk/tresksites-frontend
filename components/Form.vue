@@ -228,7 +228,7 @@ async function formSubmit() {
 		svg {
 			height: auto;
 
-			@include adaptiveValue('max-width', 24, 20);
+			@include adaptiveValue('max-width', 24, 18);
 
 			path {
 				transition: all 0.3s ease-in-out;
@@ -360,7 +360,7 @@ async function formSubmit() {
 		svg {
 			height: auto;
 
-			@include adaptiveValue('max-width', 24, 28);
+			@include adaptiveValue('max-width', 24, 18);
 		}
 	}
 

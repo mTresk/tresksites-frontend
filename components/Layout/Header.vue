@@ -26,6 +26,7 @@ onMounted(() => isLoading.value = false)
 				<UiButton v-show="!isLoading" class="header__button" href="/order" transparent>
 					Заказать сайт <UiIconArrowUp />
 				</UiButton>
+				<LayoutSearch v-show="!isLoading" />
 			</div>
 			<div class="header__right">
 				<div class="header__person">
@@ -75,6 +76,7 @@ onMounted(() => isLoading.value = false)
 
 	&__left {
 		display: flex;
+		flex: 1;
 		gap: rem(20);
 		align-items: center;
 	}

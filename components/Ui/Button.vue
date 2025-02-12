@@ -55,6 +55,7 @@ const classes = [
 	font-weight: 600;
 	line-height: 90%;
 	color: var(--white-color);
+	white-space: nowrap;
 	background-color: var(--accent-color);
 	transition: all 0.3s ease-in-out;
 
@@ -64,6 +65,7 @@ const classes = [
 	@include adaptiveValue('padding-right', 24, 16);
 
 	:deep(svg) {
+		flex-shrink: 0;
 		height: auto;
 
 		@include adaptiveValue('max-width', 20, 16);

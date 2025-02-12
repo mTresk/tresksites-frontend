@@ -82,8 +82,8 @@ onUnmounted(() => {
 		padding: 0;
 		border-radius: 0;
 		box-shadow: none;
-		transition: all 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
 		transform: translateY(-100%);
+		transition: all 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
 
 		.menu-open & {
 			transform: translateY(0%);

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watchDebounced } from '@vueuse/core'
+import { onClickOutside, watchDebounced } from '@vueuse/core'
 
 export interface IResult {
 	id: number
@@ -14,7 +14,7 @@ const result = ref<IResult[]>()
 
 const isLoading = ref(false)
 
-const scrollableElement = ref()
+const target = ref()
 
 async function handleSearch() {
 	isLoading.value = true
@@ -23,11 +23,11 @@ async function handleSearch() {
 }
 
 async function clear() {
-	setTimeout(() => {
-		result.value = undefined
-		keywords.value = undefined
-	}, 100)
+	result.value = undefined
+	keywords.value = undefined
 }
+
+onClickOutside(target, _ => clear())
 
 watchDebounced(
 	() => keywords.value,
@@ -43,18 +43,18 @@ watchDebounced(
 )
 
 onMounted(() => {
-	useScrollable(scrollableElement.value)
+	useScrollable(target.value)
 })
 </script>
 
 <template>
 	<div class="search">
 		<label class="search__field">
-			<input v-model="keywords" autocomplete="off" type="text" name="search" placeholder="Поиск..." @blur="clear">
+			<input v-model="keywords" autocomplete="off" type="text" name="search" placeholder="Поиск...">
 		</label>
-		<div v-show="result" ref="scrollableElement" class="search__result">
+		<div v-show="result" ref="target" class="search__result">
 			<ul class="search__list">
-				<li v-for="item in result" :key="item.id" class="search__item">
+				<li v-for="item in result" :key="item.id" class="search__item" @click="clear">
 					<NuxtLink :to="`/works/${item.slug}`">
 						{{ item.name }}
 					</NuxtLink>

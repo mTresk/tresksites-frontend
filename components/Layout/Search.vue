@@ -85,6 +85,7 @@ onMounted(() => {
 		align-items: center;
 		justify-content: space-between;
 		padding-block: rem(12);
+		cursor: text;
 		background-color: rgb(255 255 255 / 50%);
 		border: 1px solid rgb(255 255 255 / 50%);
 		transition: all 0.3s ease-in-out;

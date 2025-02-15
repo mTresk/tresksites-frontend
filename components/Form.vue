@@ -177,8 +177,8 @@ async function formSubmit() {
 	background-color: var(--accent-color);
 	border-radius: rem(12);
 
-	@include adaptiveValue('padding-top', 60, 40);
-	@include adaptiveValue('padding-bottom', 60, 40);
+	@include adaptive-value('padding-top', 60, 40);
+	@include adaptive-value('padding-bottom', 60, 40);
 
 	@media (prefers-color-scheme: dark) {
 		color: var(--main-color);
@@ -228,7 +228,7 @@ async function formSubmit() {
 		svg {
 			height: auto;
 
-			@include adaptiveValue('max-width', 24, 18);
+			@include adaptive-value('max-width', 24, 18);
 
 			path {
 				transition: all 0.3s ease-in-out;
@@ -244,7 +244,7 @@ async function formSubmit() {
 			outline: none;
 			background-color: transparent;
 
-			@include adaptiveValue('font-size', 14, 12);
+			@include adaptive-value('font-size', 14, 12);
 
 			&::placeholder {
 				color: var(--white-color);
@@ -320,7 +320,7 @@ async function formSubmit() {
 			}
 		}
 
-		@include adaptiveValue('font-size', 12, 10);
+		@include adaptive-value('font-size', 12, 10);
 
 		@media (prefers-color-scheme: dark) {
 			color: var(--main-color);
@@ -360,7 +360,7 @@ async function formSubmit() {
 		svg {
 			height: auto;
 
-			@include adaptiveValue('max-width', 24, 18);
+			@include adaptive-value('max-width', 24, 18);
 		}
 	}
 
@@ -369,7 +369,7 @@ async function formSubmit() {
 		text-decoration: underline;
 		text-underline-offset: rem(4);
 
-		@include adaptiveValue('font-size', 14, 12);
+		@include adaptive-value('font-size', 14, 12);
 	}
 
 	input[type='file'] {

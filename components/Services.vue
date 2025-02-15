@@ -39,7 +39,7 @@ onMounted(() => {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 
-		@include adaptiveValue('gap', 20, 8);
+		@include adaptive-value('gap', 20, 8);
 
 		@media (max-width: em(1500)) {
 			grid-template-columns: repeat(3, 1fr);

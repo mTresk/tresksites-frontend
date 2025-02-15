@@ -38,7 +38,7 @@ onMounted(() => {
 		align-items: center;
 		justify-content: space-between;
 
-		@include adaptiveValue('gap', 40, 20);
+		@include adaptive-value('gap', 40, 20);
 
 		@media (max-width: $tablet) {
 			flex-direction: column-reverse;
@@ -51,10 +51,10 @@ onMounted(() => {
 		border-radius: rem(20);
 		box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
-		@include adaptiveValue('padding-top', 50, 20);
-		@include adaptiveValue('padding-bottom', 50, 20);
-		@include adaptiveValue('padding-left', 40, 20);
-		@include adaptiveValue('padding-right', 40, 20);
+		@include adaptive-value('padding-top', 50, 20);
+		@include adaptive-value('padding-bottom', 50, 20);
+		@include adaptive-value('padding-left', 40, 20);
+		@include adaptive-value('padding-right', 40, 20);
 
 		@media (max-width: $tablet) {
 			flex: 1 1 auto;
@@ -65,8 +65,8 @@ onMounted(() => {
 		font-weight: 500;
 		line-height: 145%;
 
-		@include adaptiveValue('font-size', 22, 14);
-		@include adaptiveValue('margin-bottom', 40, 32);
+		@include adaptive-value('font-size', 22, 14);
+		@include adaptive-value('margin-bottom', 40, 32);
 	}
 
 	&__chips {

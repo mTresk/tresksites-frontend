@@ -23,17 +23,17 @@ defineProps<IProps>()
 	padding: rem(9) rem(14);
 	background-color: var(--light-color);
 
-	@include adaptiveValue('border-radius', 16, 12);
-	@include adaptiveValue('gap', 8, 6);
+	@include adaptive-value('border-radius', 16, 12);
+	@include adaptive-value('gap', 8, 6);
 
 	span {
-		@include adaptiveValue('font-size', 15, 12);
+		@include adaptive-value('font-size', 15, 12);
 	}
 
 	img {
 		width: auto;
 
-		@include adaptiveValue('max-height', 20, 16);
+		@include adaptive-value('max-height', 20, 16);
 	}
 }
 </style>

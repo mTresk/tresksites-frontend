@@ -59,16 +59,16 @@ const classes = [
 	background-color: var(--accent-color);
 	transition: all 0.3s ease-in-out;
 
-	@include adaptiveValue('font-size', 15, 14);
-	@include adaptiveValue('border-radius', 16, 12);
-	@include adaptiveValue('padding-left', 24, 16);
-	@include adaptiveValue('padding-right', 24, 16);
+	@include adaptive-value('font-size', 15, 14);
+	@include adaptive-value('border-radius', 16, 12);
+	@include adaptive-value('padding-left', 24, 16);
+	@include adaptive-value('padding-right', 24, 16);
 
 	:deep(svg) {
 		flex-shrink: 0;
 		height: auto;
 
-		@include adaptiveValue('max-width', 20, 16);
+		@include adaptive-value('max-width', 20, 16);
 
 		path {
 			fill: var(--white-color);

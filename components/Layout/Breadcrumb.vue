@@ -28,7 +28,7 @@ defineProps<IProps>()
 	row-gap: rem(6);
 	align-items: center;
 
-	@include adaptiveValue('margin-bottom', 30, 20);
+	@include adaptive-value('margin-bottom', 30, 20);
 
 	&__item {
 		position: relative;
@@ -38,7 +38,7 @@ defineProps<IProps>()
 		text-decoration: underline;
 		transition: color 0.3s ease-in-out;
 
-		@include adaptiveValue('font-size', 16, 14);
+		@include adaptive-value('font-size', 16, 14);
 
 		.dark-mode & {
 			color: var(--main-color-dark);

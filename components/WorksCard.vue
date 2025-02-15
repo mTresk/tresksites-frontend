@@ -45,8 +45,8 @@ defineProps<{ work: IWork }>()
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
-	@include adaptiveValue('gap', 40, 20);
-	@include adaptiveValue('padding-right', 40, 20);
+	@include adaptive-value('gap', 40, 20);
+	@include adaptive-value('padding-right', 40, 20);
 
 	@media (max-width: $tablet) {
 		flex-direction: column;
@@ -65,11 +65,7 @@ defineProps<{ work: IWork }>()
 		border-radius: rem(12);
 
 		img {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
+			@include image;
 		}
 
 		@media (max-width: $tablet) {
@@ -96,8 +92,8 @@ defineProps<{ work: IWork }>()
 		display: block;
 		line-height: 125%;
 
-		@include adaptiveValue('font-size', 14, 12);
-		@include adaptiveValue('margin-bottom', 8, 10);
+		@include adaptive-value('font-size', 14, 12);
+		@include adaptive-value('margin-bottom', 8, 10);
 
 		a {
 			text-decoration: underline;
@@ -122,7 +118,7 @@ defineProps<{ work: IWork }>()
 				font-weight: 500;
 				line-height: 150%;
 
-				@include adaptiveValue('font-size', 16, 14);
+				@include adaptive-value('font-size', 16, 14);
 
 				&::before {
 					position: absolute;

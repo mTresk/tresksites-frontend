@@ -56,8 +56,8 @@ onMounted(() => {
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
-	@include adaptiveValue('padding-top', 60, 40);
-	@include adaptiveValue('padding-bottom', 60, 40);
+	@include adaptive-value('padding-top', 60, 40);
+	@include adaptive-value('padding-bottom', 60, 40);
 
 	&__wrapper {
 		max-width: rem(1000);

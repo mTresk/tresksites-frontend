@@ -32,7 +32,7 @@ defineProps<IPrice>()
 		line-height: 150%;
 		background-color: var(--white-color);
 
-		@include adaptiveValue('font-size', 18, 14);
+		@include adaptive-value('font-size', 18, 14);
 
 		&::before {
 			position: absolute;
@@ -44,7 +44,7 @@ defineProps<IPrice>()
 			white-space: nowrap;
 			content: '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------';
 
-			@include adaptiveValue('font-size', 12, 8);
+			@include adaptive-value('font-size', 12, 8);
 		}
 	}
 
@@ -59,7 +59,7 @@ defineProps<IPrice>()
 		white-space: nowrap;
 		background-color: var(--white-color);
 
-		@include adaptiveValue('font-size', 18, 14);
+		@include adaptive-value('font-size', 18, 14);
 	}
 }
 </style>

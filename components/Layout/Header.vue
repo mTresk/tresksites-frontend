@@ -98,7 +98,7 @@ onMounted(() => isLoading.value = false)
 
 		@media (max-width: em(1199)) {
 			img {
-				@include adaptiveValue('max-height', 50, 30);
+				@include adaptive-value('max-height', 50, 30);
 			}
 		}
 	}
@@ -113,7 +113,7 @@ onMounted(() => isLoading.value = false)
 		display: flex;
 		align-items: center;
 
-		@include adaptiveValue('gap', 40, 20);
+		@include adaptive-value('gap', 40, 20);
 	}
 
 	&__person {
@@ -134,11 +134,7 @@ onMounted(() => isLoading.value = false)
 		border-radius: 50%;
 
 		:deep(img) {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
+			@include image;
 		}
 	}
 
@@ -149,7 +145,7 @@ onMounted(() => isLoading.value = false)
 		text-underline-offset: rem(4);
 		transition: color 0.3s ease-in-out;
 
-		@include adaptiveValue('font-size', 15, 12);
+		@include adaptive-value('font-size', 15, 12);
 
 		@media (any-hover: hover) {
 			&:hover {

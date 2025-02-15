@@ -22,7 +22,7 @@ defineProps<IAdvantage>()
 	flex-direction: column;
 	align-items: flex-start;
 
-	@include adaptiveValue('gap', 12, 10);
+	@include adaptive-value('gap', 12, 10);
 
 	&:not(:last-child) {
 		&::before {
@@ -33,7 +33,7 @@ defineProps<IAdvantage>()
 			content: '';
 			background-color: var(--light-color);
 
-			@include adaptiveValue('right', -30, -12);
+			@include adaptive-value('right', -30, -12);
 
 			@media (max-width: $mobile) {
 				top: auto;
@@ -41,7 +41,7 @@ defineProps<IAdvantage>()
 				width: 100%;
 				height: 1px;
 
-				@include adaptiveValue('bottom', -30, -12);
+				@include adaptive-value('bottom', -30, -12);
 			}
 		}
 	}
@@ -51,7 +51,7 @@ defineProps<IAdvantage>()
 		font-weight: 500;
 		line-height: 145%;
 
-		@include adaptiveValue('font-size', 14, 12);
+		@include adaptive-value('font-size', 14, 12);
 	}
 }
 </style>

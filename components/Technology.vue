@@ -52,8 +52,8 @@ onMounted(() => {
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
-	@include adaptiveValue('padding-top', 40, 20);
-	@include adaptiveValue('padding-bottom', 40, 20);
+	@include adaptive-value('padding-top', 40, 20);
+	@include adaptive-value('padding-bottom', 40, 20);
 
 	&__wrapper {
 		display: flex;
@@ -67,7 +67,7 @@ onMounted(() => {
 		display: flex;
 		align-items: center;
 
-		@include adaptiveValue('gap', 40, 20);
+		@include adaptive-value('gap', 40, 20);
 
 		@media (max-width: $mobile) {
 			flex-direction: column;
@@ -84,11 +84,7 @@ onMounted(() => {
 		border-radius: 50%;
 
 		:deep(img) {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
+			@include image;
 		}
 
 		@media (max-width: $mobile) {
@@ -114,7 +110,7 @@ onMounted(() => {
 		font-weight: 500;
 		line-height: 150%;
 
-		@include adaptiveValue('font-size', 16, 14);
+		@include adaptive-value('font-size', 16, 14);
 	}
 
 	&__links {
@@ -136,7 +132,7 @@ onMounted(() => {
 		text-underline-offset: rem(4);
 		transition: color 0.3s ease-in-out;
 
-		@include adaptiveValue('font-size', 15, 12);
+		@include adaptive-value('font-size', 15, 12);
 
 		@media (any-hover: hover) {
 			&:hover {

@@ -46,7 +46,7 @@ const contacts = useState<IContacts>('contacts')
 		text-align: center;
 		text-transform: uppercase;
 
-		@include adaptiveValue('font-size', 12, 10);
+		@include adaptive-value('font-size', 12, 10);
 	}
 }
 </style>

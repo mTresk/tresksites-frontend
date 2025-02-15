@@ -44,14 +44,14 @@ onMounted(() => {
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
-	@include adaptiveValue('padding-left', 40, 20);
-	@include adaptiveValue('padding-right', 40, 20);
+	@include adaptive-value('padding-left', 40, 20);
+	@include adaptive-value('padding-right', 40, 20);
 
 	&__body {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 
-		@include adaptiveValue('gap', 60, 24);
+		@include adaptive-value('gap', 60, 24);
 
 		@media (max-width: $mobile) {
 			grid-template-columns: 1fr;

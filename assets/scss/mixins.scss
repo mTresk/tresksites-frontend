@@ -10,12 +10,6 @@
 	}
 }
 
-@function percent($px, $from) {
-	$result: math.div($px, $from) * 100%;
-
-	@return $result;
-}
-
 @function rem($px) {
 	$result: math.div($px, 16) + rem;
 
@@ -28,19 +22,7 @@
 	@return $result;
 }
 
-@mixin currency($sym) {
-	&::after {
-		content: '#{$sym}';
-	}
-}
-
-@mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
-	display: grid;
-	grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
-	gap: $gap;
-}
-
-@mixin adaptiveValue($property, $startSize, $minSize, $keepSize: 0, $widthFrom: $containerWidth, $widthTo: $minWidth) {
+@mixin adaptive-value($property, $startSize, $minSize, $keepSize: 0, $widthFrom: $containerWidth, $widthTo: $minWidth) {
 	@if $startSize == 0 {
 		$startSize: 0.0001;
 	}
@@ -84,10 +66,8 @@
 
 		@supports not (#{$property}: $propertyValue) {
 			#{$property}: calc(
-				#{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) / #{math.div($widthFrom, 16) - math.div(
-						$widthTo,
-						16
-					)}
+				#{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) /
+					#{math.div($widthFrom, 16) - math.div($widthTo, 16)}
 			);
 		}
 	}
@@ -96,5 +76,35 @@
 		@media (max-width: $widthToMedia) {
 			#{$property}: rem($minSize);
 		}
+	}
+}
+
+@mixin image() {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@mixin hide-scroll() {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+@mixin responsive-video() {
+	position: relative;
+	aspect-ratio: 16/9;
+	overflow: hidden;
+
+	video,
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
 	}
 }

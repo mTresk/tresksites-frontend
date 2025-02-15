@@ -52,7 +52,7 @@ const handleError = () => clearError({ redirect: '/' })
 		font-weight: 700;
 		animation: shake 0.6s ease-in-out infinite alternate;
 
-		@include adaptiveValue('margin-bottom', 50, 20);
+		@include adaptive-value('margin-bottom', 50, 20);
 
 		&::before {
 			position: absolute;
@@ -85,7 +85,7 @@ const handleError = () => clearError({ redirect: '/' })
 				glitch-anim 0.3s ease-in-out infinite alternate;
 		}
 
-		@include adaptiveValue('font-size', 400, 120);
+		@include adaptive-value('font-size', 400, 120);
 	}
 
 	&__status {
@@ -97,7 +97,7 @@ const handleError = () => clearError({ redirect: '/' })
 		background-color: var(--light-color);
 		border-radius: rem(12);
 
-		@include adaptiveValue('font-size', 16, 14);
+		@include adaptive-value('font-size', 16, 14);
 	}
 
 	@keyframes glitch-anim {

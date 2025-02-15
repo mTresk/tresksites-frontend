@@ -90,9 +90,9 @@ onMounted(() => {
 		border: 1px solid rgb(255 255 255 / 50%);
 		transition: all 0.3s ease-in-out;
 
-		@include adaptiveValue('border-radius', 16, 12);
-		@include adaptiveValue('padding-left', 24, 16);
-		@include adaptiveValue('padding-right', 24, 16);
+		@include adaptive-value('border-radius', 16, 12);
+		@include adaptive-value('padding-left', 24, 16);
+		@include adaptive-value('padding-right', 24, 16);
 
 		@media (prefers-color-scheme: dark) {
 			background-color: var(--white-color);
@@ -107,7 +107,7 @@ onMounted(() => {
 			outline: none;
 			background-color: transparent;
 
-			@include adaptiveValue('font-size', 14, 12);
+			@include adaptive-value('font-size', 14, 12);
 
 			&::placeholder {
 				color: var(--main-color);
@@ -150,7 +150,7 @@ onMounted(() => {
 		background-color: var(--white-color);
 		box-shadow: 0 8px 20px 0 rgb(0 0 0 / 5%);
 
-		@include adaptiveValue('border-radius', 16, 12);
+		@include adaptive-value('border-radius', 16, 12);
 	}
 
 	// .search__list
@@ -166,7 +166,7 @@ onMounted(() => {
 	&__item {
 		line-height: 150%;
 
-		@include adaptiveValue('font-size', 14, 12);
+		@include adaptive-value('font-size', 14, 12);
 
 		a {
 			display: block;
@@ -187,7 +187,7 @@ onMounted(() => {
 		line-height: 150%;
 		opacity: 0.5;
 
-		@include adaptiveValue('font-size', 14, 12);
+		@include adaptive-value('font-size', 14, 12);
 	}
 }
 </style>

@@ -99,8 +99,8 @@ onMounted(() => {
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
 
-	@include adaptiveValue('padding-top', 60, 40);
-	@include adaptiveValue('padding-bottom', 60, 40);
+	@include adaptive-value('padding-top', 60, 40);
+	@include adaptive-value('padding-bottom', 60, 40);
 
 	&__wrapper {
 		max-width: rem(1000);
@@ -112,7 +112,7 @@ onMounted(() => {
 	}
 
 	&__list {
-		@include adaptiveValue('margin-bottom', 40, 30);
+		@include adaptive-value('margin-bottom', 40, 30);
 
 		:deep(ul) {
 			li {
@@ -121,7 +121,7 @@ onMounted(() => {
 				font-weight: 500;
 				line-height: 150%;
 
-				@include adaptiveValue('font-size', 16, 14);
+				@include adaptive-value('font-size', 16, 14);
 
 				&::before {
 					position: absolute;
@@ -139,19 +139,19 @@ onMounted(() => {
 
 	&__block {
 		&:not(:last-child) {
-			@include adaptiveValue('margin-bottom', 50, 40);
+			@include adaptive-value('margin-bottom', 50, 40);
 		}
 
 		:deep(h2) {
-			@include adaptiveValue('margin-bottom', 20, 16);
+			@include adaptive-value('margin-bottom', 20, 16);
 		}
 
 		:deep(p) {
 			font-weight: 500;
 			line-height: 150%;
 
-			@include adaptiveValue('font-size', 16, 14);
-			@include adaptiveValue('margin-bottom', 20, 16);
+			@include adaptive-value('font-size', 16, 14);
+			@include adaptive-value('margin-bottom', 20, 16);
 		}
 
 		:deep(a) {
@@ -167,7 +167,7 @@ onMounted(() => {
 		}
 
 		:deep(ul) {
-			@include adaptiveValue('margin-bottom', 20, 16);
+			@include adaptive-value('margin-bottom', 20, 16);
 
 			li {
 				position: relative;
@@ -175,7 +175,7 @@ onMounted(() => {
 				font-weight: 500;
 				line-height: 150%;
 
-				@include adaptiveValue('font-size', 16, 14);
+				@include adaptive-value('font-size', 16, 14);
 
 				&::before {
 					position: absolute;
@@ -198,7 +198,7 @@ onMounted(() => {
 		box-shadow: rem(10) rem(10) rem(30) rem(20) rgb(0 0 0 / 5%);
 
 		&:not(:last-child) {
-			@include adaptiveValue('margin-bottom', 50, 40);
+			@include adaptive-value('margin-bottom', 50, 40);
 		}
 
 		:deep(img) {
@@ -212,7 +212,7 @@ onMounted(() => {
 		margin-bottom: rem(10);
 		line-height: 125%;
 
-		@include adaptiveValue('font-size', 14, 12);
+		@include adaptive-value('font-size', 14, 12);
 
 		a {
 			text-decoration: underline;

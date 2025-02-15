@@ -53,7 +53,7 @@ defineProps<{ service: IServices }>()
 		font-weight: 500;
 		line-height: 150%;
 
-		@include adaptiveValue('font-size', 16, 14);
+		@include adaptive-value('font-size', 16, 14);
 	}
 
 	:deep(.service-card__arrow){

@@ -168,15 +168,15 @@ body {
 
 .content {
 	h2 {
-		@include adaptiveValue('margin-bottom', 20, 16);
+		@include adaptive-value('margin-bottom', 20, 16);
 	}
 
 	p {
 		font-weight: 500;
 		line-height: 150%;
 
-		@include adaptiveValue('font-size', 16, 14);
-		@include adaptiveValue('margin-bottom', 20, 16);
+		@include adaptive-value('font-size', 16, 14);
+		@include adaptive-value('margin-bottom', 20, 16);
 	}
 
 	a {
@@ -193,7 +193,7 @@ body {
 	}
 
 	ul {
-		@include adaptiveValue('margin-bottom', 20, 16);
+		@include adaptive-value('margin-bottom', 20, 16);
 
 		li {
 			position: relative;
@@ -201,7 +201,7 @@ body {
 			font-weight: 500;
 			line-height: 150%;
 
-			@include adaptiveValue('font-size', 16, 14);
+			@include adaptive-value('font-size', 16, 14);
 
 			&::before {
 				position: absolute;

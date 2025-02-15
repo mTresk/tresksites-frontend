@@ -23,7 +23,7 @@ onMounted(() => {
 		align-items: center;
 		justify-content: center;
 
-		@include adaptiveValue('gap', 20, 10);
+		@include adaptive-value('gap', 20, 10);
 
 		@media (max-width: em(1400)) {
 			display: grid;

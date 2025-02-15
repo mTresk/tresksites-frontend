@@ -98,6 +98,8 @@ onMounted(() => isLoading.value = false)
 
 		@media (max-width: em(1199)) {
 			img {
+				width: auto;
+
 				@include adaptive-value('max-height', 50, 30);
 			}
 		}

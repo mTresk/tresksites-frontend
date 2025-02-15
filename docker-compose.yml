@@ -10,6 +10,8 @@ services:
       - traefik.docker.network=web
       - traefik.http.routers.tresksites-nuxt.entrypoints=websecure
       - traefik.http.routers.tresksites-nuxt.tls.certresolver=myresolver
+      - traefik.http.routers.tresksites-nuxt.middlewares=web-compress
+      - traefik.http.middlewares.web-compress.compress=true
     container_name: tresksites-nuxt
     restart: always
     networks:

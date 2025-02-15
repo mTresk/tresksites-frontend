@@ -147,7 +147,7 @@ body {
 	@media (max-width: em(1199)) {
 		display: block;
 		padding-inline: rem(20);
-		padding-top: rem(80);
+		padding-top: rem(20);
 	}
 
 	@media (max-width: $mobileSmall) {

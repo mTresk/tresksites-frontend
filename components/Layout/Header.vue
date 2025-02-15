@@ -49,15 +49,14 @@ onMounted(() => isLoading.value = false)
 	padding-bottom: rem(20);
 
 	@media (max-width: em(1199)) {
-		position: fixed;
+		position: sticky;
 		top: 0;
-		left: 0;
 		z-index: 100;
 		display: flex;
 		align-items: center;
 		width: 100%;
 		min-height: rem(60);
-		padding-block: rem(8);
+		padding-block: rem(10);
 		padding-inline: rem(20);
 		background-color: var(--white-color);
 		box-shadow: 0 8px 20px 0 rgb(0 0 0 / 8%);
@@ -177,10 +176,11 @@ onMounted(() => isLoading.value = false)
 			position: absolute;
 			right: 0;
 			width: 100%;
-			height: rem(2);
+			height: rem(3);
 			pointer-events: none;
 			content: '';
 			background-color: var(--main-color);
+			border-radius: rem(4);
 			transition: all 0.3s ease-in-out;
 		}
 
@@ -193,7 +193,8 @@ onMounted(() => isLoading.value = false)
 		}
 
 		span {
-			top: calc(50% - rem(1));
+			top: calc(50%);
+			transform: translateY(-50%);
 		}
 
 		.menu-open & {
@@ -202,12 +203,12 @@ onMounted(() => isLoading.value = false)
 			}
 
 			&::before {
-				top: calc(50% - rem(1));
+				top: calc(50% - 1.5px);
 				transform: rotate(-45deg);
 			}
 
 			&::after {
-				bottom: calc(50% - rem(1));
+				bottom: calc(50% - 1.5px);
 				transform: rotate(45deg);
 			}
 		}

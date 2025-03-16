@@ -13,7 +13,16 @@ const route = useRoute()
 
 const { appearLeft } = useAnimation()
 
-const fetcher = async () => await useNuxtApp().$api<IWorkItem>(`/api/works/${route.params.slug}`)
+async function fetcher() {
+	return await useNuxtApp().$api<IWorkItem>(`/api/works/${route.params.slug}`, {
+		async onResponseError({ response }) {
+			throw showError({
+				statusCode: response.status,
+				statusMessage: response.statusText,
+			})
+		},
+	})
+}
 
 const {
 	data: work,

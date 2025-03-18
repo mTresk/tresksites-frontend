@@ -18,7 +18,7 @@ async function fetcher() {
 		async onResponseError({ response }) {
 			throw showError({
 				statusCode: response.status,
-				statusMessage: response.statusText,
+				statusMessage: response.statusText ?? 'Error',
 			})
 		},
 	})

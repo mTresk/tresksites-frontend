@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ApiValidationError } from '@/types'
+
 const fileInput = ref()
 
 const errors = ref()
@@ -55,11 +57,25 @@ async function formSubmit() {
 			isLoading.value = false
 		}
 	}
-	catch (error: any) {
-		if (error)
+	catch (error: unknown) {
+		if (error && isApiValidationError(error))
 			errors.value = error.response._data.errors
 		isLoading.value = false
 	}
+}
+
+function isApiValidationError(error: unknown): error is ApiValidationError {
+	return (
+		typeof error === 'object'
+		&& error !== null
+		&& 'response' in error
+		&& typeof error.response === 'object'
+		&& error.response !== null
+		&& '_data' in error.response
+		&& typeof error.response._data === 'object'
+		&& error.response._data !== null
+		&& 'errors' in error.response._data
+	)
 }
 </script>
 

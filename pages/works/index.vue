@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IWorks } from '@/types'
+import type { ApiResponse, IWork, WorksResponse } from '@/types'
 import { useInfiniteQuery } from '@tanstack/vue-query'
 
 definePageMeta({
@@ -9,8 +9,8 @@ definePageMeta({
 	},
 })
 
-async function fetcher({ pageParam = 1 }) {
-	const data = await useNuxtApp().$api<any>(`api/works?page=${pageParam}`)
+async function fetcher({ pageParam = 1 }): Promise<WorksResponse> {
+	const data = await useNuxtApp().$api<ApiResponse<IWork[]>>(`api/works?page=${pageParam}`)
 
 	return {
 		pageData: data?.data || [],
@@ -47,7 +47,7 @@ function nextPage() {
 			<Title>Работы</Title>
 			<Meta name="description" content="Выполненные работы по верстке и программированию сайтов" />
 		</Head>
-		<Works :works="works as unknown as IWorks" :is-loading="isLoading" />
+		<Works :works="works!" :is-loading="isLoading" />
 		<div class="spacer-60">
 			<UiButton v-if="hasNextPage" :disabled="isFetchingNextPage" transparent wide size="lg" @click="nextPage">
 				{{ isFetchingNextPage ? 'Загружаем' : 'Показать еще' }}<UiIconArrowDown />

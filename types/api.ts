@@ -67,14 +67,9 @@ export interface IWork {
 	}
 }
 
-export interface IWorks {
-	pages: {
-		page: {
-			pageData: {
-				work: IWork
-			}
-		}
-	}
+export interface WorksResponse {
+	pageData: IWork[]
+	cursor?: number
 }
 
 export interface IWorkItem {
@@ -107,5 +102,32 @@ export interface IWorkItem {
 		}
 	}
 
-	otherWorks: IWorks | IWork[]
+	otherWorks: IWork[]
+}
+
+export interface ApiValidationError {
+	response: {
+		_data: {
+			errors: {
+				[key: string]: string[]
+			}
+		}
+	}
+}
+
+export interface ApiPaginationMeta {
+	current_page: number
+	last_page: number
+	per_page: number
+	total: number
+}
+
+export interface ApiResponse<T> {
+	data: T
+	meta: ApiPaginationMeta
+}
+
+export interface PageRoute {
+	slug: string
+	updated_at: string
 }

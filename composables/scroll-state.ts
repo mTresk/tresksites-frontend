@@ -1,11 +1,14 @@
-export function useScrollState(initialState = false) {
-	const scrollState = useState('scrollState', () => initialState)
-	const lenisVS = useState('lenisVS', () => initialState)
+import type { LenisScrollData } from '@/types/lenis'
+import type Lenis from 'lenis'
 
-	const setScrollState = (newScrollState: any) => {
+export function useScrollState(initialState: false = false) {
+	const scrollState = useState<LenisScrollData | false>('scrollState', () => initialState)
+	const lenisVS = useState<Lenis | false>('lenisVS', () => initialState)
+
+	const setScrollState = (newScrollState: LenisScrollData | false) => {
 		scrollState.value = newScrollState
 	}
-	const setLenis = (virtualScroll: any) => {
+	const setLenis = (virtualScroll: Lenis | false) => {
 		lenisVS.value = virtualScroll
 	}
 

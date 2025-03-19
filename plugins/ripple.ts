@@ -1,8 +1,10 @@
+import type { DirectiveBinding } from 'vue'
+
 export type HTMLElementEvent<T extends HTMLElement> = MouseEvent & {
 	target: T
 }
 
-function handleRipple(element: HTMLElement, binding: any, event: HTMLElementEvent<HTMLButtonElement>) {
+function handleRipple(element: HTMLElement, binding: DirectiveBinding<number>, event: HTMLElementEvent<HTMLButtonElement>) {
 	const rippleElement = document.createElement('span')
 	let currentDiameter = 1
 	let currentOpacity = 0.65

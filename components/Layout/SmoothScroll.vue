@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { LenisScrollData } from '@/types/lenis'
 import Lenis from 'lenis'
 
 const lenisVS = ref<Lenis>()
@@ -21,7 +22,7 @@ const lenisOptions = computed(() => {
 
 function initLenis() {
 	lenisVS.value = new Lenis(lenisOptions.value)
-	lenisVS.value.on('scroll', (scrollData: any) => {
+	lenisVS.value.on('scroll', (scrollData: LenisScrollData) => {
 		setScrollState(scrollData)
 	})
 	lenisVS.value.on('scroll', ScrollTrigger.update)

@@ -1,7 +1,9 @@
+import type { PageRoute } from '@/types'
+
 export default defineSitemapEventHandler(async () => {
-	const pages = await $fetch<{ [x: string]: any }>(`${useRuntimeConfig().public.backendUrl}/api/routes`)
+	const pages = await $fetch<PageRoute[]>(`${useRuntimeConfig().public.backendUrl}/api/routes`)
 	return [
-		...pages.map((page: { slug: string, updated_at: string }) =>
+		...pages.map(page =>
 			asSitemapUrl({
 				loc: `/works/${page.slug}`,
 				lastmod: page.updated_at,

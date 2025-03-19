@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type { IWork, IWorks } from '@/types'
+import type { IWork, WorksResponse } from '@/types'
+import type { InfiniteData } from '@tanstack/vue-query'
 
 interface IProps {
-	works: IWorks | IWork[]
+	works: InfiniteData<WorksResponse> | IWork[]
 	isLoading: boolean
 }
 
@@ -17,19 +18,23 @@ onMounted(() => {
 	appearLeft(cards)
 	rotate(images)
 })
+
+function isInfiniteData(data: IProps['works']): data is InfiniteData<WorksResponse> {
+	return 'pages' in data
+}
 </script>
 
 <template>
 	<section class="works spacer-60">
 		<UiSpinner v-if="isLoading" />
 		<div v-if="!isLoading" class="works__body">
-			<TransitionGroup v-if="(works as IWorks).pages" name="card">
-				<div v-for="(page, index) in (works as IWorks).pages" :key="index">
+			<TransitionGroup v-if="isInfiniteData(works)" name="card">
+				<div v-for="(page, index) in works.pages" :key="index">
 					<WorksCard v-for="work in page?.pageData" :key="work.slug" class="animate-card" :work="work" />
 				</div>
 			</TransitionGroup>
 			<template v-else>
-				<WorksCard v-for="work in works as IWork[]" :key="work.slug" class="animate-card" :work="work" />
+				<WorksCard v-for="work in works" :key="work.slug" class="animate-card" :work="work" />
 			</template>
 		</div>
 	</section>

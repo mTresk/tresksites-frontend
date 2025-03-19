@@ -15,6 +15,8 @@ defineProps<{ work: IWork }>()
 					:src="work.featured.image"
 					:srcset="`${work.featured.image} 1x, ${work.featured.imageX2} 2x`"
 					:alt="work.title"
+					width="1058"
+					height="595"
 				>
 			</picture>
 		</div>

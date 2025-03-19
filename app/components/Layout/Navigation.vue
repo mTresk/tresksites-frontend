@@ -6,23 +6,31 @@ defineEmits(['closeMenu'])
 
 const contacts = useState<IContacts>('contacts')
 
-const navigation = ref()
+const navigation = useTemplateRef('navigation')
 
 onMounted(() => {
+	if (!navigation.value)
+		return
+
 	const itemOffset = navigation.value.offsetTop
 
-	window.addEventListener('scroll', () => {
+	const handleScroll = () => {
+		if (!navigation.value)
+			return
+
 		const scrollTop = window.scrollY
 
 		if (scrollTop >= itemOffset)
 			navigation.value.style.height = 'calc(100vh - 40px)'
 		else
 			navigation.value.style.height = 'calc(100vh - 130px)'
-	})
-})
+	}
 
-onUnmounted(() => {
-	window.removeEventListener('scroll', () => {})
+	window.addEventListener('scroll', handleScroll)
+
+	onUnmounted(() => {
+		window.removeEventListener('scroll', handleScroll)
+	})
 })
 </script>
 

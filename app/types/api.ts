@@ -133,8 +133,3 @@ export interface ApiResponse<T> {
 	data: T
 	meta: ApiPaginationMeta
 }
-
-export interface PageRoute {
-	slug: string
-	updated_at: string
-}

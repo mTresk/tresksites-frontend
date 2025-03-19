@@ -1,4 +1,4 @@
-import type { PageRoute } from '@/types'
+import type { PageRoute } from '../../types'
 
 export default defineSitemapEventHandler(async () => {
 	const pages = await $fetch<PageRoute[]>(`${useRuntimeConfig().public.backendUrl}/api/routes`)

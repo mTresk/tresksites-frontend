@@ -30,7 +30,7 @@ function isInfiniteData(data: IProps['works']): data is InfiniteData<WorksRespon
 		<div v-if="!isLoading" class="works__body">
 			<TransitionGroup v-if="isInfiniteData(works)" name="card">
 				<div v-for="(page, index) in works.pages" :key="index">
-					<WorksCard v-for="work in page?.pageData" :key="work.slug" class="animate-card" :work="work" />
+					<WorksCard v-for="work in page.pageData" :key="work.slug" class="animate-card" :work="work" />
 				</div>
 			</TransitionGroup>
 			<template v-else>

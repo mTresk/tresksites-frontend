@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IWork } from '~/types'
+import type { IWork } from '@/types'
 import { useQuery } from '@tanstack/vue-query'
 
 definePageMeta({

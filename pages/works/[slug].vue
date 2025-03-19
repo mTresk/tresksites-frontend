@@ -53,6 +53,9 @@ onMounted(() => {
 		<section class="work spacer-60">
 			<div class="work__wrapper">
 				<LayoutBreadcrumb class="work-animate" path="/works" path-name="Работы" :current="work?.data.title " />
+				<div v-if="work?.data.tags" class="work__tags work-animate">
+					<UiTag v-for="tag in work?.data.tags" :key="tag.slug" :tag="tag" />
+				</div>
 				<div class="work__label work-animate">
 					<a v-if="work?.data.url" :href="work?.data.url" target="_blank">{{ work?.data.url }}</a>
 					<span v-if="work?.data.label">{{ work?.data.label }}</span>
@@ -106,7 +109,7 @@ onMounted(() => {
 	padding-left: rem(20);
 	background-color: var(--white-color);
 	border-radius: rem(20);
-	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
+	box-shadow: 0 rem(8) rem(20) 0 rgb(0 0 0 / 1%);
 
 	@include adaptive-value('padding-top', 60, 40);
 	@include adaptive-value('padding-bottom', 60, 40);
@@ -114,6 +117,13 @@ onMounted(() => {
 	&__wrapper {
 		max-width: rem(1000);
 		margin-inline: auto;
+	}
+
+	&__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(4);
+		margin-bottom: rem(10);
 	}
 
 	&__title {

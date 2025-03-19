@@ -48,6 +48,11 @@ export interface IServices {
 	description: string
 }
 
+export interface ITag {
+	name: string
+	slug: string
+}
+
 export interface IWork {
 	title: string
 	slug: string
@@ -55,6 +60,7 @@ export interface IWork {
 	list: string
 	label: string
 	description: string
+	tags: ITag[] | null
 	featured: {
 		imageWebp: string
 		imageWebpX2: string
@@ -82,6 +88,7 @@ export interface IWorkItem {
 		url: string | null
 		list: string
 		label: string | null
+		tags: ITag[] | null
 		content: {
 			data: {
 				data: {

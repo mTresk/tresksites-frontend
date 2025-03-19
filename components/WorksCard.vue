@@ -5,7 +5,7 @@ defineProps<{ work: IWork }>()
 </script>
 
 <template>
-	<article class="work-card" @click="() => navigateTo(`/works/${work.slug}`)">
+	<article class="work-card">
 		<div class="work-card__image">
 			<picture>
 				<source media="(max-width: 479px)" :srcset="`${work.featured.imageWebpSm} 1x, ${work.featured.imageWebpSmX2} 2x`" type="image/webp">
@@ -21,6 +21,9 @@ defineProps<{ work: IWork }>()
 			</picture>
 		</div>
 		<div class="work-card__content">
+			<div v-if="work.tags" class="work-card__tags">
+				<UiTag v-for="tag in work.tags" :key="tag.slug" :tag="tag" />
+			</div>
 			<div class="work-card__label">
 				<a v-if="work.url" :href="work.url" target="_blank">{{ work.url }}</a>
 				<span v-if="work.label">{{ work.label }}</span>
@@ -42,7 +45,6 @@ defineProps<{ work: IWork }>()
 	align-items: center;
 	justify-content: space-between;
 	padding: rem(20) rem(40) rem(20) rem(20);
-	cursor: pointer;
 	background-color: var(--white-color);
 	border-radius: rem(20);
 	box-shadow: 0 8px 20px 0 rgb(0 0 0 / 1%);
@@ -90,12 +92,20 @@ defineProps<{ work: IWork }>()
 		}
 	}
 
+	&__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(4);
+		margin-bottom: rem(10);
+
+	}
+
 	&__label {
 		display: block;
+		margin-bottom: rem(10);
 		line-height: 125%;
 
 		@include adaptive-value('font-size', 14, 12);
-		@include adaptive-value('margin-bottom', 8, 10);
 
 		a {
 			text-decoration: underline;

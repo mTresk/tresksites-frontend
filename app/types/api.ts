@@ -10,35 +10,34 @@ export interface IContacts {
 	email: string
 	brief: string
 	block: {
-		item:
-		{
+		item: {
 			content: string
 		}
 	}
 }
 
-export interface IPrice {
-	price: {
-		service: string
-		price: string
-	}
+export interface IPriceItem {
+	service: string
+	price: string
 }
 
 export interface IPrices {
 	title: string
 	description: string
-	block: IPrice
-}
-
-export interface IAdvantage {
-	advantage: {
-		title: string
-		description: string
+	block: {
+		price: IPriceItem
 	}
 }
 
+export interface IAdvantageItem {
+	title: string
+	description: string
+}
+
 export interface IAdvantages {
-	block: IAdvantage
+	block: {
+		advantage: IAdvantageItem
+	}
 }
 
 export interface IServices {
@@ -48,29 +47,31 @@ export interface IServices {
 	description: string
 }
 
-export interface ITag {
+export interface IWorkTag {
 	name: string
 	slug: string
+}
+
+export interface IFeaturedImage {
+	imageWebp: string
+	imageWebpX2: string
+	image: string
+	imageX2: string
+	imageWebpSm: string
+	imageWebpSmX2: string
+	imageSm: string
+	imageSmX2: string
 }
 
 export interface IWork {
 	title: string
 	slug: string
-	url: string
+	url: string | null
 	list: string
-	label: string
+	label: string | null
 	description: string
-	tags: ITag[] | null
-	featured: {
-		imageWebp: string
-		imageWebpX2: string
-		image: string
-		imageX2: string
-		imageWebpSm: string
-		imageWebpSmX2: string
-		imageSm: string
-		imageSmX2: string
-	}
+	tags: IWorkTag[] | null
+	featured: IFeaturedImage
 }
 
 export interface WorksResponse {
@@ -88,27 +89,16 @@ export interface IWorkItem {
 		url: string | null
 		list: string
 		label: string | null
-		tags: ITag[] | null
+		tags: IWorkTag[] | null
 		content: {
 			data: {
 				data: {
 					html: string
-					images: {
-						imageWebp: string
-						imageWebpX2: string
-						image: string
-						imageX2: string
-						imageWebpSm: string
-						imageWebpSmX2: string
-						imageSm: string
-						imageSmX2: string
-					}
+					images: IFeaturedImage
 				}
-
 			}
 		}
 	}
-
 	otherWorks: IWork[]
 }
 

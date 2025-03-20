@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import type { IPriceItem } from '@/types'
 
-defineProps<IPriceItem>()
+interface IProps {
+	priceItem: IPriceItem
+}
+
+defineProps<IProps>()
 </script>
 
 <template>
 	<li class="price-item">
 		<p class="price-item__name">
-			{{ service }}
+			{{ priceItem.service }}
 		</p>
 		<p class="price-item__value">
-			{{ price }}
+			{{ priceItem.price }}
 		</p>
 	</li>
 </template>
@@ -27,7 +31,6 @@ defineProps<IPriceItem>()
 		position: relative;
 		padding-right: rem(5);
 		font-family: Montserrat, sans-serif;
-		font-size: 18px;
 		font-weight: 700;
 		line-height: 150%;
 		background-color: var(--white-color);
@@ -36,7 +39,7 @@ defineProps<IPriceItem>()
 
 		&::before {
 			position: absolute;
-			bottom: -4px;
+			bottom: rem(-4);
 			left: 0;
 			z-index: -1;
 			font-weight: 400;

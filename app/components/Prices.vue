@@ -27,7 +27,7 @@ await suspense()
 				{{ prices?.description }}
 			</p>
 			<ul class="price__list price-animate">
-				<PricesItem v-for="price in prices?.block" :key="price?.service" :price="price" />
+				<PricesItem v-for="priceItem in prices?.block" :key="priceItem?.service" :price-item="priceItem" />
 			</ul>
 		</div>
 	</section>

@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import type { IPrice } from '@/types'
+import type { IPriceItem } from '@/types'
 
-defineProps<IPrice>()
+defineProps<IPriceItem>()
 </script>
 
 <template>
 	<li class="price-item">
 		<p class="price-item__name">
-			{{ price.service }}
+			{{ service }}
 		</p>
 		<p class="price-item__value">
-			{{ price.price }}
+			{{ price }}
 		</p>
 	</li>
 </template>

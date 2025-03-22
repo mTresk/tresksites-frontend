@@ -1,11 +1,11 @@
 up:
-    docker-compose up -d --build
+	docker-compose up -d --build
 
 down:
-    docker-compose down
+	docker-compose down
 
 deploy:
-    docker-compose down
-    git reset --hard
-    git pull
-    docker-compose up -d --build
+	docker-compose down
+	git reset --hard
+	git pull
+	docker-compose up -d --build

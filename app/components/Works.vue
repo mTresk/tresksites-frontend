@@ -2,12 +2,10 @@
 import type { IWork, WorksResponse } from '@/types'
 import type { InfiniteData } from '@tanstack/vue-query'
 
-interface IProps {
+defineProps<{
     works: InfiniteData<WorksResponse> | IWork[]
     isLoading: boolean
-}
-
-defineProps<IProps>()
+}>()
 
 const { appearLeft, rotate } = useAnimation()
 
@@ -19,7 +17,7 @@ onMounted(() => {
     rotate(images)
 })
 
-function isInfiniteData(data: IProps['works']): data is InfiniteData<WorksResponse> {
+function isInfiniteData(data: InfiniteData<WorksResponse> | IWork[]): data is InfiniteData<WorksResponse> {
     return 'pages' in data
 }
 </script>

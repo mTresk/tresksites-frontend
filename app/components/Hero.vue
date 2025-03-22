@@ -21,7 +21,7 @@ onMounted(() => {
                     сайтов «под ключ». Полный цикл создания сайтов. Поддержка и сопровождение.
                 </p>
                 <div class="hero__chips hero-animate">
-                    <UiChip v-for="chip in chips" :key="chip.title" :title="chip.title" :icon="chip.icon" />
+                    <UiChip v-for="chip in chips" :key="chip.title" :chip="chip" />
                 </div>
             </div>
             <div class="hero__image">

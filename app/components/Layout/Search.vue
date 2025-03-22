@@ -1,16 +1,10 @@
 <script setup lang="ts">
+import type { ISearchResult } from '@/types'
 import { onClickOutside, watchDebounced } from '@vueuse/core'
-
-export interface IResult {
-    id: number
-    slug: string
-    name: string
-
-}
 
 const keywords = ref()
 
-const result = ref<IResult[]>()
+const result = ref<ISearchResult[]>()
 
 const isLoading = ref(false)
 
@@ -18,7 +12,7 @@ const target = ref()
 
 async function handleSearch() {
     isLoading.value = true
-    result.value = await useNuxtApp().$api<IResult[]>('/api/search', { params: { keywords: keywords.value } })
+    result.value = await useNuxtApp().$api<ISearchResult[]>('/api/search', { params: { keywords: keywords.value } })
     isLoading.value = false
 }
 

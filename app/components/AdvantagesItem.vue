@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import type { IAdvantageItem } from '@/types'
 
-interface IProps {
+defineProps<{
     advantageItem: IAdvantageItem
-}
-
-defineProps<IProps>()
+}>()
 </script>
 
 <template>

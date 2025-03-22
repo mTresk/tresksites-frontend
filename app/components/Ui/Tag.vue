@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import type { IWorkTag } from '@/types'
 
-interface IProps {
+defineProps<{
     tag: IWorkTag
-    href?: string | undefined
-}
-
-defineProps<IProps>()
+    href?: string
+}>()
 </script>
 
 <template>

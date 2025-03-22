@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import type { ILogoItem } from '@/types'
 
-interface IProps {
+defineProps<{
     logoItem: ILogoItem
-}
-
-defineProps<IProps>()
+}>()
 </script>
 
 <template>

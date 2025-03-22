@@ -1,9 +1,7 @@
 <script setup lang="ts">
-interface IProps {
+defineProps<{
     light?: boolean
-}
-
-defineProps<IProps>()
+}>()
 </script>
 
 <template>

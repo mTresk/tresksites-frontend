@@ -37,7 +37,7 @@ onMounted(() => {
                 </div>
             </div>
             <div class="technology__chips">
-                <UiChip v-for="chip in chips" :key="chip.title" :title="chip.title" :icon="chip.icon" />
+                <UiChip v-for="chip in chips" :key="chip.title" :chip="chip" />
             </div>
         </div>
     </section>

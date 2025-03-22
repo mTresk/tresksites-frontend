@@ -1,16 +1,15 @@
 <script setup lang="ts">
-interface IProps {
-    title: string
-    icon: string
-}
+import type { IChip } from '@/types'
 
-defineProps<IProps>()
+defineProps<{
+    chip: IChip
+}>()
 </script>
 
 <template>
     <div class="chip">
-        <NuxtImg width="21" height="21" :src="`/img/chips/${icon}.svg`" :alt="title" />
-        <span>{{ title }}</span>
+        <NuxtImg width="21" height="21" :src="`/img/chips/${chip.icon}.svg`" :alt="chip.title" />
+        <span>{{ chip.title }}</span>
     </div>
 </template>
 

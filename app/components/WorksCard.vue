@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { IWork } from '@/types'
 
-defineProps<{ work: IWork }>()
+defineProps<{
+    work: IWork
+}>()
 </script>
 
 <template>

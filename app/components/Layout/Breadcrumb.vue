@@ -1,11 +1,9 @@
 <script setup lang="ts">
-interface IProps {
+defineProps<{
     path: string
     pathName: string
     current: string | undefined
-}
-
-defineProps<IProps>()
+}>()
 </script>
 
 <template>

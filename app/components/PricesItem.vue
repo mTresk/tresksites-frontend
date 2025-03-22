@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import type { IPriceItem } from '@/types'
 
-interface IProps {
+defineProps<{
     priceItem: IPriceItem
-}
-
-defineProps<IProps>()
+}>()
 </script>
 
 <template>

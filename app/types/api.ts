@@ -128,3 +128,15 @@ export interface ILogoItem {
     name: string
     path: string
 }
+
+export interface IChip {
+    title: string
+    icon: string
+}
+
+export interface ISearchResult {
+    id: number
+    slug: string
+    name: string
+
+}

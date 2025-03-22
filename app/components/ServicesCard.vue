@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import type { IServices } from '@/types'
 
-defineProps<{ service: IServices }>()
+defineProps<{
+    service: IServices
+}>()
 </script>
 
 <template>
     <NuxtLink to="/order" class="service-card">
-        <img class="service-card__icon" :src="service.icon " :alt="service.title">
+        <img class="service-card__icon" :src="service.icon" :alt="service.title">
         <h5 class="service-card__title">
             {{ service.title }}
         </h5>

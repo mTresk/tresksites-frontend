@@ -1,5 +1,5 @@
 <script setup lang="ts">
-interface IProps {
+const props = defineProps<{
     transparent?: boolean
     wide?: boolean
     inverted?: boolean
@@ -7,9 +7,7 @@ interface IProps {
     size?: string
     disabled?: boolean
     href?: string | undefined
-}
-
-const props = defineProps<IProps>()
+}>()
 
 const classes = [
     {

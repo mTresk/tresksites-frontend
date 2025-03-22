@@ -2,24 +2,24 @@
 @import 'mixins';
 
 :root {
-	--main-color: #323232;
-	--accent-color: #ff565c;
-	--hover-color: #e92a30;
-	--white-color: #fff;
-	--rose-color: #fce3e3;
-	--grey-color: rgb(50 50 50 / 30%);
-	--light-color: rgb(50 50 50 / 6%);
-	--black-color: rgb(22 22 22);
+    --main-color: #323232;
+    --accent-color: #ff565c;
+    --hover-color: #e92a30;
+    --white-color: #fff;
+    --rose-color: #fce3e3;
+    --grey-color: rgb(50 50 50 / 30%);
+    --light-color: rgb(50 50 50 / 6%);
+    --black-color: rgb(22 22 22);
 
-	@media (prefers-color-scheme: dark) {
-		--main-color: #dadada;
-		--accent-color: #ff565c;
-		--hover-color: #e92a30;
-		--white-color: rgb(40 40 40);
-		--rose-color: #c96969;
-		--grey-color: rgb(255 255 255 / 70%);
-		--light-color: rgb(255 255 255 / 10%);
-	}
+    @media (prefers-color-scheme: dark) {
+        --main-color: #dadada;
+        --accent-color: #ff565c;
+        --hover-color: #e92a30;
+        --white-color: rgb(40 40 40);
+        --rose-color: #c96969;
+        --grey-color: rgb(255 255 255 / 70%);
+        --light-color: rgb(255 255 255 / 10%);
+    }
 }
 
 $fontFamily: 'Manrope', sans-serif;
@@ -30,7 +30,7 @@ $maxWidthContainer: 1680;
 $containerPadding: 80;
 
 @media (max-width: em(1199)) {
-	$containerPadding: 40;
+    $containerPadding: 40;
 }
 
 $containerWidth: ($maxWidthContainer + $containerPadding);
@@ -40,53 +40,53 @@ $mobile: em(767.98);
 $mobileSmall: em(479.98);
 
 h1 {
-	font-family: Montserrat, sans-serif;
-	font-weight: 800;
-	line-height: 100%;
+    font-family: Montserrat, sans-serif;
+    font-weight: 800;
+    line-height: 100%;
 
-	@include adaptive-value('font-size', 48, 28);
+    @include adaptive-value('font-size', 48, 28);
 
-	@media (max-width: $tablet) {
-		line-height: 128%;
-	}
+    @media (max-width: $tablet) {
+        line-height: 128%;
+    }
 }
 
 h2 {
-	font-family: Montserrat, sans-serif;
-	font-weight: 800;
-	line-height: 130%;
+    font-family: Montserrat, sans-serif;
+    font-weight: 800;
+    line-height: 130%;
 
-	@include adaptive-value('font-size', 36, 22);
+    @include adaptive-value('font-size', 36, 22);
 }
 
 h3 {
-	font-family: Montserrat, sans-serif;
-	font-weight: 700;
-	line-height: 125%;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    line-height: 125%;
 
-	@include adaptive-value('font-size', 28, 20);
+    @include adaptive-value('font-size', 28, 20);
 }
 
 h4 {
-	font-family: Montserrat, sans-serif;
-	font-weight: 700;
-	line-height: 125%;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    line-height: 125%;
 
-	@include adaptive-value('font-size', 22, 18);
+    @include adaptive-value('font-size', 22, 18);
 }
 
 h5 {
-	font-family: Montserrat, sans-serif;
-	font-weight: 700;
-	line-height: 150%;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    line-height: 150%;
 
-	@include adaptive-value('font-size', 18, 16);
+    @include adaptive-value('font-size', 18, 16);
 }
 
 .spacer-60 {
-	@include adaptive-value('margin-bottom', 60, 40);
+    @include adaptive-value('margin-bottom', 60, 40);
 }
 
 .spacer-20 {
-	@include adaptive-value('margin-bottom', 20, 16);
+    @include adaptive-value('margin-bottom', 20, 16);
 }

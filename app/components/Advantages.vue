@@ -5,12 +5,12 @@ import { useQuery } from '@tanstack/vue-query'
 const fetcher = async () => await useNuxtApp().$api<IAdvantages>('/api/advantages')
 
 const {
-	isLoading,
-	data: advantages,
-	suspense,
+    isLoading,
+    data: advantages,
+    suspense,
 } = useQuery({
-	queryKey: ['advantages'],
-	queryFn: fetcher,
+    queryKey: ['advantages'],
+    queryFn: fetcher,
 })
 
 await suspense()
@@ -18,22 +18,22 @@ await suspense()
 const { appearBottom, appearLeft } = useAnimation()
 
 onMounted(() => {
-	appearBottom('.advantages', { delay: 0.3 })
-	appearLeft('.advantages-item', { stagger: 0.1, delay: 0.4 })
+    appearBottom('.advantages', { delay: 0.3 })
+    appearLeft('.advantages-item', { stagger: 0.1, delay: 0.4 })
 })
 </script>
 
 <template>
-	<section class="advantages spacer-60">
-		<UiSpinner v-if="isLoading" />
-		<div v-if="!isLoading" class="advantages__body">
-			<AdvantagesItem
-				v-for="advantage in advantages?.block"
-				:key="advantage.title"
-				:advantage="advantage"
-			/>
-		</div>
-	</section>
+    <section class="advantages spacer-60">
+        <UiSpinner v-if="isLoading" />
+        <div v-if="!isLoading" class="advantages__body">
+            <AdvantagesItem
+                v-for="advantage in advantages?.block"
+                :key="advantage.title"
+                :advantage-item="advantage"
+            />
+        </div>
+    </section>
 </template>
 
 <style lang="scss">

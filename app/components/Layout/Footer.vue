@@ -7,46 +7,46 @@ const contacts = useState<IContacts>('contacts')
 </script>
 
 <template>
-	<footer class="footer">
-		<div class="footer__links">
-			<UiButton href="/order" transparent>
-				Заказать сайт<UiIconArrowUp />
-			</UiButton>
-			<UiButton :href="contacts?.brief" download="Бриф на разработку сайта" transparent>
-				Скачать бриф<UiIconArrowDown />
-			</UiButton>
-		</div>
-		<p class="footer__copyright">
-			© 2019 – {{ currentYear }}, {{ contacts?.name }}, {{ contacts?.inn }}
-		</p>
-	</footer>
+    <footer class="footer">
+        <div class="footer__links">
+            <UiButton href="/order" transparent>
+                Заказать сайт<UiIconArrowUp />
+            </UiButton>
+            <UiButton :href="contacts?.brief" download="Бриф на разработку сайта" transparent>
+                Скачать бриф<UiIconArrowDown />
+            </UiButton>
+        </div>
+        <p class="footer__copyright">
+            © 2019 – {{ currentYear }}, {{ contacts?.name }}, {{ contacts?.inn }}
+        </p>
+    </footer>
 </template>
 
 <style lang="scss" scoped>
 .footer {
-	display: flex;
-	flex-direction: column;
-	gap: rem(20);
-	align-items: center;
-	padding-top: rem(20);
-	padding-bottom: rem(20);
-	border-top: 1px solid var(--light-color);
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+    align-items: center;
+    padding-top: rem(20);
+    padding-bottom: rem(20);
+    border-top: 1px solid var(--light-color);
 
-	&__links {
-		display: flex;
-		gap: rem(20);
-		align-items: center;
-		justify-content: center;
-	}
+    &__links {
+        display: flex;
+        gap: rem(20);
+        align-items: center;
+        justify-content: center;
+    }
 
-	&__copyright {
-		font-size: 12px;
-		line-height: 125%;
-		color: var(--grey-color);
-		text-align: center;
-		text-transform: uppercase;
+    &__copyright {
+        font-size: 12px;
+        line-height: 125%;
+        color: var(--grey-color);
+        text-align: center;
+        text-transform: uppercase;
 
-		@include adaptive-value('font-size', 12, 10);
-	}
+        @include adaptive-value('font-size', 12, 10);
+    }
 }
 </style>

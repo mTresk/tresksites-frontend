@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { IAdvantages } from '@/types'
+import type { IAdvantageItem } from '@/types'
 import { useQuery } from '@tanstack/vue-query'
 
-const fetcher = async () => await useNuxtApp().$api<IAdvantages>('/api/advantages')
+const fetcher = async () => await useNuxtApp().$api<IAdvantageItem[]>('/api/advantages')
 
 const {
     isLoading,
@@ -28,9 +28,9 @@ onMounted(() => {
         <UiSpinner v-if="isLoading" />
         <div v-if="!isLoading" class="advantages__body">
             <AdvantagesItem
-                v-for="advantage in advantages?.block"
-                :key="advantage.title"
-                :advantage-item="advantage"
+                v-for="advantageItem in advantages"
+                :key="advantageItem.title"
+                :advantage-item="advantageItem"
             />
         </div>
     </section>

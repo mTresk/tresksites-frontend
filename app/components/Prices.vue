@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { IPrices } from '@/types'
+import type { IPrice } from '@/types'
 import { useQuery } from '@tanstack/vue-query'
 
-const fetcher = async () => await useNuxtApp().$api<IPrices>('/api/prices')
+const fetcher = async () => await useNuxtApp().$api<IPrice>('/api/prices')
 
 const {
     isLoading,
@@ -27,7 +27,7 @@ await suspense()
                 {{ prices?.description }}
             </p>
             <ul class="price__list price-animate">
-                <PricesItem v-for="priceItem in prices?.block" :key="priceItem?.service" :price-item="priceItem" />
+                <PricesItem v-for="priceItem in prices?.items" :key="priceItem.service" :price-item="priceItem" />
             </ul>
         </div>
     </section>

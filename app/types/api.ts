@@ -21,12 +21,10 @@ export interface IPriceItem {
     price: string
 }
 
-export interface IPrices {
+export interface IPrice {
     title: string
     description: string
-    block: {
-        price: IPriceItem
-    }
+    items: IPriceItem[]
 }
 
 export interface IAdvantageItem {
@@ -34,13 +32,7 @@ export interface IAdvantageItem {
     description: string
 }
 
-export interface IAdvantages {
-    block: {
-        advantage: IAdvantageItem
-    }
-}
-
-export interface IServices {
+export interface IServiceItem {
     id: number
     icon: string
     title: string

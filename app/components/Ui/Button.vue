@@ -4,9 +4,9 @@ const props = defineProps<{
     wide?: boolean
     inverted?: boolean
     light?: boolean
-    size?: string
+    size?: 'lg'
     disabled?: boolean
-    href?: string | undefined
+    href?: string
 }>()
 
 const classes = [
@@ -112,8 +112,7 @@ const classes = [
     }
 
     &--lg {
-        padding-top: rem(18);
-        padding-bottom: rem(18);
+        padding-block: rem(18);
     }
 
     &--inverted {

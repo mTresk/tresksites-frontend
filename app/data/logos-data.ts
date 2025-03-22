@@ -1,34 +1,34 @@
-export const logosItems = [
+export const logos = [
     {
         name: 'Shlumberger',
-        logo: 'schlumberger',
+        path: 'schlumberger',
     },
     {
         name: 'ФК «Тюмень»',
-        logo: 'fctyumen',
+        path: 'fctyumen',
     },
     {
         name: 'Счастливые дети',
-        logo: 'happykids',
+        path: 'happykids',
     },
     {
         name: 'ХК «Рубин»',
-        logo: 'rubin',
+        path: 'rubin',
     },
     {
         name: 'Институт электрокаплеструйных технологий',
-        logo: 'ekst',
+        path: 'ekst',
     },
     {
         name: 'ХК «Легион»',
-        logo: 'legion',
+        path: 'legion',
     },
     {
         name: 'Гостиница «Арена»',
-        logo: 'arena',
+        path: 'arena',
     },
     {
         name: 'АНО «Футбол-Хоккей»',
-        logo: 'ano',
+        path: 'ano',
     },
 ]

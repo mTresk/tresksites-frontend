@@ -40,7 +40,7 @@ const contacts = useState<IContacts>('contacts')
     }
 
     &__copyright {
-        font-size: 12px;
+        font-size: rem(12);
         line-height: 125%;
         color: var(--grey-color);
         text-align: center;

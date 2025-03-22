@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { ILogoItem } from '@/types'
+
 interface IProps {
-    name: string
-    logo: string
+    logoItem: ILogoItem
 }
 
 defineProps<IProps>()
@@ -9,7 +10,7 @@ defineProps<IProps>()
 
 <template>
     <div class="logo">
-        <NuxtImg width="160" height="35" :src="`/img/logos/${logo}.svg`" :alt="name" />
+        <NuxtImg width="160" height="35" :src="`/img/logos/${logoItem.path}.svg`" :alt="logoItem.name" />
     </div>
 </template>
 

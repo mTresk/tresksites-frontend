@@ -123,3 +123,8 @@ export interface ApiResponse<T> {
     data: T
     meta: ApiPaginationMeta
 }
+
+export interface ILogoItem {
+    name: string
+    path: string
+}

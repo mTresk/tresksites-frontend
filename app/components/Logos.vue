@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { logosItems } from '@/data/logos-data'
+import { logos } from '@/data/logos-data'
 
 const { appearBottom } = useAnimation()
 
@@ -11,7 +11,7 @@ onMounted(() => {
 <template>
     <div class="logos spacer-60">
         <div class="logos__body">
-            <LogosItem v-for="logo in logosItems" :key="logo.name" :name="logo.name" :logo="logo.logo" />
+            <LogosItem v-for="logoItem in logos" :key="logoItem.name" :logo-item="logoItem" />
         </div>
     </div>
 </template>

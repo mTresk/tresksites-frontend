@@ -63,6 +63,11 @@ const classes = [
     @include adaptive-value('padding-left', 24, 16);
     @include adaptive-value('padding-right', 24, 16);
 
+    &:focus-visible {
+        outline: rem(2) solid var(--white-color);
+        outline-offset: rem(2);
+    }
+
     :deep(svg) {
         flex-shrink: 0;
         height: auto;

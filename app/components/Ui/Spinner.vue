@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-    <div class="spinner" :class="{ 'spinner--light': light }" />
+    <div class="spinner" :class="{ 'spinner--light': light }" aria-label="Загрузка" />
 </template>
 
 <style lang="scss" scoped>

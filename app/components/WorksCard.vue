@@ -34,7 +34,7 @@ defineProps<{
                 {{ work.title }}
             </h4>
             <div class="work-card__info" v-html="work.list" />
-            <UiButton :href="`/works/${work.slug}`" class="work-card__button">
+            <UiButton :href="`/works/${work.slug}`" class="work-card__button" icon="right">
                 Посмотреть работу<UiIconArrowRight />
             </UiButton>
         </div>

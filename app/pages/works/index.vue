@@ -49,7 +49,15 @@ function nextPage() {
         </Head>
         <Works :works="works!" :is-loading="isLoading" />
         <div class="spacer-60">
-            <UiButton v-if="hasNextPage" :disabled="isFetchingNextPage" transparent wide size="lg" @click="nextPage">
+            <UiButton
+                v-if="hasNextPage"
+                :disabled="isFetchingNextPage"
+                transparent
+                wide
+                size="lg"
+                icon="right"
+                @click="nextPage"
+            >
                 {{ isFetchingNextPage ? 'Загружаем' : 'Показать еще' }}<UiIconArrowDown />
             </UiButton>
         </div>

@@ -93,7 +93,7 @@ onMounted(() => {
         </section>
         <div class="spacer-60">
             <NuxtLink to="/works">
-                <UiButton transparent wide size="lg">
+                <UiButton transparent wide size="lg" icon="right">
                     Другие работы<UiIconArrowUp />
                 </UiButton>
             </NuxtLink>

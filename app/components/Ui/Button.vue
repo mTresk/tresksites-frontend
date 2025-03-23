@@ -3,6 +3,7 @@ const props = defineProps<{
     transparent?: boolean
     wide?: boolean
     inverted?: boolean
+    icon?: 'right'
     light?: boolean
     size?: 'lg'
     disabled?: boolean
@@ -16,7 +17,7 @@ const classes = [
         'button--inverted': props.inverted,
         'button--light': props.light,
         'button--disabled': props.disabled,
-
+        'button--icon-right': props.icon === 'right',
     },
     (props.size ? `button--${props.size}` : ''),
 ]
@@ -65,6 +66,7 @@ const classes = [
     :deep(svg) {
         flex-shrink: 0;
         height: auto;
+        transition: transform 0.3s ease-in-out;
 
         @include adaptive-value('max-width', 20, 16);
 
@@ -77,6 +79,16 @@ const classes = [
     @media (any-hover: hover) {
         &:hover {
             background-color: var(--hover-color);
+
+            :deep(svg) {
+                transform: translateX(rem(-3));
+            }
+
+            &.button--icon-right {
+                :deep(svg) {
+                    transform: translateX(rem(3));
+                }
+            }
         }
     }
 

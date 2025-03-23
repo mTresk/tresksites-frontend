@@ -32,9 +32,12 @@ onMounted(() => {
                     {{ contacts?.inn }}
                 </div>
                 <div class="contacts__links contacts-animate">
-                    <a class="contacts__link" target="_blank" href="https://t.me/tresk">
-                        <UiButton light><UiIconTelegram />Написать в Telegram</UiButton></a>
-                    <a class="contacts__link" href="mailto:djtresk@gmail.com"><UiButton light><UiIconEmail />Написать на почту</UiButton></a>
+                    <UiButton target="_blank" href="https://t.me/tresk" light>
+                        <UiIconTelegram />Написать в Telegram
+                    </UiButton>
+                    <UiButton href="mailto:djtresk@gmail.com" light>
+                        <UiIconEmail />Написать на почту
+                    </UiButton>
                 </div>
                 <div class="contacts__info">
                     <div v-for="item in contacts?.block" :key="item?.content" class="contacts__block contacts-animate" v-html="item?.content" />

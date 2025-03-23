@@ -23,7 +23,7 @@ onMounted(() => isLoading.value = false)
                 <NuxtLink to="/" class="header__logo header__logo--dark">
                     <NuxtImg width="80" height="47" src="/img/logo-dark.svg" alt="Tresk Sites" />
                 </NuxtLink>
-                <UiButton v-show="!isLoading" class="header__button" href="/order" transparent>
+                <UiButton v-show="!isLoading" class="header__button" href="/order" transparent icon="right">
                     Заказать сайт <UiIconArrowUp />
                 </UiButton>
                 <LayoutSearch v-show="!isLoading" />

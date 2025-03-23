@@ -171,7 +171,14 @@ function isApiValidationError(error: unknown): error is ApiValidationError {
                         errors?.attachment[0] || '&nbsp;'
                     }}</small>
                 </label>
-                <UiButton class="order-form__submit" :disabled="isFormSent" inverted wide type="submit">
+                <UiButton
+                    class="order-form__submit"
+                    type="submit"
+                    :disabled="isFormSent"
+                    inverted
+                    wide
+                    icon="right"
+                >
                     {{ isFormSent ? 'Сообщение отправлено' : 'Отправить сообщение' }}<UiIconArrowRight />
                 </UiButton>
             </div>

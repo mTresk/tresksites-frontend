@@ -37,10 +37,6 @@ const {
 })
 
 await suspense()
-
-function nextPage() {
-    fetchNextPage()
-}
 </script>
 
 <template>
@@ -58,7 +54,7 @@ function nextPage() {
                 wide
                 size="lg"
                 icon="right"
-                @click="nextPage"
+                @click="fetchNextPage"
             >
                 {{ isFetchingNextPage ? 'Загружаем' : 'Показать еще' }}<UiIconArrowDown />
             </UiButton>

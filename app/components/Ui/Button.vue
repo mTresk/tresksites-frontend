@@ -6,7 +6,6 @@ const props = defineProps<{
     icon?: 'right'
     light?: boolean
     size?: 'lg'
-    disabled?: boolean
     href?: string
 }>()
 
@@ -16,7 +15,6 @@ const classes = [
         'button--wide': props.wide,
         'button--inverted': props.inverted,
         'button--light': props.light,
-        'button--disabled': props.disabled,
         'button--icon-right': props.icon === 'right',
     },
     (props.size ? `button--${props.size}` : ''),
@@ -175,7 +173,7 @@ const classes = [
         }
     }
 
-    &--disabled {
+    &[disabled] {
         pointer-events: none;
         opacity: 0.4;
     }

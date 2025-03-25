@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import type { IPriceItem } from '@/types'
+import type { IPricesItem } from '@/types'
 
 defineProps<{
-    priceItem: IPriceItem
+    pricesItem: IPricesItem
 }>()
 </script>
 
 <template>
     <li class="price-item">
         <p class="price-item__name">
-            {{ priceItem.service }}
+            {{ pricesItem.service }}
         </p>
         <p class="price-item__value">
-            {{ priceItem.price }}
+            {{ pricesItem.price }}
         </p>
     </li>
 </template>

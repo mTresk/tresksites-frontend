@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { ILogoItem } from '@/types'
+import type { ILogosItem } from '@/types'
 
 defineProps<{
-    logoItem: ILogoItem
+    logosItem: ILogosItem
 }>()
 </script>
 
 <template>
     <div class="logo">
-        <NuxtImg width="160" height="35" :src="`/img/logos/${logoItem.path}.svg`" :alt="logoItem.name" />
+        <NuxtImg width="160" height="35" :src="`/img/logos/${logosItem.path}.svg`" :alt="logosItem.name" />
     </div>
 </template>
 

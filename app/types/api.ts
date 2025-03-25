@@ -16,7 +16,7 @@ export interface IContacts {
     }
 }
 
-export interface IPriceItem {
+export interface IPricesItem {
     service: string
     price: string
 }
@@ -24,15 +24,15 @@ export interface IPriceItem {
 export interface IPrice {
     title: string
     description: string
-    items: IPriceItem[]
+    items: IPricesItem[]
 }
 
-export interface IAdvantageItem {
+export interface IAdvantagesItem {
     title: string
     description: string
 }
 
-export interface IServiceItem {
+export interface IServicesItem {
     id: number
     icon: string
     title: string
@@ -116,7 +116,7 @@ export interface ApiResponse<T> {
     meta: ApiPaginationMeta
 }
 
-export interface ILogoItem {
+export interface ILogosItem {
     name: string
     path: string
 }

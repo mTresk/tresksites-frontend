@@ -11,7 +11,7 @@ onMounted(() => {
 <template>
     <div class="logos spacer-60">
         <div class="logos__body">
-            <LogosItem v-for="logoItem in logos" :key="logoItem.name" :logo-item="logoItem" />
+            <LogosItem v-for="logosItem in logos" :key="logosItem.name" :logos-item="logosItem" />
         </div>
     </div>
 </template>

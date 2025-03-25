@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { IServiceItem } from '@/types'
+import type { IServicesItem } from '@/types'
 import { useQuery } from '@tanstack/vue-query'
 
-const fetcher = async () => await useNuxtApp().$api<IServiceItem[]>('/api/services')
+const fetcher = async () => await useNuxtApp().$api<IServicesItem[]>('/api/services')
 
 const {
     isLoading,
@@ -28,7 +28,7 @@ onMounted(() => {
     <section class="services spacer-60">
         <UiSpinner v-if="isLoading" />
         <div v-if="!isLoading" class="services__body">
-            <ServicesCard v-for="serviceItem in services" :key="serviceItem.id" :service-item="serviceItem" />
+            <ServicesItem v-for="servicesItem in services" :key="servicesItem.id" :services-item="servicesItem" />
         </div>
     </section>
 </template>

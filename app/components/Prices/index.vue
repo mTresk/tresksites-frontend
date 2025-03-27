@@ -2,7 +2,7 @@
 import type { IPrice } from '@/types'
 import { useQuery } from '@tanstack/vue-query'
 
-const fetcher = async () => await useNuxtApp().$api<IPrice>('/api/prices')
+const fetcher = async () => await useFetcher<IPrice>('/api/prices')
 
 const {
     isLoading,

@@ -132,3 +132,20 @@ export interface ISearchResult {
     name: string
 
 }
+
+export type ValidationErrors = Record<string, string[]>
+
+export interface IApiErrorResponse {
+    data?: {
+        errors?: ValidationErrors
+    }
+    response?: {
+        status: number
+    }
+    message: string
+}
+
+export interface IUseSubmitOptions<T> {
+    onSuccess?: (result: T) => void
+    onError?: (error: IApiErrorResponse) => void
+}

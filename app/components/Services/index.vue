@@ -2,7 +2,7 @@
 import type { IServicesItem } from '@/types'
 import { useQuery } from '@tanstack/vue-query'
 
-const fetcher = async () => await useNuxtApp().$api<IServicesItem[]>('/api/services')
+const fetcher = async () => await useFetcher<IServicesItem[]>('/api/services')
 
 const {
     isLoading,

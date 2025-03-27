@@ -12,7 +12,11 @@ const target = ref()
 
 async function handleSearch() {
     isLoading.value = true
-    result.value = await useNuxtApp().$api<ISearchResult[]>('/api/search', { params: { keywords: keywords.value } })
+
+    result.value = await useFetcher<ISearchResult[]>('/api/search', {
+        params: { keywords: keywords.value },
+    })
+
     isLoading.value = false
 }
 

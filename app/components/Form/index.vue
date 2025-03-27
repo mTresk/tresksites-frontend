@@ -1,12 +1,4 @@
 <script setup lang="ts">
-import type { ApiValidationError } from '@/types'
-
-const errors = ref()
-
-const isFormSent = ref(false)
-
-const isLoading = ref(false)
-
 const form = reactive({
     name: '',
     phone: '',
@@ -15,23 +7,24 @@ const form = reactive({
     attachment: null as File | null,
 })
 
-function clearForm() {
-    form.name = ''
-    form.phone = ''
-    form.email = ''
-    form.message = ''
-    form.attachment = null
-    errors.value = []
-    isFormSent.value = true
-}
+const {
+    submit: formSubmit,
+    isLoading,
+    validationErrors: errors,
+    succeeded: isFormSent,
+    client,
+} = useSubmit(
+    () => {
+        return handleForm()
+    },
+    {
+        onSuccess: () => {
+            clearForm()
+        },
+    },
+)
 
-function clearErrors() {
-    errors.value = null
-}
-
-async function formSubmit() {
-    isLoading.value = true
-
+async function handleForm() {
     const formData = new FormData()
 
     formData.append('name', form.name)
@@ -41,38 +34,20 @@ async function formSubmit() {
     if (form.attachment)
         formData.append('attachment', form.attachment)
 
-    try {
-        const response = await $fetch(`${useRuntimeConfig().public.backendUrl}/api/orders`, {
-            method: 'post',
-            body: formData,
-            headers: {
-                Accept: 'application/json',
-            },
-        })
-        if (response) {
-            clearForm()
-            isLoading.value = false
-        }
-    }
-    catch (error: unknown) {
-        if (error && isApiValidationError(error))
-            errors.value = error.response._data.errors
-        isLoading.value = false
-    }
+    await client(`/api/orders`, { body: formData })
 }
 
-function isApiValidationError(error: unknown): error is ApiValidationError {
-    return (
-        typeof error === 'object'
-        && error !== null
-        && 'response' in error
-        && typeof error.response === 'object'
-        && error.response !== null
-        && '_data' in error.response
-        && typeof error.response._data === 'object'
-        && error.response._data !== null
-        && 'errors' in error.response._data
-    )
+function clearForm() {
+    form.name = ''
+    form.phone = ''
+    form.email = ''
+    form.message = ''
+    form.attachment = null
+    clearErrors()
+}
+
+function clearErrors() {
+    errors.value = {}
 }
 </script>
 
@@ -81,7 +56,7 @@ function isApiValidationError(error: unknown): error is ApiValidationError {
         class="form"
         :class="{ isLoading }"
         :aria-busy="isLoading"
-        @submit.prevent="formSubmit()"
+        @submit.prevent="formSubmit"
     >
         <UiSpinner v-if="isLoading" light />
         <div class="form__wrapper">

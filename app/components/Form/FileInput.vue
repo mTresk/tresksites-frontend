@@ -4,7 +4,7 @@ import { ref } from 'vue'
 const props = defineProps<{
     error?: string[]
     modelValue?: File | null
-    formSent?: boolean
+    formSent: boolean | null
 }>()
 
 const emit = defineEmits<{

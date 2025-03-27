@@ -10,7 +10,7 @@ definePageMeta({
 })
 
 async function fetcher({ pageParam = 1 }): Promise<WorksResponse> {
-    const data = await useNuxtApp().$api<ApiResponse<IWork[]>>(`api/works?page=${pageParam}`)
+    const data = await useFetcher<ApiResponse<IWork[]>>(`api/works?page=${pageParam}`)
 
     return {
         pageData: data?.data || [],

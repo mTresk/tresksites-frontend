@@ -9,7 +9,7 @@ definePageMeta({
     },
 })
 
-const fetcher = async () => await useNuxtApp().$api<IWork[]>('/api/works/featured')
+const fetcher = async () => await useFetcher<IWork[]>('/api/works/featured')
 
 const {
     isLoading,

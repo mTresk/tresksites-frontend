@@ -11,7 +11,7 @@ definePageMeta({
 
 const { appearLeft } = useAnimation()
 
-const fetcher = async () => await useNuxtApp().$api<IPolicy>('/api/policy')
+const fetcher = async () => await useFetcher<IPolicy>('/api/policy')
 
 const {
     isLoading,

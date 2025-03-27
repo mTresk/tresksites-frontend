@@ -14,14 +14,7 @@ const route = useRoute()
 const { appearLeft } = useAnimation()
 
 async function fetcher() {
-    return await useNuxtApp().$api<IWorkItem>(`/api/works/${route.params.slug}`, {
-        async onResponseError({ response }) {
-            throw showError({
-                statusCode: response.status,
-                statusMessage: response.statusText ?? 'Error',
-            })
-        },
-    })
+    return await useFetcher<IWorkItem>(`/api/works/${route.params.slug}`)
 }
 
 const {

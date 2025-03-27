@@ -2,7 +2,7 @@
 import type { IAdvantagesItem } from '@/types'
 import { useQuery } from '@tanstack/vue-query'
 
-const fetcher = async () => await useNuxtApp().$api<IAdvantagesItem[]>('/api/advantages')
+const fetcher = async () => await useFetcher<IAdvantagesItem[]>('/api/advantages')
 
 const {
     isLoading,

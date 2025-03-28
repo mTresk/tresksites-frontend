@@ -9,21 +9,26 @@ const contacts = useState<IContacts>('contacts')
 const navigation = useTemplateRef('navigation')
 
 onMounted(() => {
-    if (!navigation.value)
+    if (!navigation.value) {
         return
+    }
 
     const itemOffset = navigation.value.offsetTop
 
     const handleScroll = () => {
-        if (!navigation.value)
+        if (!navigation.value) {
             return
+        }
 
         const scrollTop = window.scrollY
 
-        if (scrollTop >= itemOffset)
+        if (scrollTop >= itemOffset) {
             navigation.value.style.height = 'calc(100vh - 40px)'
-        else
+        }
+
+        else {
             navigation.value.style.height = 'calc(100vh - 130px)'
+        }
     }
 
     window.addEventListener('scroll', handleScroll)

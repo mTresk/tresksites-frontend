@@ -4,7 +4,7 @@ defineProps<{
     name: string
     placeholder: string
     type: string
-    modelValue: string
+    modelValue: string | number
     error: any
 }>()
 

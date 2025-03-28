@@ -1,11 +1,10 @@
 <script setup lang="ts">
 defineProps<{
-    label: string
-    name: string
-    placeholder: string
-    type: string
-    modelValue: string
-    error: any
+    name?: string
+    placeholder?: string
+    type?: string
+    modelValue?: string | number
+    error?: any
     maska?: string
 }>()
 

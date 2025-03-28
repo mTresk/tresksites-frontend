@@ -2,11 +2,11 @@
 import { FormTexareatInput, FormTextInput } from '#components'
 
 const props = defineProps<{
-    label: string
-    name: string
-    placeholder: string
-    type: string
-    modelValue: string
+    label?: string
+    name?: string
+    placeholder?: string
+    type?: string
+    modelValue?: string | number
     error?: any
     maska?: string
 }>()

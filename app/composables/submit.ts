@@ -25,8 +25,9 @@ export function useSubmit<T>(fetchable: () => Promise<T>, options: IUseSubmitOpt
             options?.onError?.(apiError)
             validationErrors.value = apiError.data?.errors ?? {}
 
-            if (apiError.response?.status !== 422)
+            if (apiError.response?.status !== 422) {
                 throw apiError
+            }
         }
         finally {
             isLoading.value = false

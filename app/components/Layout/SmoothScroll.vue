@@ -37,15 +37,18 @@ function initLenis() {
 }
 
 function raf(time: number) {
-    if (!lenisVS.value)
+    if (!lenisVS.value) {
         return
+    }
+
     lenisVS.value.raf(time)
     requestAnimationFrame(raf)
 }
 
 function destroyLenis() {
-    if (!lenisVS.value)
+    if (!lenisVS.value) {
         return
+    }
     setScrollState(false)
     lenisVS.value?.off('scroll', () => {})
     lenisVS.value.destroy()

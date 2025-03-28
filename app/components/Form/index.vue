@@ -31,8 +31,9 @@ async function handleForm() {
     formData.append('phone', form.phone)
     formData.append('email', form.email)
     formData.append('message', form.message)
-    if (form.attachment)
+    if (form.attachment) {
         formData.append('attachment', form.attachment)
+    }
 
     await client(`/api/orders`, { body: formData })
 }

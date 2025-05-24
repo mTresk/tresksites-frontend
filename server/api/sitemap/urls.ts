@@ -6,7 +6,14 @@ export default defineSitemapEventHandler(async () => {
         ...pages.map(page =>
             asSitemapUrl({
                 loc: `/works/${page.slug}`,
-                lastmod: page.updated_at,
+                lastmod: page.updatedAt,
+                images: [
+                    {
+                        loc: page.images.imageX2,
+                        title: page.name,
+                        caption: page.name,
+                    },
+                ],
             }),
         ),
     ]

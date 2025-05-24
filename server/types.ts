@@ -1,4 +1,8 @@
+import type { IFeaturedImage } from '@/types/api'
+
 export interface PageRoute {
+    name: string
     slug: string
-    updated_at: string
+    updatedAt: string
+    images: IFeaturedImage
 }

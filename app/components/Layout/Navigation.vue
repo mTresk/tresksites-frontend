@@ -40,13 +40,24 @@ onMounted(() => {
 </script>
 
 <template>
-    <aside ref="navigation" class="navigation">
+    <aside
+        ref="navigation"
+        class="navigation"
+    >
         <div class="navigation__body">
             <div class="navigation__menu menu">
                 <nav class="menu__body">
                     <ul class="menu__list">
-                        <li v-for="menuItem in menuItems" :key="menuItem.name" class="menu__item">
-                            <NuxtLink :to="menuItem.path" class="menu__link" @click="$emit('closeMenu')">
+                        <li
+                            v-for="menuItem in menuItems"
+                            :key="menuItem.name"
+                            class="menu__item"
+                        >
+                            <NuxtLink
+                                :to="menuItem.path"
+                                class="menu__link"
+                                @click="$emit('closeMenu')"
+                            >
                                 <UiIconMenu :name="menuItem.icon" />
                                 <span>{{ menuItem.name }}</span>
                             </NuxtLink>
@@ -56,7 +67,11 @@ onMounted(() => {
             </div>
             <div class="navigation__socials">
                 <div class="navigation__social">
-                    <a target="_blank" :href="contacts?.telegram" class="menu__link">
+                    <a
+                        target="_blank"
+                        :href="contacts?.telegram"
+                        class="menu__link"
+                    >
                         <UiIconMenu name="telegram" />
                         <span>Написать в Telegram</span>
                     </a>

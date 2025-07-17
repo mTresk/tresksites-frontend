@@ -21,7 +21,10 @@ onMounted(() => {
     <div>
         <Head>
             <Title>Контакты</Title>
-            <Meta name="description" content="Как со мной можно связаться" />
+            <Meta
+                name="description"
+                content="Как со мной можно связаться"
+            />
         </Head>
         <section class="contacts spacer-60 contacts-animate">
             <div class="contacts__wrapper">
@@ -32,15 +35,27 @@ onMounted(() => {
                     {{ contacts?.inn }}
                 </div>
                 <div class="contacts__links contacts-animate">
-                    <UiButton target="_blank" href="https://t.me/tresk" light>
+                    <UiButton
+                        target="_blank"
+                        href="https://t.me/tresk"
+                        light
+                    >
                         <UiIconTelegram />Написать в Telegram
                     </UiButton>
-                    <UiButton href="mailto:djtresk@gmail.com" light>
+                    <UiButton
+                        href="mailto:djtresk@gmail.com"
+                        light
+                    >
                         <UiIconEmail />Написать на почту
                     </UiButton>
                 </div>
                 <div class="contacts__info">
-                    <div v-for="item in contacts?.block" :key="item?.content" class="contacts__block contacts-animate" v-html="item?.content" />
+                    <div
+                        v-for="item in contacts?.block"
+                        :key="item?.content"
+                        class="contacts__block contacts-animate"
+                        v-html="item?.content"
+                    />
                 </div>
             </div>
         </section>

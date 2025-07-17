@@ -48,20 +48,41 @@ onMounted(() => {
 <template>
     <div class="search">
         <label class="search__field">
-            <input v-model="keywords" autocomplete="off" type="text" name="search" placeholder="Поиск...">
+            <input
+                v-model="keywords"
+                autocomplete="off"
+                type="text"
+                name="search"
+                placeholder="Поиск..."
+            >
         </label>
-        <div v-show="result" ref="target" class="search__result">
+        <div
+            v-show="result"
+            ref="target"
+            class="search__result"
+        >
             <ul class="search__list">
-                <li v-for="item in result" :key="item.id" class="search__item" @click="clear">
+                <li
+                    v-for="item in result"
+                    :key="item.id"
+                    class="search__item"
+                    @click="clear"
+                >
                     <NuxtLink :to="`/works/${item.slug}`">
                         {{ item.name }}
                     </NuxtLink>
                 </li>
             </ul>
-            <div v-if="isLoading" class="search__placeholder">
+            <div
+                v-if="isLoading"
+                class="search__placeholder"
+            >
                 Ищем
             </div>
-            <div v-else-if="!result?.length" class="search__placeholder">
+            <div
+                v-else-if="!result?.length"
+                class="search__placeholder"
+            >
                 Ничего не найдено
             </div>
         </div>
@@ -73,7 +94,7 @@ onMounted(() => {
     position: relative;
     flex: 0 1 rem(280);
 
-    @media (max-width: em(1199)){
+    @media (max-width: em(1199)) {
         display: none;
     }
 
@@ -126,10 +147,10 @@ onMounted(() => {
             }
         }
 
-        &:has(input:focus){
+        &:has(input:focus) {
             background-color: var(--white-color);
 
-            @media (prefers-color-scheme: dark){
+            @media (prefers-color-scheme: dark) {
                 border-color: rgb(255 255 255 / 50%);
             }
         }
@@ -173,8 +194,8 @@ onMounted(() => {
             text-underline-offset: rem(4);
             transition: color 0.3s ease-in-out;
 
-            @media (any-hover: hover){
-                &:hover{
+            @media (any-hover: hover) {
+                &:hover {
                     color: var(--accent-color);
                 }
             }

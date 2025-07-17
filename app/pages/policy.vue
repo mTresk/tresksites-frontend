@@ -33,15 +33,24 @@ onMounted(() => {
     <div>
         <Head>
             <Title>{{ policy?.title }}</Title>
-            <Meta name="description" content="Политика в отношении обработки персональных данных" />
+            <Meta
+                name="description"
+                content="Политика в отношении обработки персональных данных"
+            />
         </Head>
         <section class="policy spacer-60">
             <UiSpinner v-if="isLoading" />
-            <div v-if="!isLoading" class="policy__wrapper">
+            <div
+                v-if="!isLoading"
+                class="policy__wrapper"
+            >
                 <h1 class="policy__title spacer-20 policy-animate">
                     {{ policy?.title }}
                 </h1>
-                <div class="policy__content content policy-animate" v-html="policy?.content" />
+                <div
+                    class="policy__content content policy-animate"
+                    v-html="policy?.content"
+                />
             </div>
         </section>
     </div>

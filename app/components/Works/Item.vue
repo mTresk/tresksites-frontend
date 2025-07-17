@@ -10,8 +10,16 @@ defineProps<{
     <article class="work-card">
         <div class="work-card__image">
             <picture>
-                <source media="(max-width: 479px)" :srcset="`${work.featured.imageWebpSm} 1x, ${work.featured.imageWebpSmX2} 2x`" type="image/webp">
-                <source media="(min-width: 480px)" :srcset="`${work.featured.imageWebp} 1x, ${work.featured.imageWebpX2} 2x`" type="image/webp">
+                <source
+                    media="(max-width: 479px)"
+                    :srcset="`${work.featured.imageWebpSm} 1x, ${work.featured.imageWebpSmX2} 2x`"
+                    type="image/webp"
+                >
+                <source
+                    media="(min-width: 480px)"
+                    :srcset="`${work.featured.imageWebp} 1x, ${work.featured.imageWebpX2} 2x`"
+                    type="image/webp"
+                >
                 <img
                     loading="lazy"
                     :src="work.featured.image"
@@ -23,18 +31,36 @@ defineProps<{
             </picture>
         </div>
         <div class="work-card__content">
-            <div v-if="work.tags" class="work-card__tags">
-                <UiTag v-for="tag in work.tags" :key="tag.slug" :tag="tag" />
+            <div
+                v-if="work.tags"
+                class="work-card__tags"
+            >
+                <UiTag
+                    v-for="tag in work.tags"
+                    :key="tag.slug"
+                    :tag="tag"
+                />
             </div>
             <div class="work-card__label">
-                <a v-if="work.url" :href="work.url" target="_blank">{{ work.url }}</a>
+                <a
+                    v-if="work.url"
+                    :href="work.url"
+                    target="_blank"
+                >{{ work.url }}</a>
                 <span v-if="work.label">{{ work.label }}</span>
             </div>
             <h4 class="work-card__title spacer-20">
                 {{ work.title }}
             </h4>
-            <div class="work-card__info" v-html="work.list" />
-            <UiButton :href="`/works/${work.slug}`" class="work-card__button" icon="right">
+            <div
+                class="work-card__info"
+                v-html="work.list"
+            />
+            <UiButton
+                :href="`/works/${work.slug}`"
+                class="work-card__button"
+                icon="right"
+            >
                 Посмотреть работу<UiIconArrowRight />
             </UiButton>
         </div>
@@ -99,7 +125,6 @@ defineProps<{
         flex-wrap: wrap;
         gap: rem(4);
         margin-bottom: rem(10);
-
     }
 
     &__label {

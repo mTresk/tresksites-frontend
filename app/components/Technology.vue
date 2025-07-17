@@ -19,7 +19,12 @@ onMounted(() => {
         <div class="technology__wrapper">
             <div class="technology__body">
                 <div class="technology__avatar">
-                    <NuxtPicture loading="lazy" format="webp" src="/img/avatar.jpg" alt="Маским Треск" />
+                    <NuxtPicture
+                        loading="lazy"
+                        format="webp"
+                        src="/img/avatar.jpg"
+                        alt="Маским Треск"
+                    />
                 </div>
                 <div class="technology__info">
                     <h3 class="technology__title">
@@ -30,15 +35,26 @@ onMounted(() => {
                     </p>
                 </div>
                 <div class="technology__links">
-                    <UiButton :href="contacts?.telegram" target="_blank" wide>
+                    <UiButton
+                        :href="contacts?.telegram"
+                        target="_blank"
+                        wide
+                    >
                         <UiIconTelegram />
                         Telegram
                     </UiButton>
-                    <a :href="`mailto:${contacts?.email}`" class="technology__email">{{ contacts?.email }}</a>
+                    <a
+                        :href="`mailto:${contacts?.email}`"
+                        class="technology__email"
+                    >{{ contacts?.email }}</a>
                 </div>
             </div>
             <div class="technology__chips">
-                <UiChip v-for="chip in chips" :key="chip.title" :chip="chip" />
+                <UiChip
+                    v-for="chip in chips"
+                    :key="chip.title"
+                    :chip="chip"
+                />
             </div>
         </div>
     </section>

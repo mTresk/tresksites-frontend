@@ -41,9 +41,15 @@ await suspense()
     <div>
         <Head>
             <Title>Работы</Title>
-            <Meta name="description" content="Выполненные работы по верстке и программированию сайтов" />
+            <Meta
+                name="description"
+                content="Выполненные работы по верстке и программированию сайтов"
+            />
         </Head>
-        <Works :works="works!" :is-loading="isLoading" />
+        <Works
+            :works="works!"
+            :is-loading="isLoading"
+        />
         <div class="spacer-60">
             <UiButton
                 v-if="hasNextPage"

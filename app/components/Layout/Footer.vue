@@ -9,10 +9,19 @@ const contacts = useState<IContacts>('contacts')
 <template>
     <footer class="footer">
         <div class="footer__links">
-            <UiButton href="/order" transparent icon="right">
+            <UiButton
+                href="/order"
+                transparent
+                icon="right"
+            >
                 Заказать сайт<UiIconArrowUp />
             </UiButton>
-            <UiButton :href="contacts?.brief" download="Бриф на разработку сайта" transparent icon="right">
+            <UiButton
+                :href="contacts?.brief"
+                download="Бриф на разработку сайта"
+                transparent
+                icon="right"
+            >
                 Скачать бриф<UiIconArrowDown />
             </UiButton>
         </div>

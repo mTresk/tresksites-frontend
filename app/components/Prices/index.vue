@@ -19,7 +19,10 @@ await suspense()
 <template>
     <section class="price spacer-60 price-animate">
         <UiSpinner v-if="isLoading" />
-        <div v-if="!isLoading" class="price__wrapper">
+        <div
+            v-if="!isLoading"
+            class="price__wrapper"
+        >
             <h2 class="price__title spacer-20 price-animate">
                 {{ prices?.title }}
             </h2>
@@ -27,7 +30,11 @@ await suspense()
                 {{ prices?.description }}
             </p>
             <ul class="price__list price-animate">
-                <PricesItem v-for="pricesItem in prices?.items" :key="pricesItem.service" :prices-item="pricesItem" />
+                <PricesItem
+                    v-for="pricesItem in prices?.items"
+                    :key="pricesItem.service"
+                    :prices-item="pricesItem"
+                />
             </ul>
         </div>
     </section>

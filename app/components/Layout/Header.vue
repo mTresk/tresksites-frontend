@@ -14,16 +14,43 @@ onMounted(() => isLoading.value = false)
     <header class="header">
         <div class="header__body">
             <div class="header__left">
-                <button aria-label="Меню" type="button" class="menu-button" @click="$emit('toggleMenu')">
+                <button
+                    aria-label="Меню"
+                    type="button"
+                    class="menu-button"
+                    @click="$emit('toggleMenu')"
+                >
                     <span />
                 </button>
-                <NuxtLink to="/" class="header__logo header__logo--light">
-                    <NuxtImg width="80" height="47" src="/img/logo.svg" alt="Tresk Sites" />
+                <NuxtLink
+                    to="/"
+                    class="header__logo header__logo--light"
+                >
+                    <NuxtImg
+                        width="80"
+                        height="47"
+                        src="/img/logo.svg"
+                        alt="Tresk Sites"
+                    />
                 </NuxtLink>
-                <NuxtLink to="/" class="header__logo header__logo--dark">
-                    <NuxtImg width="80" height="47" src="/img/logo-dark.svg" alt="Tresk Sites" />
+                <NuxtLink
+                    to="/"
+                    class="header__logo header__logo--dark"
+                >
+                    <NuxtImg
+                        width="80"
+                        height="47"
+                        src="/img/logo-dark.svg"
+                        alt="Tresk Sites"
+                    />
                 </NuxtLink>
-                <UiButton v-show="!isLoading" class="header__button" href="/order" transparent icon="right">
+                <UiButton
+                    v-show="!isLoading"
+                    class="header__button"
+                    href="/order"
+                    transparent
+                    icon="right"
+                >
                     Заказать сайт <UiIconArrowUp />
                 </UiButton>
                 <LayoutSearch v-show="!isLoading" />
@@ -31,11 +58,22 @@ onMounted(() => isLoading.value = false)
             <div class="header__right">
                 <div class="header__person">
                     <div class="header__avatar">
-                        <NuxtPicture loading="lazy" format="webp" src="/img/avatar.jpg" alt="Маским Треск" />
+                        <NuxtPicture
+                            loading="lazy"
+                            format="webp"
+                            src="/img/avatar.jpg"
+                            alt="Маским Треск"
+                        />
                     </div>
-                    <a :href="`mailto:${contacts?.email}`" class="header__email">{{ contacts?.email }}</a>
+                    <a
+                        :href="`mailto:${contacts?.email}`"
+                        class="header__email"
+                    >{{ contacts?.email }}</a>
                 </div>
-                <UiButton target="_blank" :href="contacts?.telegram">
+                <UiButton
+                    target="_blank"
+                    :href="contacts?.telegram"
+                >
                     <UiIconTelegram />Telegram
                 </UiButton>
             </div>

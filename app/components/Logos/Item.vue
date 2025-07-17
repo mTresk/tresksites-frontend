@@ -8,12 +8,17 @@ defineProps<{
 
 <template>
     <div class="logo">
-        <NuxtImg width="160" height="35" :src="`/img/logos/${logosItem.path}.svg`" :alt="logosItem.name" />
+        <NuxtImg
+            width="160"
+            height="35"
+            :src="`/img/logos/${logosItem.path}.svg`"
+            :alt="logosItem.name"
+        />
     </div>
 </template>
 
 <style lang="scss" scoped>
-.logo{
+.logo {
     display: flex;
     align-items: center;
     justify-content: center;

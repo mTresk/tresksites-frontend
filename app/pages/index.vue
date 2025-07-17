@@ -27,14 +27,29 @@ await suspense()
     <div>
         <Head>
             <Title>Создание сайтов и веб-приложений любой сложности</Title>
-            <Meta name="description" content="Полный цикл создания сайтов. Поддержка и сопровождение." />
+            <Meta
+                name="description"
+                content="Полный цикл создания сайтов. Поддержка и сопровождение."
+            />
         </Head>
         <Hero />
         <Advantages />
         <Logos />
-        <Works :works="works as IWork[]" :is-loading="isLoading" />
-        <div v-if="!isLoading" class="spacer-60">
-            <UiButton href="/works" transparent wide size="lg" icon="right">
+        <Works
+            :works="works as IWork[]"
+            :is-loading="isLoading"
+        />
+        <div
+            v-if="!isLoading"
+            class="spacer-60"
+        >
+            <UiButton
+                href="/works"
+                transparent
+                wide
+                size="lg"
+                icon="right"
+            >
                 Другие работы<UiIconArrowUp />
             </UiButton>
         </div>

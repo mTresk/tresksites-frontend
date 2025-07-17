@@ -8,7 +8,10 @@ defineProps<{
 </script>
 
 <template>
-    <NuxtLink :to="`/tags/${tag.slug}`" class="tag">
+    <NuxtLink
+        :to="`/tags/${tag.slug}`"
+        class="tag"
+    >
         {{ tag.name }}
     </NuxtLink>
 </template>

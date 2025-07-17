@@ -22,7 +22,10 @@ onMounted(() => {
     <div>
         <Head>
             <Title>Заказать разработку</Title>
-            <Meta name="description" content="Форма заказа и цены на услуги" />
+            <Meta
+                name="description"
+                content="Форма заказа и цены на услуги"
+            />
         </Head>
         <section class="order spacer-60 order-animate">
             <div class="order__wrapper">
@@ -33,7 +36,10 @@ onMounted(() => {
                     Я занимаюсь версткой сайтов по дизайн-макетам, могу сам нарисовать дизайн, могу сделать вам полноценный сайт
                     «под ключ». Еще я делаю программные интерфейсы для медиа-киосков и веб приложения. Давайте обсудим? Для
                     наилучшего понимания вашей задачи, пожалуйста,
-                    <a :href="contacts?.brief" download="Бриф на разработку сайта">скачайте</a> и заполните бриф.
+                    <a
+                        :href="contacts?.brief"
+                        download="Бриф на разработку сайта"
+                    >скачайте</a> и заполните бриф.
                 </p>
                 <Form class="order-animate" />
             </div>

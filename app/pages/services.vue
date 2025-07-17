@@ -17,7 +17,10 @@ onMounted(() => {
     <div>
         <Head>
             <Title>Услуги</Title>
-            <Meta name="description" content="Дизайн, верстка и программирование сайтов и веб-приложений" />
+            <Meta
+                name="description"
+                content="Дизайн, верстка и программирование сайтов и веб-приложений"
+            />
         </Head>
         <Services />
         <Prices class="price-animate" />

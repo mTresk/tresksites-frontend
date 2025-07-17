@@ -59,7 +59,10 @@ function clearErrors() {
         :aria-busy="isLoading"
         @submit.prevent="formSubmit"
     >
-        <UiSpinner v-if="isLoading" light />
+        <UiSpinner
+            v-if="isLoading"
+            light
+        />
         <div class="form__wrapper">
             <h2 class="form__title spacer-20">
                 Свяжитесь со мной

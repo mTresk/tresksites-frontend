@@ -8,7 +8,12 @@ defineProps<{
 
 <template>
     <div class="chip">
-        <NuxtImg width="21" height="21" :src="`/img/chips/${chip.icon}.svg`" :alt="chip.title" />
+        <NuxtImg
+            width="21"
+            height="21"
+            :src="`/img/chips/${chip.icon}.svg`"
+            :alt="chip.title"
+        />
         <span>{{ chip.title }}</span>
     </div>
 </template>

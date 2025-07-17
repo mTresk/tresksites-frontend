@@ -27,8 +27,15 @@ onMounted(() => {
 <template>
     <section class="services spacer-60">
         <UiSpinner v-if="isLoading" />
-        <div v-if="!isLoading" class="services__body">
-            <ServicesItem v-for="servicesItem in services" :key="servicesItem.id" :services-item="servicesItem" />
+        <div
+            v-if="!isLoading"
+            class="services__body"
+        >
+            <ServicesItem
+                v-for="servicesItem in services"
+                :key="servicesItem.id"
+                :services-item="servicesItem"
+            />
         </div>
     </section>
 </template>

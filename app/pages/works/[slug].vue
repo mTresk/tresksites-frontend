@@ -39,29 +39,68 @@ onMounted(() => {
     <div>
         <Head>
             <Title>{{ work?.data.seo.title ?? work?.data.title }}</Title>
-            <Meta name="description" :content="work?.data.seo.description ?? seoDescription" />
-            <Meta property="og:description" :content="work?.data.seo.description ?? seoDescription" />
-            <Meta name="twitter:description" :content="work?.data.seo.description ?? seoDescription" />
+            <Meta
+                name="description"
+                :content="work?.data.seo.description ?? seoDescription"
+            />
+            <Meta
+                property="og:description"
+                :content="work?.data.seo.description ?? seoDescription"
+            />
+            <Meta
+                name="twitter:description"
+                :content="work?.data.seo.description ?? seoDescription"
+            />
         </Head>
         <section class="work spacer-60">
             <div class="work__wrapper">
-                <LayoutBreadcrumb class="work-animate" path="/works" path-name="Работы" :current="work?.data.title " />
-                <div v-if="work?.data.tags" class="work__tags work-animate">
-                    <UiTag v-for="tag in work?.data.tags" :key="tag.slug" :tag="tag" />
+                <LayoutBreadcrumb
+                    class="work-animate"
+                    path="/works"
+                    path-name="Работы"
+                    :current="work?.data.title "
+                />
+                <div
+                    v-if="work?.data.tags"
+                    class="work__tags work-animate"
+                >
+                    <UiTag
+                        v-for="tag in work?.data.tags"
+                        :key="tag.slug"
+                        :tag="tag"
+                    />
                 </div>
                 <div class="work__label work-animate">
-                    <a v-if="work?.data.url" :href="work?.data.url" target="_blank">{{ work?.data.url }}</a>
+                    <a
+                        v-if="work?.data.url"
+                        :href="work?.data.url"
+                        target="_blank"
+                    >{{ work?.data.url }}</a>
                     <span v-if="work?.data.label">{{ work?.data.label }}</span>
                 </div>
                 <h1 class="work__title work-animate">
                     {{ work?.data.title }}
                 </h1>
-                <div class="work__list work-animate" v-html="work?.data.list" />
-                <article v-for="(content, key) in work?.data.content" :key="key" class="work__block work-animate">
+                <div
+                    class="work__list work-animate"
+                    v-html="work?.data.list"
+                />
+                <article
+                    v-for="(content, key) in work?.data.content"
+                    :key="key"
+                    class="work__block work-animate"
+                >
                     <div v-html="content.data.html" />
-                    <div v-if="content.data.images" class="work__image">
+                    <div
+                        v-if="content.data.images"
+                        class="work__image"
+                    >
                         <picture>
-                            <source media="(max-width: 479px)" :srcset="`${content.data.images.imageWebpSm} 1x, ${content.data.images.imageWebpSmX2} 2x`" type="image/webp">
+                            <source
+                                media="(max-width: 479px)"
+                                :srcset="`${content.data.images.imageWebpSm} 1x, ${content.data.images.imageWebpSmX2} 2x`"
+                                type="image/webp"
+                            >
                             <source
                                 media="(min-width: 480px)"
                                 :srcset="`${content.data.images.imageWebp} 1x, ${content.data.images.imageWebpX2} 2x`"
@@ -78,15 +117,26 @@ onMounted(() => {
                 </article>
             </div>
         </section>
-        <section v-if="work?.otherWorks && !isLoading" class="more-works">
+        <section
+            v-if="work?.otherWorks && !isLoading"
+            class="more-works"
+        >
             <h4 class="more-works__title spacer-20">
                 Еще работы
             </h4>
-            <Works :works="work?.otherWorks" :is-loading="isLoading" />
+            <Works
+                :works="work?.otherWorks"
+                :is-loading="isLoading"
+            />
         </section>
         <div class="spacer-60">
             <NuxtLink to="/works">
-                <UiButton transparent wide size="lg" icon="right">
+                <UiButton
+                    transparent
+                    wide
+                    size="lg"
+                    icon="right"
+                >
                     Другие работы<UiIconArrowUp />
                 </UiButton>
             </NuxtLink>

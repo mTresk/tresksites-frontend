@@ -13,7 +13,10 @@ const handleError = () => clearError({ redirect: '/' })
         <div class="error">
             <div class="error__container">
                 <div class="error__body">
-                    <h1 :data-error="error.statusCode" class="error__title">
+                    <h1
+                        :data-error="error.statusCode"
+                        class="error__title"
+                    >
                         {{ error.statusCode }}
                     </h1>
                     <div class="error__status">

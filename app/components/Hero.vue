@@ -21,11 +21,21 @@ onMounted(() => {
                     сайтов «под ключ». Полный цикл создания сайтов. Поддержка и сопровождение.
                 </p>
                 <div class="hero__chips hero-animate">
-                    <UiChip v-for="chip in chips" :key="chip.title" :chip="chip" />
+                    <UiChip
+                        v-for="chip in chips"
+                        :key="chip.title"
+                        :chip="chip"
+                    />
                 </div>
             </div>
             <div class="hero__image">
-                <NuxtPicture width="1520" height="530" format="webp" src="/img/hero.png" alt="Фоновое изображение" />
+                <NuxtPicture
+                    width="1520"
+                    height="530"
+                    format="webp"
+                    src="/img/hero.png"
+                    alt="Фоновое изображение"
+                />
             </div>
         </div>
     </section>

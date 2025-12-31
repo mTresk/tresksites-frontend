@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     provider: 'ipx',
     ipx: {
       maxAge: 315360000,
+      svgo: false,
     },
   },
   modules: [
